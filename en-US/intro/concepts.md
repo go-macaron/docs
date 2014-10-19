@@ -70,9 +70,9 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 The following services are included with [macaron.Classic](https://gowalker.org/github.com/Unknwon/macaron#Classic):
 
 - [*macaron.Context](../middlewares/core#context) - HTTP request context.
-- [*log.Logger](http://gowalker.org/log#Logger) - Global logger for Macaron.
-- [http.ResponseWriter](http://gowalker.org/net/http/#ResponseWriter) - HTTP Response writer interface.
-- [*http.Request](http://gowalker.org/net/http/#Request) - HTTP Request.
+- [*log.Logger](../middlewares/core#global-logger) - Global logger for Macaron.
+- [http.ResponseWriter](../middlewares/core#response-stream) - HTTP Response writer interface.
+- [*http.Request](../middlewares/core#request-object) - HTTP Request.
 
 ## Macaron Env
 

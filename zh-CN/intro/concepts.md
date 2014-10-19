@@ -8,7 +8,7 @@ sort: 1
 
 ## 经典 Macaron
 
-为了更快速的启用 Macaron, [macaron.Classic()](https://gowalker.org/github.com/Unknwon/macaron#Classic) 提供了一些默认的组件以方便 Web 开发:
+为了更快速的启用 Macaron，[`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 提供了一些默认的组件以方便 Web 开发:
 
 ```go
   m := macaron.Classic()
@@ -16,11 +16,11 @@ sort: 1
   m.Run()
 ```
 
-下面是经典 Macaron 已经包含的功能 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic)：
+下面是 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 已经包含的功能：
 
-- 请求/响应日志 - [`macaron.Logger`](../middlewares/core#routing-logger)
-- 容错恢复 - [`macaron.Recovery`](../middlewares/core#panic-recovery)
-- 静态文件服务 - [`macaron.Static`](../middlewares/core#static-files)
+- 请求/响应日志 - [`macaron.Logger`](../middlewares/core#%E8%B7%AF%E7%94%B1%E6%97%A5%E5%BF%97)
+- 容错恢复 - [`macaron.Recovery`](../middlewares/core#%E5%AE%B9%E9%94%99%E6%81%A2%E5%A4%8D)
+- 静态文件服务 - [`macaron.Static`](../middlewares/core#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6)
 
 ## Macaron 实例
 
@@ -69,10 +69,10 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 
 下面的这些服务已经被包含在经典 Macaron 中（[macaron.Classic](https://gowalker.org/github.com/Unknwon/macaron#Classic)）：
 
-- [*macaron.Context](../middlewares/core#context) - HTTP 请求上下文
-- [*log.Logger](http://gowalker.org/log#Logger) - Macaron 全局日志器
-- [http.ResponseWriter](http://gowalker.org/net/http/#ResponseWriter) - HTTP 响应流接口
-- [*http.Request](http://gowalker.org/net/http/#Request) - HTTP 请求对象
+- [*macaron.Context](../middlewares/core#%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88context%EF%BC%89) - HTTP 请求上下文
+- [*log.Logger](../middlewares/core#%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97) - Macaron 全局日志器
+- [http.ResponseWriter](../middlewares/cor#%E5%93%8D%E5%BA%94%E6%B5%81e) - HTTP 响应流
+- [*http.Request](../middlewares/core#%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1) - HTTP 请求对象
 
 ## Macaron 环境变量
 
