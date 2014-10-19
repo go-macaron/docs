@@ -74,6 +74,37 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 - [http.ResponseWriter](../middlewares/cor#%E5%93%8D%E5%BA%94%E6%B5%81e) - HTTP 响应流
 - [*http.Request](../middlewares/core#%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1) - HTTP 请求对象
 
+### 中间件机制
+
+中间件处理器是工作于请求和路由之间的。本质上来说和 Macaron 其他的处理器没有分别. 您可以使用如下方法来添加一个中间件处理器到队列中:
+
+```go
+m.Use(func() {
+  // 处理中间件事物
+})
+```
+
+你可以通过 `Handlers` 函数对中间件队列实现完全的控制. 它将会替换掉之前的任何设置过的处理器:
+
+```go
+m.Handlers(
+	Middleware1,
+	Middleware2,
+	Middleware3,
+)
+```
+
+中间件处理器可以非常好处理一些功能，包括日志记录、授权认证、会话（sessions）处理、错误反馈等其他任何需要在发生在 HTTP 请求之前或者之后的操作:
+
+```go
+// 验证一个 API 密钥
+m.Use(func(ctx *macaron.Context) {
+	if ctx.Req.Header.Get("X-API-KEY") != "secret123" {
+		ctx.Resp.WriteHeader(http.StatusUnauthorized)
+	}
+})
+```
+
 ## Macaron 环境变量
 
 一些 Macaron 处理器依赖 `macaron.Env` 全局变量为开发模式和部署模式表现出不同的行为，不过更建议使用环境变量 `MACARON_ENV=production` 来指示当前的模式为部署模式。

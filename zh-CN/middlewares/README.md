@@ -1,14 +1,14 @@
 ---
 root: true
-name: 中间件机制
+name: 中间件模块
 sort: 0
 ---
 
-# 中间件机制 
+# 中间件模块
 
-中间件机制允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
+中间件模块允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
 
-现在已经有许多 [中间件](https://github.com/macaron-contrib) 来简化您的工作：
+现在已经有许多 [中间件模块](https://github.com/macaron-contrib) 来简化您的工作：
 
 - [binding](https://github.com/macaron-contrib/binding) - 请求数据绑定和校验
 - [i18n](https://github.com/macaron-contrib/i18n) - 应用的国际化与本地化
@@ -19,7 +19,7 @@ sort: 0
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 模板引擎支持
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [switcher](https://github.com/macaron-contrib/switcher) - 多站点支持
-- [renders](https://github.com/macaron-contrib/renders) - 累 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）
+- [renders](https://github.com/macaron-contrib/renders) - 类 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）
 
 ### 注册中间件的最佳顺序
 

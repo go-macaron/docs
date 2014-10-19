@@ -74,6 +74,37 @@ The following services are included with [macaron.Classic](https://gowalker.org/
 - [http.ResponseWriter](../middlewares/core#response-stream) - HTTP Response writer interface.
 - [*http.Request](../middlewares/core#request-object) - HTTP Request.
 
+### Middleware Handlers
+
+Middleware Handlers sit between the incoming HTTP request and the router. In essence they are no different than any other Handler in Macaron. You can add a middleware handler to the stack like so:
+
+```go
+m.Use(func() {
+  // do some middleware stuff
+})
+```
+
+You can have full control over the middleware stack with the `Handlers` function. This will replace any handlers that have been previously set:
+
+```go
+m.Handlers(
+	Middleware1,
+	Middleware2,
+	Middleware3,
+)
+```
+
+Middleware Handlers work really well for things like logging, authorization, authentication, sessions, gzipping, error pages and any other operations that must happen before or after an HTTP request:
+
+```go
+// validate an api key
+m.Use(func(ctx *macaron.Context) {
+	if ctx.Req.Header.Get("X-API-KEY") != "secret123" {
+		ctx.Resp.WriteHeader(http.StatusUnauthorized)
+	}
+})
+```
+
 ## Macaron Env
 
 Some Macaron handlers make use of the `macaron.Env` global variable to provide special functionality for development environments vs production environments. It is recommended that the `MACARON_ENV=production` environment variable to be set when deploying a Macaron server into a production environment.
