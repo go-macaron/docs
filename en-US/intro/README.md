@@ -6,7 +6,7 @@ sort: 0
 
 # Macaron 
 
-Package macaron is a high productive and modular design web framework in Go.
+Package macaron is a high productive and modular design web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
 
 [API Reference](https://gowalker.org/github.com/Unknwon/macaron)
 
@@ -28,7 +28,7 @@ Package macaron is a high productive and modular design web framework in Go.
 
 ## Quick Start
 
-- New to Macaron? Let’s [get started](getting_started)!
+- New to Macaron? Let’s [get started](./getting_started)!
 - [Middlewares](../middlewares) that are built for Macaron.
 - Have any questions? Maybe there are [answers](../faqs) for you!
 - If you think anything is not clear in the documentation, just [file an issue](https://github.com/macaron-contrib/docs/issues)!

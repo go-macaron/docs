@@ -187,7 +187,7 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 }
 ```
 
-**Note** this service is injected automatically for every Macaron instance.
+**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).
 
 ### Response Stream
 
@@ -213,7 +213,7 @@ func myHandler(ctx *macaron.Context) {
 }
 ```
 
-**Note** this service is injected automatically for every Macaron instance.
+**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).
 
 ### Request Object
 
@@ -254,4 +254,4 @@ func main() {
 
 Notice that request body can only be read once.
 
-**Note** this service is injected automatically for every Macaron instance.
+**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).

@@ -187,7 +187,7 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 }
 ```
 
-**备注** 所有 Macaron 实例都会自动注册该服务。
+**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。
 
 ### 响应流
 
@@ -213,7 +213,7 @@ func myHandler(ctx *macaron.Context) {
 }
 ```
 
-**备注** 所有 Macaron 实例都会自动注册该服务。
+**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。
 
 ### 请求对象
 
@@ -254,4 +254,4 @@ func main() {
 
 需要注意的是，请求体在每个请求中只能被读取一次。
 
-**备注** 所有 Macaron 实例都会自动注册该服务。
+**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。

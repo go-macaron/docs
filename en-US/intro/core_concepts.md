@@ -18,9 +18,9 @@ To get up and running quickly, [`macaron.Classic`](https://gowalker.org/github.c
 
 Below is some of the functionality [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) pulls in automatically:
 
-- Request/response logging - [`macaron.Logger`](../middlewares/core#routing-logger)
-- Panic recovery - [`macaron.Recovery`](../middlewares/core#panic-recovery)
-- Static file serving - [`macaron.Static`](../middlewares/core#static-files)
+- Request/response logging - [`macaron.Logger`](../middlewares/core_services#routing-logger)
+- Panic recovery - [`macaron.Recovery`](../middlewares/core_services#panic-recovery)
+- Static file serving - [`macaron.Static`](../middlewares/core_services#static-files)
 
 ## Instances
 
@@ -38,7 +38,7 @@ m.Get("/", func() {
 
 ### Return Values
 
-If a handler returns something, Macaron will write the result to the current [http.ResponseWriter](http://gowalker.org/net/http#ResponseWriter) as a string:
+If a handler returns something, Macaron will write the result to the current [`http.ResponseWriter`](http://gowalker.org/net/http#ResponseWriter) as a string:
 
 ```go
 m.Get("/", func() string {
@@ -67,12 +67,12 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
-The following services are included with [macaron.Classic](https://gowalker.org/github.com/Unknwon/macaron#Classic):
+The following services are included with [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic):
 
-- [*macaron.Context](../middlewares/core#context) - HTTP request context.
-- [*log.Logger](../middlewares/core#global-logger) - Global logger for Macaron.
-- [http.ResponseWriter](../middlewares/core#response-stream) - HTTP Response writer interface.
-- [*http.Request](../middlewares/core#request-object) - HTTP Request.
+- [`*macaron.Context`](../middlewares/core_services#context) - HTTP request context.
+- [`*log.Logger`](../middlewares/core_services#global-logger) - Global logger for Macaron.
+- [`http.ResponseWriter`](../middlewares/core_services#response-stream) - HTTP Response writer interface.
+- [`*http.Request`](../middlewares/core_services#request-object) - HTTP Request.
 
 ### Middleware Handlers
 

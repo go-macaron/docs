@@ -6,7 +6,7 @@ sort: 0
 
 # Macaron 
 
-Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。
+Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。框架秉承了 [Martini](https://github.com/go-martini/martini) 的基本思想，并在此基础上做出高级扩展。
 
 [API 指南](https://gowalker.org/github.com/Unknwon/macaron)
 
@@ -28,7 +28,7 @@ Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。
 
 ## 快速导航
 
-- 刚开始了解 Macaron 的话，不妨从 [开始使用](getting_started) 看起。
+- 刚开始了解 Macaron 的话，不妨从 [开始使用](./getting_started) 看起。
 - Macaron 已经拥有许多 [中间件](../middlewares) 来简化您的工作。
 - 如果您有任何问题，建议先从 [常见问题](../faqs) 中寻找答案。
 - 如果您觉得文档有描述得不够清楚之处，请通过 [提交工单](https://github.com/macaron-contrib/docs/issues) 告知我们。
