@@ -142,18 +142,18 @@ import "github.com/Unknwon/macaron"
 
 func main() {
 	m := macaron.New()
-	m.Use(macaron.Static("public"), 
+	m.Use(macaron.Static("public", 
 		macaron.StaticOptions{
-			// Prefix is the optional prefix used to serve the static directory content.
+			// Prefix is the optional prefix used to serve the static directory content. Default is empty string.
 			Prefix: "public", 	
-			// SkipLogging will disable [Static] log messages when a static file is served.
+			// SkipLogging will disable [Static] log messages when a static file is served. Default is false.
 			SkipLogging: true, 	
-			// IndexFile defines which file to serve as index if it exists.
+			// IndexFile defines which file to serve as index if it exists. Default is "index.html".
 			IndexFile: "index.html",	
-			// Expires defines which user-defined function to use for producing a HTTP Expires Header
+			// Expires defines which user-defined function to use for producing a HTTP Expires Header. Default is nil.
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
 			Expires: func() string { return "max-age=0" },
-		})
+		}))
 	// ...
 }
 ```

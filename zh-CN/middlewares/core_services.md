@@ -142,18 +142,18 @@ import "github.com/Unknwon/macaron"
 
 func main() {
 	m := macaron.New()
-	m.Use(macaron.Static("public"), 
+	m.Use(macaron.Static("public", 
 		macaron.StaticOptions{
-			// 请求静态资源时的 URL 前缀
+			// 请求静态资源时的 URL 前缀，默认没有前缀
 			Prefix: "public", 	
-			// 禁止记录静态资源路由日志
+			// 禁止记录静态资源路由日志，默认为不禁止记录
 			SkipLogging: true, 	
-			// 当请求目录时的默认索引文件
+			// 当请求目录时的默认索引文件，默认为 "index.html"
 			IndexFile: "index.html",	
-			// 用于返回自定义过期响应头
+			// 用于返回自定义过期响应头，不能为不设置
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
 			Expires: func() string { return "max-age=0" },
-		})
+		}))
 	// ...
 }
 ```
