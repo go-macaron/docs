@@ -24,6 +24,40 @@ func Home(ctx *macaron.Context) {
 }
 ```
 
+### Next()
+
+[Context.Next()](https://gowalker.org/github.com/Unknwon/macaron#Context_Next) 是一个可选的函数用于中间件处理器暂时放弃执行直到其他的处理器都执行完毕. 这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
+
+```go
+// log before and after a request
+m.Use(func(ctx *macaron.Context, log *log.Logger){
+	log.Println("before a request")
+
+	ctx.Next()
+
+	log.Println("after a request")
+})
+```
+
+### Cookie
+
+最基本的 Cookie 用法：
+
+- [ctx.SetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
+- [ctx.GetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
+
+如果需要更加安全的 Cookie 机制，可以先使用 [macaron.SetDefaultCookieSecret](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
+
+- [ctx.SetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
+- [ctx.GetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
+
+这两个方法将会自动使用您设置的默认密钥进行加密/解密 Cookie 值。
+
+对于那些对安全性要求特别高的应用，可以为每次设置 Cookie 使用不同的密钥加密/解密：
+
+- [ctx.SetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
+- [ctx.GetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+
 ## 路由日志
 
 该服务可以通过函数  [`macaron.Logger`](https://gowalker.org/github.com/Unknwon/macaron#Logger) 来注入。该服务主要负责应用的路由日志。
