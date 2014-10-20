@@ -180,7 +180,7 @@ func main() {
 }
 ```
 
-### Qucik summary on rendering HTML
+### Quick summary on rendering HTML
 
 As you can see, the only difference between two templating engines to render HTML is the syntax of template files, in the code level, they are exactly the same.
 
