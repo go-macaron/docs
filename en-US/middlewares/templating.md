@@ -84,7 +84,7 @@ func main() {
 			"AppVer": func() string {
 				return "1.0.0"
 			},
-		},
+		}},
 		// Delims sets the action delimiters to the specified strings. Defaults are ["{{", "}}"].
 		Delims: macaron.Delims{"{{", "}}"},
 		// Appends the given charset to the Content-Type header. Default is "UTF-8".

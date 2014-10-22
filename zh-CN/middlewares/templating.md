@@ -84,7 +84,7 @@ func main() {
 			"AppVer": func() string {
 				return "1.0.0"
 			},
-		},
+		}},
 		// 模板语法分隔符，默认为 ["{{", "}}"]
 		Delims: macaron.Delims{"{{", "}}"},
 		// 追加的 Content-Type 头信息，默认为 "UTF-8"

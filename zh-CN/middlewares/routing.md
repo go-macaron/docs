@@ -75,7 +75,7 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 })
 ```
 
-您还可以使用使用正则表达式来书写路由规则：
+您还可以使用正则表达式来书写路由规则：
 
 ```go
 m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
