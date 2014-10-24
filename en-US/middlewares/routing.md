@@ -104,17 +104,17 @@ m.Get("/secret", authorize, func() {
 Route groups can be added too using the Group method:
 
 ```go
-m.Group("/books", func(r *macaron.Router) {
-    r.Get("/:id", GetBooks)
-    r.Post("/new", NewBook)
-    r.Put("/update/:id", UpdateBook)
-    r.Delete("/delete/:id", DeleteBook)
+m.Group("/books", func() {
+    m.Get("/:id", GetBooks)
+    m.Post("/new", NewBook)
+    m.Put("/update/:id", UpdateBook)
+    m.Delete("/delete/:id", DeleteBook)
     
-    m.Group("/chapters", func(r *macaron.Router) {
-	    r.Get("/:id", GetBooks)
-	    r.Post("/new", NewBook)
-	    r.Put("/update/:id", UpdateBook)
-	    r.Delete("/delete/:id", DeleteBook)
+    m.Group("/chapters", func() {
+	    m.Get("/:id", GetBooks)
+	    m.Post("/new", NewBook)
+	    m.Put("/update/:id", UpdateBook)
+	    m.Delete("/delete/:id", DeleteBook)
 	})
 })
 ```
@@ -122,10 +122,10 @@ m.Group("/books", func(r *macaron.Router) {
 Just like you can pass middlewares to a handler you can pass middlewares to groups:
 
 ```go
-m.Group("/books", func(r martini.Router) {
-    r.Get("/:id", GetBooks)
-    r.Post("/new", NewBook)
-    r.Put("/update/:id", UpdateBook)
-    r.Delete("/delete/:id", DeleteBook)
+m.Group("/books", func() {
+    m.Get("/:id", GetBooks)
+    m.Post("/new", NewBook)
+    m.Put("/update/:id", UpdateBook)
+    m.Delete("/delete/:id", DeleteBook)
 }, MyMiddleware1, MyMiddleware2)
 ```

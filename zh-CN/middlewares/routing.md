@@ -102,17 +102,17 @@ m.Get("/secret", authorize, func() {
 路由还可以通过路由组来进行注册：
 
 ```go
-m.Group("/books", func(r *macaron.Router) {
-    r.Get("/:id", GetBooks)
-    r.Post("/new", NewBook)
-    r.Put("/update/:id", UpdateBook)
-    r.Delete("/delete/:id", DeleteBook)
+m.Group("/books", func() {
+    m.Get("/:id", GetBooks)
+    m.Post("/new", NewBook)
+    m.Put("/update/:id", UpdateBook)
+    m.Delete("/delete/:id", DeleteBook)
     
-    m.Group("/chapters", func(r *macaron.Router) {
-	    r.Get("/:id", GetBooks)
-	    r.Post("/new", NewBook)
-	    r.Put("/update/:id", UpdateBook)
-	    r.Delete("/delete/:id", DeleteBook)
+    m.Group("/chapters", func() {
+	    m.Get("/:id", GetBooks)
+	    m.Post("/new", NewBook)
+	    m.Put("/update/:id", UpdateBook)
+	    m.Delete("/delete/:id", DeleteBook)
 	})
 })
 ```
@@ -120,10 +120,10 @@ m.Group("/books", func(r *macaron.Router) {
 同样的，您可以为某一组路由设置集体的中间件：
 
 ```go
-m.Group("/books", func(r martini.Router) {
-    r.Get("/:id", GetBooks)
-    r.Post("/new", NewBook)
-    r.Put("/update/:id", UpdateBook)
-    r.Delete("/delete/:id", DeleteBook)
+m.Group("/books", func() {
+    m.Get("/:id", GetBooks)
+    m.Post("/new", NewBook)
+    m.Put("/update/:id", UpdateBook)
+    m.Delete("/delete/:id", DeleteBook)
 }, MyMiddleware1, MyMiddleware2)
 ```
