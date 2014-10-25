@@ -26,7 +26,7 @@ func Home(ctx *macaron.Context) {
 
 ### Next()
 
-[Context.Next()](https://gowalker.org/github.com/Unknwon/macaron#Context_Next) is an optional function that Middleware Handlers can call to yield the until after the other Handlers have been executed. This works really well for any operations that must happen after an http request:
+Method [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next) is an optional feature that Middleware Handlers can call to yield the until after the other Handlers have been executed. This works really well for any operations that must happen after an HTTP request:
 
 ```go
 // log before and after a request
@@ -43,20 +43,65 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 
 The very basic usage of cookie is just:
 
-- [ctx.SetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [ctx.GetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
+- [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
 
-And there are more secure cookie support. First, you need to call [macaron.SetDefaultCookieSecret](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret), then use it by calling:
+To use them:
 
-- [ctx.SetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
-- [ctx.GetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
+```go
+// ...
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetCookie("user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	return ctx.GetCookie("user")
+})
+// ...
+```
+
+And there are more secure cookie support. First, you need to call [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret), then use it by calling:
+
+- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
+- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
 
 These two methods uses default secret string you set globally to encode and decode values.
 
+To use them:
+
+```go
+// ...
+m.SetDefaultCookieSecret("macaron")
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetSecureCookie("user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	name, _ := ctx.GetSecureCookie("user")
+	return name
+})
+// ...
+```
+
 For people who wants even more secure cookies that change secret string every time, just use:
 
-- [ctx.SetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
-- [ctx.GetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
+- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+
+To use them:
+
+```go
+// ...
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetSuperSecureCookie("macaron", "user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	name, _ := ctx.GetSuperSecureCookie("macaron", "user")
+	return name
+})
+// ...
+```
 
 ## Routing Logger
 

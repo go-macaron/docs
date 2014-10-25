@@ -26,7 +26,7 @@ func Home(ctx *macaron.Context) {
 
 ### Next()
 
-[Context.Next()](https://gowalker.org/github.com/Unknwon/macaron#Context_Next) 是一个可选的函数用于中间件处理器暂时放弃执行直到其他的处理器都执行完毕. 这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
+方法 [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next)  是一个可选的躬功能，它可以用于中间件处理器暂时放弃执行，等待其他的处理器都执行完毕后继续执行。这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
 
 ```go
 // log before and after a request
@@ -43,20 +43,65 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 
 最基本的 Cookie 用法：
 
-- [ctx.SetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [ctx.GetCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
+- [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
 
-如果需要更加安全的 Cookie 机制，可以先使用 [macaron.SetDefaultCookieSecret](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
+使用方法：
 
-- [ctx.SetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
-- [ctx.GetSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
+```go
+// ...
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetCookie("user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	return ctx.GetCookie("user")
+})
+// ...
+```
+
+如果需要更加安全的 Cookie 机制，可以先使用 [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
+
+- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
+- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
 
 这两个方法将会自动使用您设置的默认密钥进行加密/解密 Cookie 值。
 
+使用方法：
+
+```go
+// ...
+m.SetDefaultCookieSecret("macaron")
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetSecureCookie("user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	name, _ := ctx.GetSecureCookie("user")
+	return name
+})
+// ...
+```
+
 对于那些对安全性要求特别高的应用，可以为每次设置 Cookie 使用不同的密钥加密/解密：
 
-- [ctx.SetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
-- [ctx.GetSuperSecureCookie](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
+- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+
+使用方法：
+
+```go
+// ...
+m.Get("/set", func(ctx *macaron.Context) {
+	ctx.SetSuperSecureCookie("macaron", "user", "Unknwon", 1)
+})
+
+m.Get("/get", func(ctx *macaron.Context) string {
+	name, _ := ctx.GetSuperSecureCookie("macaron", "user")
+	return name
+})
+// ...
+```
 
 ## 路由日志
 
