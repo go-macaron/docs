@@ -106,7 +106,7 @@ func main() {
 
 ### Pongo2 模板引擎
 
-该服务可以通过函数 [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render)来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Pongo2 模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://github.com/flosch/pongo2)。
+该服务可以通过函数 [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render)来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Pongo2 **v3** 模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://github.com/flosch/pongo2)。
 
 #### 使用示例
 

@@ -51,15 +51,19 @@ m.Combo("/").
 	Head(func() string { return "HEAD" })
 
 m.NotFound(func() {
-	// handle 404
+	// 自定义 404 处理逻辑
 })
 ```
 
-路由匹配的顺序是按照他们被定义的顺序执行的. 最先被定义的路由将会首先被用户请求匹配并调用。
+几点说明：
+
+- 路由匹配的顺序是按照他们被定义的顺序执行的，
+- ...但是，匹配范围较小的路由优先级比匹配范围大的优先级高（例如：固定 URL > 正则 URL）。
+- 最先被定义的路由将会首先被用户请求匹配并调用。
 
 如果您想要使用子路径但让路由代码保持简洁，可以调用 `m.SetURLPrefix(suburl)`。
 
-路由模型可能包含参数列表, 可以通过  [*Context.Params](https://gowalker.org/github.com/Unknwon/macaron#Context_Params) 来获取:
+路由模型可能包含参数列表, 可以通过  [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params) 来获取:
 
 ```go
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
@@ -77,19 +81,37 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 
 您还可以使用正则表达式来书写路由规则：
 
-```go
-m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("Hello %s", ctx.Params(":username"))
-})
+- 常规匹配：
 
-m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("Hello %s", ctx.Params(":username"))
-})
+	```go
+	m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("Hello %s", ctx.Params(":username"))
+	})
+	
+	m.Get("/user/:id([0-9]+)", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("User ID: %s", ctx.Params(":id"))
+	})
+	
+	m.Get("/user/*.*", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("Last part is: %s", ctx.Params(":path"), ctx.Params(":ext"))
+	})
+	```
 
-m.Get("/cms_:id([0-9]+).html", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("The ID is %s", ctx.Params(":id"))
-})
-```
+- 混合匹配：
+
+	```go
+	m.Get("/cms_:id([0-9]+).html", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("The ID is %s", ctx.Params(":id"))
+	})
+	```
+
+- 可选匹配：
+	- `/user/?:id` 可同时匹配 `/user/` 和 `/user/123`。
+- 简写：
+	- `/user/:id:int`：`:int` 是 `([0-9]+)` 正则的简写。
+	- `/user/:name:string`：`:string` 是 `([\w]+)` 正则的简写。
+
+## 高级路由定义
 
 路由处理器可以被相互叠加使用, 例如很有用的地方可以是在验证和授权的时候:
 

@@ -106,7 +106,7 @@ func main() {
 
 ### Pongo2 Templating Engine
 
-This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://github.com/flosch/pongo2).
+This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 **v3** templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://github.com/flosch/pongo2).
 
 #### Example
 

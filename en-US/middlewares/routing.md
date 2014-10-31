@@ -52,16 +52,19 @@ m.Combo("/").
 	Head(func() string { return "HEAD" })
 
 m.NotFound(func() {
-	// handle 404
+	// Custom handle for 404
 })
 ```
 
-Routes are matched in the order they are defined. The first route that
-matches the request is invoked.
+Notes:
 
-if you want to use suburl without having a huge group indent, use `m.SetURLPrefix(suburl)`.
+- Routes are matched in the order they are defined,
+- ...but, narrow range routes have higher priority than wider range routes(e.g.: fixed URLs > regex URLs)
+- The first route that matches the request is invoked.
 
-Route patterns may include named parameters, accessible via the [*Context.Params](https://gowalker.org/github.com/Unknwon/macaron#Context_Params):
+If you want to use suburl without having a huge group indent, use `m.SetURLPrefix(suburl)`.
+
+Route patterns may include named parameters, accessible via the method [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params):
 
 ```go
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
@@ -79,19 +82,37 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 
 Regular expressions can be used as well:
 
-```go
-m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("Hello %s", ctx.Params(":username"))
-})
+- Regular match:
 
-m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("Hello %s", ctx.Params(":username"))
-})
+	```go
+	m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("Hello %s", ctx.Params(":username"))
+	})
+	
+	m.Get("/user/:id([0-9]+)", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("User ID: %s", ctx.Params(":id"))
+	})
+	
+	m.Get("/user/*.*", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("Last part is: %s", ctx.Params(":path"), ctx.Params(":ext"))
+	})
+	```
 
-m.Get("/cms_:id([0-9]+).html", func(ctx *macaron.Context) string {
-	return fmt.Sprintf ("The ID is %s", ctx.Params(":id"))
-})
-```
+- Mixed match:
+
+	```go
+	m.Get("/cms_:id([0-9]+).html", func(ctx *macaron.Context) string {
+		return fmt.Sprintf("The ID is %s", ctx.Params(":id"))
+	})
+	```
+
+- Optional match:
+	- `/user/?:id`, matches both `/user/` and `/user/123`.
+- Shortcuts:
+	- `/user/:id:int`, `:int` is shortcut for `([0-9]+)`.
+	- `/user/:name:string`, `:string` is shortcut for `([\w]+)`.
+	
+## Advanced Routing
 
 Route handlers can be stacked on top of each other, which is useful for things like authentication and authorization:
 
