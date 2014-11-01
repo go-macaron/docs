@@ -85,7 +85,7 @@ Regular expressions can be used as well:
 - Regular match:
 
 	```go
-	m.Get("/user/:username([\w]+)", func(ctx *macaron.Context) string {
+	m.Get("/user/:username([\\w]+)", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("Hello %s", ctx.Params(":username"))
 	})
 	
