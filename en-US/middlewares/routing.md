@@ -122,7 +122,87 @@ m.Get("/secret", authorize, func() {
 })
 ```
 
-Route groups can be added too using the Group method:
+Let's see an extreme example:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/Unknwon/macaron"
+)
+
+func main() {
+	m := macaron.Classic()
+	m.Get("/",
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+	)
+	m.Run()
+}
+```
+
+Guess what's output will be? Yes, `There are 5 handlers before this`. There are no hard limitation of how many handlers you can have for a route, but you may wonder how does Macaron know when to stop calling next handler?
+
+To answer this question, please consider the following example:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/Unknwon/macaron"
+)
+
+func main() {
+	m := macaron.Classic()
+	m.Get("/",
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+	)
+	m.Run()
+}
+```
+
+In this case, the output will always be `There are 4 handlers before this`, and the last handler never gets chance to call. Why? Because we write response in 5th handler. Thus, once any handler writes anything to the response stream, Macaron will stop calling next handler.
+
+### Group Routing
+
+Route groups can be added too using the [`macaron.Group`](https://gowalker.org/github.com/Unknwon/macaron#Router_Group) method:
 
 ```go
 m.Group("/books", func() {
@@ -148,5 +228,14 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
+    
+    m.Group("/chapters", func() {
+	    m.Get("/:id", GetBooks)
+	    m.Post("/new", NewBook)
+	    m.Put("/update/:id", UpdateBook)
+	    m.Delete("/delete/:id", DeleteBook)
+	}, MyMiddleware3, MyMiddleware4)
 }, MyMiddleware1, MyMiddleware2)
 ```
+
+Still, no hard limitation of how many nested group routes and group level handlers(middlewares) you can have.

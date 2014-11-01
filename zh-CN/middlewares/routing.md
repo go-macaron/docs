@@ -121,7 +121,87 @@ m.Get("/secret", authorize, func() {
 })
 ```
 
-路由还可以通过路由组来进行注册：
+让我们来看一个比较极端的例子：
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/Unknwon/macaron"
+)
+
+func main() {
+	m := macaron.Classic()
+	m.Get("/",
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+	)
+	m.Run()
+}
+```
+
+先意淫下结果？没错，输出结果会是 `There are 5 handlers before this`。Macaron 并没有对您可以使用多少个处理器有一个硬性的限制。不过，Macaron 又是怎么知道什么时候停止调用下一个处理器的呢？
+
+想要回答这个问题，我们先来看下下一个例子：
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/Unknwon/macaron"
+)
+
+func main() {
+	m := macaron.Classic()
+	m.Get("/",
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) {
+			ctx.Data["Count"] = ctx.Data["Count"].(int) + 1
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+		func(ctx *macaron.Context) string {
+			return fmt.Sprintf("There are %d handlers before this", ctx.Data["Count"])
+		},
+	)
+	m.Run()
+}
+```
+
+在这个例子中，输出结果将会变成 `There are 4 handlers before this`，而最后一个处理器永远也不会被调用。这是为什么呢？因为我们已经在第 5 个处理器中向响应流写入了内容。所以说，一旦任一处理器向响应流写入任何内容，Macaron 将不会再调用下一个处理器。
+
+### 组路由
+
+路由还可以通过 [`macaron.Group`](https://gowalker.org/github.com/Unknwon/macaron#Router_Group) 来注册组路由：
 
 ```go
 m.Group("/books", func() {
@@ -147,5 +227,14 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
+    
+    m.Group("/chapters", func() {
+	    m.Get("/:id", GetBooks)
+	    m.Post("/new", NewBook)
+	    m.Put("/update/:id", UpdateBook)
+	    m.Delete("/delete/:id", DeleteBook)
+	}, MyMiddleware3, MyMiddleware4)
 }, MyMiddleware1, MyMiddleware2)
 ```
+
+同样的，Macaron 不在乎您使用多少层嵌套的组路由，或者多少个组级别处理器（中间件）。
