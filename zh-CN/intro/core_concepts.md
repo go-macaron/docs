@@ -108,3 +108,7 @@ m.Use(func(ctx *macaron.Context) {
 ## Macaron 环境变量
 
 一些 Macaron 处理器依赖 `macaron.Env` 全局变量为开发模式和部署模式表现出不同的行为，不过更建议使用环境变量 `MACARON_ENV=production` 来指示当前的模式为部署模式。
+
+## 处理器工作流
+
+![](/docs/images/macaron_workflow.png)

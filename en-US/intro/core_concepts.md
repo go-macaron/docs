@@ -108,3 +108,7 @@ m.Use(func(ctx *macaron.Context) {
 ## Macaron Env
 
 Some Macaron handlers make use of the `macaron.Env` global variable to provide special functionality for development environments vs production environments. It is recommended that the `MACARON_ENV=production` environment variable to be set when deploying a Macaron server into a production environment.
+
+## Handler Workflow
+
+![](/docs/images/macaron_workflow.png)
