@@ -39,13 +39,11 @@ m := macaron.Classic()
 log.Fatal(http.ListenAndServe(":8080", m))
 ```
 
-Or 
+Or following ways:
 
-```go
-m := macaron.Classic()
-// ...
-m.RunOnAddr(":8080")
-```
+- `m.Run("0.0.0.0")`, listen on `0.0.0.0:4000`
+- `m.Run(8080)`, listen on `0.0.0.0:8080`
+- `m.Run("0.0.0.0", 8080)`, listen on `0.0.0.0:8080`
 
 ### What's the idea behind this other than Martini?
 

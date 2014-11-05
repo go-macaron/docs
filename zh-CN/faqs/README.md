@@ -38,13 +38,11 @@ m := macaron.Classic()
 log.Fatal(http.ListenAndServe(":8080", m))
 ```
 
-或者
+或者以下方式：
 
-```go
-m := macaron.Classic()
-// ...
-m.RunOnAddr(":8080")
-```
+- `m.Run("0.0.0.0")`，监听在 `0.0.0.0:4000`
+- `m.Run(8080)`，监听在 `0.0.0.0:8080`
+- `m.Run("0.0.0.0", 8080)`，监听在 `0.0.0.0:8080`
 
 ### 为什么不直接使用 Martini 而要另外创建一个框架？
 
