@@ -188,7 +188,7 @@ Go 模板引擎的使用方法：
 
 ```go
 // ...
-m.Use(macaron.Renderers(RenderOptions{
+m.Use(macaron.Renderers(macaron.RenderOptions{
 	Directory: "templates/default",
 }, "theme1:templates/theme1", "theme2:templates/theme2"))
 
@@ -210,7 +210,7 @@ Pongo2 模板引擎的使用方法：
 
 ```go
 // ...
-m.Use(pongo2.Pongoers(Options{
+m.Use(pongo2.Pongoers(pongo2.Options{
 	Directory: "templates/default",
 }, "theme1:templates/theme1", "theme2:templates/theme2"))
 
