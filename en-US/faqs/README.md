@@ -45,6 +45,12 @@ Or following ways:
 - `m.Run(8080)`, listen on `0.0.0.0:8080`
 - `m.Run("0.0.0.0", 8080)`, listen on `0.0.0.0:8080`
 
+### How do I pass data in request-level other than service inject?
+
+There is a field called `Data` with type `map[string]interface{}` in [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) where you can store and retrieve any type of data. It comes with [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) so every request is independent.
+
+See example [here](../middlewares/routing#advanced-routing).
+
 ### What's the idea behind this other than Martini?
 
 - Integrate frequently used middlewares and helper methods with less reflection.

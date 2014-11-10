@@ -8,14 +8,14 @@ sort: 3
 
 目前 Macaron 应用有两款官方模板引擎中间件可供选择，即 [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) 和 [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer)。
 
-您可以自由选择使用哪一款模板引擎，一般情况下，我们建议您只为一个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 注册一款模板引擎。
+您可以自由选择使用哪一款模板引擎，并且您只能为一个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 注册一款模板引擎。
 
 共有特性：
 
 - 均支持 XML、JSON 和原始数据格式的响应，它们之间的不同只体现在 HTML 渲染上。
 - 均使用 `templates` 作为默认模板文件目录。
 - 均使用 `.tmpl` 和 `.html` 作为默认模板文件后缀。
-- 均支持在 `macaron.Env == macaron.PROD` 模式下缓存模板文件到内存。
+- 均支持通过 [Macaron 环境变量](../intro/core_concepts#macaron-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) 来判断是否缓存模板文件（当 `macaron.Env == macaron.PROD` 时）。
 
 ## 渲染 HTML
 
@@ -178,6 +178,104 @@ func main() {
 	}))		
 	// ...
 }
+```
+
+### 模板集
+
+当您的应用存在多套模板时，就需要使用模板集来实现运行时动态设置需要渲染的模板。
+
+Go 模板引擎的使用方法：
+
+```go
+// ...
+m.Use(macaron.Renderers(RenderOptions{
+	Directory: "templates/default",
+}, "theme1:templates/theme1", "theme2:templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+Pongo2 模板引擎的使用方法：
+
+```go
+// ...
+m.Use(pongo2.Pongoers(Options{
+	Directory: "templates/default",
+}, "theme1:templates/theme1", "theme2:templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+正如您所看到的那样，其实就是 2 个方法的不同：[`macaron.Renderers`](https://gowalker.org/github.com/Unknwon/macaron#Renderers) 和 [`pongo2.Pongoers`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoers)。
+
+第一个配置参数用于指定默认的模板集和配置选项，之后则是一个模板集名称和目录（通过 `:` 分隔）的列表。
+
+如果您的模板集名称和模板集路径的最后一部分相同，则可以省略名称：
+
+```go
+// ...
+m.Use(macaron.Renderers(RenderOptions{
+	Directory: "templates/default",
+}, "templates/theme1", "templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+#### 模板集辅助方法
+
+检查某个模板集是否存在：
+
+```go
+// ...
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ok := ctx.HasTemplateSet("theme2")
+	// ...
+})
+// ...
+```
+
+修改模板集的目录：
+
+```go
+// ...
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.SetTemplatePath("theme2", "templates/new/theme2")
+	// ...
+})
+// ...
 ```
 
 ### 小结

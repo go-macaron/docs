@@ -8,14 +8,14 @@ sort: 3
 
 There are two official middlewares built for templating for your Macaron application currently, which are [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) and [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer).
 
-You're free to choose them to use, but normally, one Macaron [Instance](../intro/core_concepts#instances) only uses one templating engine.
+You're free to choose one of them to use, and one Macaron [Instance](../intro/core_concepts#instances) only uses one templating engine.
 
 Common behaviors:
 
 - Both of them are supporting render XML, JSON and raw content as response, the only difference between them is the way to render HTML.
 - Both of them use `templates` as default template file directory.
 - Both of them use `.tmpl` and `.html` as default template file extensions.
-- Both of them support cache template files in memory when `macaron.Env == macaron.PROD`.
+- Both of them use [Macaron Env](../intro/core_concepts#macaron-env) to determine whether to cache template files(when `macaron.Env == macaron.PROD`) or not.
 
 ## Render HTML
 
@@ -178,6 +178,104 @@ func main() {
 	}))		
 	// ...
 }
+```
+
+### Template Sets
+
+When you have more than one type of template files, you should use template sets, which allows you decide which one to render dynamically at runtime.
+
+To use it in Go templating engine:
+
+```go
+// ...
+m.Use(macaron.Renderers(RenderOptions{
+	Directory: "templates/default",
+}, "theme1:templates/theme1", "theme2:templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+To use it in Pongo2 templating engine:
+
+```go
+// ...
+m.Use(pongo2.Pongoers(Options{
+	Directory: "templates/default",
+}, "theme1:templates/theme1", "theme2:templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+As you can see, the only difference here is two functions [`macaron.Renderers`](https://gowalker.org/github.com/Unknwon/macaron#Renderers) and [`pongo2.Pongoers`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoers).
+
+The option argument is aiming for defualt template set and settings, and a list of name-directory pairs separate by `:`.
+
+If the last part of template directory is same as your template set name, you can omit it as follows:
+
+```go
+// ...
+m.Use(macaron.Renderers(RenderOptions{
+	Directory: "templates/default",
+}, "templates/theme1", "templates/theme2"))
+
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.HTML(200, "hello", "jeremy")
+})
+
+m.Get("/foobar1", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+})
+
+m.Get("/foobar2", func(ctx *macaron.Context) {
+	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+})
+// ...
+```
+
+#### Helper methods for template sets
+
+To check if given template set exists: 
+
+```go
+// ...
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ok := ctx.HasTemplateSet("theme2")
+	// ...
+})
+// ...
+```
+
+To change template set directory:
+
+```go
+// ...
+m.Get("/foobar", func(ctx *macaron.Context) {
+	ctx.SetTemplatePath("theme2", "templates/new/theme2")
+	// ...
+})
+// ...
 ```
 
 ### Quick summary on rendering HTML

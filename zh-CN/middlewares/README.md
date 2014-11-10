@@ -17,6 +17,7 @@ sort: 0
 - [csrf](https://github.com/macaron-contrib/csrf) - 生成和管理 CSRF 令牌
 - [captcha](https://github.com/macaron-contrib/captcha) - 验证码服务
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 模板引擎支持
+- [sockets](https://github.com/macaron-contrib/sockets) - WebSockets 管道绑定
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [switcher](https://github.com/macaron-contrib/switcher) - 多站点支持
 - [renders](https://github.com/macaron-contrib/renders) - 类 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）
