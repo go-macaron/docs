@@ -44,7 +44,7 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 The very basic usage of cookie is just:
 
 - [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie), [`*macaron.Context.GetCookieInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt), [`*macaron.Context.GetCookieInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt64)
 
 To use them:
 
@@ -102,6 +102,13 @@ m.Get("/get", func(ctx *macaron.Context) string {
 })
 // ...
 ```
+
+### Other Helper methods
+
+- To get URL parameters: [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
+- To get query parameters: [`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64), [`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
+- To serve content or file: [`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
+- To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
 
 ## Routing Logger
 
