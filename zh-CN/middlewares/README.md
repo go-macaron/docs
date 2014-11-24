@@ -4,11 +4,11 @@ name: 中间件模块
 sort: 0
 ---
 
-# 中间件模块
+# 中间件及辅助模块
 
-中间件模块允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
+中间件及辅助模块允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
 
-现在已经有许多 [中间件模块](https://github.com/macaron-contrib) 来简化您的工作：
+现在已经有许多 [官方模块](https://github.com/macaron-contrib) 来简化您的工作：
 
 - [binding](https://github.com/macaron-contrib/binding) - 请求数据绑定和校验
 - [i18n](https://github.com/macaron-contrib/i18n) - 应用的国际化与本地化
@@ -18,6 +18,7 @@ sort: 0
 - [captcha](https://github.com/macaron-contrib/captcha) - 验证码服务
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 模板引擎支持
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets 管道绑定
+- [bindata](https://github.com/macaron-contrib/bindata) - 嵌入二进制数据作为静态资源和模板文件
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [switcher](https://github.com/macaron-contrib/switcher) - 多站点支持
 - [renders](https://github.com/macaron-contrib/renders) - 类 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）

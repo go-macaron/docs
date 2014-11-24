@@ -17,6 +17,7 @@ Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。框架�
 - 支持无限路由组的无限嵌套
 - 支持直接集成现有的服务
 - 支持运行时动态设置需要渲染的模板集
+- 支持使用内存文件作为静态资源和模板文件
 - 支持对模块的轻松接入与解除
 - 采用 [inject](https://github.com/codegangsta/inject) 提供的便利的依赖注入
 - 采用更好的路由层和更少的反射来提升执行速度
@@ -27,6 +28,7 @@ Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。框架�
 - [Gogs Web](https://github.com/gogits/gogsweb)：Gogs 官方网站
 - [Switch](https://github.com/gpmgo/switch)：Go 语言包管理
 - [YouGam](http://yougam.com)：在线论坛
+- [Car Girl](http://qcnl.gzsy.com/)：在线活动网站
 
 ## 快速导航
 

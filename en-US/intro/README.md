@@ -17,6 +17,7 @@ Package macaron is a high productive and modular design web framework in Go. It 
 - Unlimited nested group routers.
 - Directly integrate with existing services.
 - Dynamically change template files at runtime.
+- Allow to use in-memory template and static files.
 - Easy to plugin/unplugin features with modular design.
 - Handy dependency injection powered by [inject](https://github.com/codegangsta/inject).
 - Better router layer and less reflection make faster speed.
@@ -27,6 +28,7 @@ Package macaron is a high productive and modular design web framework in Go. It 
 - [Gogs Web](https://github.com/gogits/gogsweb): Gogs official website
 - [Switch](https://github.com/gpmgo/switch): Gopm registry
 - [YouGam](http://yougam.com): Online Forum
+- [Car Girl](http://qcnl.gzsy.com/): Online campaign
 
 ## Quick Start
 

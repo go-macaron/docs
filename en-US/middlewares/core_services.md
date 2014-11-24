@@ -244,6 +244,20 @@ func main() {
 }
 ```
 
+### Multiple Static Handlers
+
+In case you have multiple static directories, there is one helper function [`macaron.Statics`](https://gowalker.org/github.com/Unknwon/macaron#Statics) to make your life easier.
+
+To use it:
+
+```go
+// ...
+m.Use(Statics(StaticOptions{}, "public", "views"))
+// ...
+```
+
+This will register both `public` and `views` as static directories.
+
 ## Others Services
 
 ### Global Logger

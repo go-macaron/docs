@@ -244,6 +244,20 @@ func main() {
 }
 ```
 
+### 注册多个静态处理器
+
+如果您需要一次注册多个静态处理器，可以使用方法 [`macaron.Statics`](https://gowalker.org/github.com/Unknwon/macaron#Statics) 来简化您的工作。
+
+使用方法：
+
+```go
+// ...
+m.Use(Statics(StaticOptions{}, "public", "views"))
+// ...
+```
+
+这样，就可以同时注册 `public` 和 `views` 为静态目录了。
+
 ## 其它服务
 
 ### 全局日志
