@@ -20,7 +20,8 @@ There are already many [official modules](https://github.com/macaron-contrib) to
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
 - [bindata](https://github.com/macaron-contrib/bindata) - Embed binary data as static and template files
 - [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
-- [switcher](https://github.com/macaron-contrib/switcher) - Multiple-site support
+- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend
+- [switcher](switcher) - Multiple-site support
 - [renders](https://github.com/macaron-contrib/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)
 
 ### Best register order for middlewares
