@@ -8,7 +8,7 @@ sort: 0
 
 中间件及辅助模块允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
 
-现在已经有许多 [官方模块](https://github.com/macaron-contrib) 来简化您的工作：
+现在已经有许多 [中间件和模块](https://github.com/macaron-contrib) 来简化您的工作：
 
 - [binding](https://github.com/macaron-contrib/binding) - 请求数据绑定和校验
 - [i18n](https://github.com/macaron-contrib/i18n) - 应用的国际化与本地化
@@ -22,6 +22,7 @@ sort: 0
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 服务器后端
 - [switcher](switcher) - 多站点支持
+- [permissions2](https://github.com/xyproto/permissions2) - Cookies、多用户和权限管理
 - [renders](https://github.com/macaron-contrib/renders) - 类 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）
 
 ### 注册中间件的最佳顺序

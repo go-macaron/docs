@@ -8,7 +8,7 @@ sort: 1
 
 Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
-There are already many [official modules](https://github.com/macaron-contrib) to simplify your work:
+There are already many [middlewares and modules](https://github.com/macaron-contrib) to simplify your work:
 
 - [binding](https://github.com/macaron-contrib/binding) - Request data binding and validation
 - [i18n](i18n) - Internationalization and Localization
@@ -22,6 +22,7 @@ There are already many [official modules](https://github.com/macaron-contrib) to
 - [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend
 - [switcher](switcher) - Multiple-site support
+- [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions
 - [renders](https://github.com/macaron-contrib/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)
 
 ### Best register order for middlewares
