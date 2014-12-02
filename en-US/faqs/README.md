@@ -8,7 +8,7 @@ sort: 2
 
 ### How do I integrate with existing servers?
 
-Every Macaron [instance](../intro/core_concepts#instances) implements [`http.Handler`](https://gowalker.org/net/http#Handler), so it can easily be used to serve subtrees on existing Go servers. For example this is a working Macaron app for Google App Engine:
+Every Macaron [instance](/docs/intro/core_concepts#instances) implements [`http.Handler`](https://gowalker.org/net/http#Handler), so it can easily be used to serve subtrees on existing Go servers. For example this is a working Macaron app for Google App Engine:
 
 ```go
 package hello

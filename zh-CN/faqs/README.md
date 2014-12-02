@@ -8,7 +8,7 @@ sort: 2
 
 ### 如何集成到我已有的服务中？
 
-每个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都实现了 [`http.Handler`](https://gowalker.org/net/http#Handler) 接口，因此可以很容易地将它们以子集的形式集成到已有服务中。例如，您可以将 Macaron 应用集成到 GAE 中：
+每个 [Macaron 实例](/docs/intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都实现了 [`http.Handler`](https://gowalker.org/net/http#Handler) 接口，因此可以很容易地将它们以子集的形式集成到已有服务中。例如，您可以将 Macaron 应用集成到 GAE 中：
 
 ```go
 package hello
