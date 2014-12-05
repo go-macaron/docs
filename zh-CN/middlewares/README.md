@@ -22,6 +22,7 @@ sort: 0
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 服务器后端
 - [switcher](switcher) - 多站点支持
+- [method](https://github.com/macaron-contrib/method) - HTTP 方法覆盖
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies、多用户和权限管理
 - [renders](https://github.com/macaron-contrib/renders) - 类 Beego 模板引擎（Macaron 已有内置模板引擎，此为可选）
 
