@@ -26,7 +26,7 @@ func Home(ctx *macaron.Context) {
 
 ### Next()
 
-方法 [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next)  是一个可选的躬功能，它可以用于中间件处理器暂时放弃执行，等待其他的处理器都执行完毕后继续执行。这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
+方法 [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next)  是一个可选的功能，它可以用于中间件处理器暂时放弃执行，等待其他的处理器都执行完毕后继续执行。这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
 
 ```go
 // log before and after a request
@@ -291,7 +291,7 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 
 ### 响应流
 
-该服务通过类型 [`http.ResponseWriter`](http://gowalker.org/net/http/#ResponseWriter) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Resp`。
+该服务通过类型 [`http.ResponseWriter`](http://gowalker.org/net/http#ResponseWriter) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Resp`。
 
 使用方法：
 
@@ -317,7 +317,7 @@ func myHandler(ctx *macaron.Context) {
 
 ### 请求对象
 
-该服务通过类型 [`*http.Request`](http://gowalker.org/net/http/#Request) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Req`。
+该服务通过类型 [`*http.Request`](http://gowalker.org/net/http#Request) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Req`。
 
 除此之外，该服务还提供了 3 个便利的方法来获取请求体：
 

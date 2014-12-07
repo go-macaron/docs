@@ -110,7 +110,7 @@ m.Get("/get", func(ctx *macaron.Context) string {
 - To serve content or file: [`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
 - To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
 
-## Routing Logger
+## Router Logger
 
 This service can be injected by function  [`macaron.Logger`](https://gowalker.org/github.com/Unknwon/macaron#Logger). It is responsible for your application routing log.
 
@@ -291,7 +291,7 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 
 ### Response Stream
 
-This service is represented by type [`http.ResponseWriter`](http://gowalker.org/net/http/#ResponseWriter). It is optional to use, normally, you should use `*macaron.Context.Resp`.
+This service is represented by type [`http.ResponseWriter`](http://gowalker.org/net/http#ResponseWriter). It is optional to use, normally, you should use `*macaron.Context.Resp`.
 
 To use it:
 
@@ -317,7 +317,7 @@ func myHandler(ctx *macaron.Context) {
 
 ### Request Object
 
-This service is represented by type [`*http.Request`](http://gowalker.org/net/http/#Request). It is optional to use, normally, you should use `*macaron.Context.Req`.
+This service is represented by type [`*http.Request`](http://gowalker.org/net/http#Request). It is optional to use, normally, you should use `*macaron.Context.Req`.
 
 Besides, this service provides three methods to help you easily retrieve request body:
 
