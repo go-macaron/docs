@@ -164,8 +164,13 @@ There are some builtin validation rules. To use them, the tag format is `binding
 |`AlphaDashDot`|Must be alpha characters or numerics, `-_` or `.`|
 |`MinSize(int)`|Minimum length|
 |`MaxSize(int)`|Maximum length|
+|`Range(int,int)`|Value range(inclusive)|
 |`Email`|Must be E-mail address|
 |`Url`|Must be HTTP/HTTPS URL address|
+|`In(a,b,c,...)`|Must be one of element in array|
+|`NotIn(a,b,c,...)`|Must not be one of element in array|
+|`Include(string)`|Must contain|
+|`Exclude(string)`|Must not contain|
 
 To combine multiple rules: `binding:"Required;MinSize(10)"`.
 

@@ -171,8 +171,13 @@ func main() {
 |`AlphaDashDot`|必须为半角英文字母、阿拉伯数字、`-_` 或 `.`|
 |`MinSize(int)`|最小长度|
 |`MaxSize(int)`|最大长度|
+|`Range(int,int)`|取值范围（包含边界值）|
 |`Email`|必须为邮箱地址|
 |`Url`|必须为 HTTP/HTTPS URL 地址|
+|`In(a,b,c,...)`|必须为数组的一个元素|
+|`NotIn(a,b,c,...)`|必须不是数组的元素|
+|`Include(string)`|必须包含|
+|`Exclude(string)`|必须不包含|
 
 当需要使用多条规则时： `binding:"Required;MinSize(10)"`。
 
