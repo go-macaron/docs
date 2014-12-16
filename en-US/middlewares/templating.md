@@ -193,15 +193,15 @@ m.Use(macaron.Renderers(macaron.RenderOptions{
 }, "theme1:templates/theme1", "theme2:templates/theme2"))
 
 m.Get("/foobar", func(ctx *macaron.Context) {
-	ctx.HTML(200, "hello", "jeremy")
+	ctx.HTML(200, "hello")
 })
 
 m.Get("/foobar1", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme1", "hello")
 })
 
 m.Get("/foobar2", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme2", "hello")
 })
 // ...
 ```
@@ -215,15 +215,15 @@ m.Use(pongo2.Pongoers(pongo2.Options{
 }, "theme1:templates/theme1", "theme2:templates/theme2"))
 
 m.Get("/foobar", func(ctx *macaron.Context) {
-	ctx.HTML(200, "hello", "jeremy")
+	ctx.HTML(200, "hello")
 })
 
 m.Get("/foobar1", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme1", "hello")
 })
 
 m.Get("/foobar2", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme2", "hello")
 })
 // ...
 ```
@@ -241,15 +241,15 @@ m.Use(macaron.Renderers(RenderOptions{
 }, "templates/theme1", "templates/theme2"))
 
 m.Get("/foobar", func(ctx *macaron.Context) {
-	ctx.HTML(200, "hello", "jeremy")
+	ctx.HTML(200, "hello")
 })
 
 m.Get("/foobar1", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme1", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme1", "hello")
 })
 
 m.Get("/foobar2", func(ctx *macaron.Context) {
-	ctx.HTMLSet(200, "theme2", "hello", "jeremy")
+	ctx.HTMLSet(200, "theme2", "hello")
 })
 // ...
 ```

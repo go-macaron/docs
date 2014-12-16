@@ -23,9 +23,9 @@ Suppose you have a contact form on your site where at least name and message are
 
 ```go
 type ContactForm struct {
-	Name           string `form:"name" binding:"required"`
+	Name           string `form:"name" binding:"Required"`
 	Email          string `form:"email"`
-	Message        string `form:"message" binding:"required"`
+	Message        string `form:"message" binding:"Required"`
 	MailingAddress string `form:"mailing_address"`
 }
 ```
@@ -43,7 +43,7 @@ That's it! The [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/
 
 By default, if there are any errors (like a required field is empty), binding middleware will return an error to the client and your app won't even see the request. To prevent this behavior, you can use [`binding.BindIgnErr`](https://gowalker.org/github.com/macaron-contrib/binding#BindIgnErr) instead.
 
-(Caveat: Don't try to bind to embedded struct pointers; it won't work. See [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) if you want to help with this.)
+**Caveat** Don't try to bind to embedded struct pointers; it won't work. See [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) if you want to help with this.)
 
 #### Naming Convention
 
@@ -56,9 +56,9 @@ For example, previous example can be simplified with following code:
 
 ```go
 type ContactForm struct {
-	Name           string `binding:"required"`
+	Name           string `binding:"Required"`
 	Email          string 
-	Message        string `binding:"required"`
+	Message        string `binding:"Required"`
 	MailingAddress string
 }
 ```
@@ -109,7 +109,7 @@ Notes:
  1. Deserializes request data into a struct
  2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate)
 
-Note that it does not handle errors. You may receive a [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) into your own handler if you want to handle errors. (For automatic error handling, use [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind).)
+Note that it does not handle errors. You may receive a [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) into your own handler if you want to handle errors.
 
 ### MultipartForm and File Uploads
 
@@ -151,7 +151,7 @@ Similar to [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/bind
 
 ### Validate
 
-[`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) receives a populated struct and checks it for errors, first by enforcing the `binding:"Required"` value on struct field tags, then by executing the `Validator.Validate()` method on the struct, if it is a [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator).
+[`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) receives a populated struct and checks it for errors with basic rules. It will execute the `Validator.Validate()` method on the struct, if it is a [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator).
 
 #### Validation Rules
 
