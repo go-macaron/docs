@@ -60,6 +60,12 @@ m.Get("/get", func(ctx *macaron.Context) string {
 // ...
 ```
 
+使用以下顺序的参数来设置更多的属性：`SetCookie(<name>, <value>, <max age>, <path>, <domain>, <secure>, <http only>)`。
+
+因此，设置 Cookie 最完整的用法为：`SetCookie("user", "unknwon", 999, "/", "localhost", true, true)`。
+
+需要注意的是，参数的顺序是固定的。
+
 如果需要更加安全的 Cookie 机制，可以先使用 [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
 
 - [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)

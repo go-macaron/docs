@@ -60,7 +60,13 @@ m.Get("/get", func(ctx *macaron.Context) string {
 // ...
 ```
 
-And there are more secure cookie support. First, you need to call [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret), then use it by calling:
+Use following arguments order to set more properties: `SetCookie(<name>, <value>, <max age>, <path>, <domain>, <secure>, <http only>)`.
+
+For example, the most advanced usage would be: `SetCookie("user", "unknwon", 999, "/", "localhost", true, true)`.
+
+Note that order is fixed.
+
+There are also more secure cookie support. First, you need to call [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret), then use it by calling:
 
 - [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
 - [`*macaron.Context.GetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
