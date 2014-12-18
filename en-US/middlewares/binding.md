@@ -14,7 +14,7 @@ Middlware binding provides request data binding and validation for Macaron [Inst
 ## Installation
 
 	go get github.com/macaron-contrib/binding
-	
+
 ## Usage
 
 ### Getting form data from a request
@@ -39,7 +39,7 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}), func(contact ContactForm)
 })
 ```
 
-That's it! The [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) function takes care of validating required fields. 
+That's it! The [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) function takes care of validating required fields.
 
 By default, if there are any errors (like a required field is empty), binding middleware will return an error to the client and your app won't even see the request. To prevent this behavior, you can use [`binding.BindIgnErr`](https://gowalker.org/github.com/macaron-contrib/binding#BindIgnErr) instead.
 
@@ -57,7 +57,7 @@ For example, previous example can be simplified with following code:
 ```go
 type ContactForm struct {
 	Name           string `binding:"Required"`
-	Email          string 
+	Email          string
 	Message        string `binding:"Required"`
 	MailingAddress string
 }
@@ -69,7 +69,7 @@ If you want to custom your app naming convention, you can use [`binding.SetNameM
 
 ### Getting JSON data from a request
 
-To get data from JSON payloads, simply use the `json:` struct tags instead of `form:`. 
+To get data from JSON payloads, simply use the `json:` struct tags instead of `form:`.
 
 **Pro Tip** Use [JSON-to-Go](http://mholt.github.io/json-to-go/) to correctly convert JSON to a Go type definition. It's useful if you're new to this or the structure is large/complex.
 
@@ -181,7 +181,7 @@ To combine multiple rules: `binding:"Required;MinSize(10)"`.
 If you want additional validation beyond just checking required fields, your struct can implement the [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator) interface like so:
 
 ```go
-func (cf ContactForm) Validate(*macaron.Context, errs binding.Errors) binding.Errors {
+func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) binding.Errors {
 	if strings.Contains(cf.Message, "Go needs generics") {
 		errs = append(errors, binding.Error{
 			FieldNames:     []string{"message"},
@@ -228,7 +228,7 @@ Custom validation rules are applied after builtin rules.
 If you want to avoid default error handle process but still want binding middleware calls handle function for you, your struct can implement the [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler) interface like so:
 
 ```go
-func (cf ContactForm) Error(*macaron.Context, errs binding.Errors) {
+func (cf ContactForm) Error(ctx *macaron.Context, errs binding.Errors) {
 	// Custom process to handle error.
 }
 ```

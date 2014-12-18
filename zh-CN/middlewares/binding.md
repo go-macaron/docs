@@ -14,7 +14,7 @@ sort: 4
 ## 下载安装
 
 	go get github.com/macaron-contrib/binding
-	
+
 ## 使用示例
 
 ### 获取表单数据
@@ -57,7 +57,7 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}), func(contact ContactForm)
 ```go
 type ContactForm struct {
 	Name           string `binding:"Required"`
-	Email          string 
+	Email          string
 	Message        string `binding:"Required"`
 	MailingAddress string
 }
@@ -188,7 +188,7 @@ func main() {
 如果您想要进行自定义的附加验证操作，您的结构可以通过实现接口 [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator) 来完成：
 
 ```go
-func (cf ContactForm) Validate(*macaron.Context, errs binding.Errors) binding.Errors {
+func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) binding.Errors {
 	if strings.Contains(cf.Message, "Go needs generics") {
 		errs = append(errors, binding.Error{
 			FieldNames:     []string{"message"},
@@ -235,7 +235,7 @@ binding.AddRule(&binding.Rule{
 如果您即不想使用默认的错误处理机制，又希望 binding 中间件自动化地调用您的自定义错误处理，则可以通过实现接口 [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler) 来完成：
 
 ```go
-func (cf ContactForm) Error(*macaron.Context, errs binding.Errors) {
+func (cf ContactForm) Error(ctx *macaron.Context, errs binding.Errors) {
 	// 自定义错误处理过程
 }
 ```
