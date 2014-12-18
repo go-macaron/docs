@@ -178,6 +178,7 @@ func main() {
 |`NotIn(a,b,c,...)`|必须不是数组的元素|
 |`Include(string)`|必须包含|
 |`Exclude(string)`|必须不包含|
+|`Default(string)`|当字段为零值时设置默认值（当使用接口绑定时不能设置该规则）|
 
 当需要使用多条规则时： `binding:"Required;MinSize(10)"`。
 

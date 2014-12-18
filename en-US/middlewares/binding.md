@@ -171,6 +171,7 @@ There are some builtin validation rules. To use them, the tag format is `binding
 |`NotIn(a,b,c,...)`|Must not be one of element in array|
 |`Include(string)`|Must contain|
 |`Exclude(string)`|Must not contain|
+|`Default(string)`|Set default value when field is zero-value(cannot use this when bind with interface wrapper)|
 
 To combine multiple rules: `binding:"Required;MinSize(10)"`.
 
