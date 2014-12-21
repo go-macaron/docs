@@ -1,6 +1,6 @@
 ---
 root: false
-name: Multi Sites
+name: Multiple Sites
 sort: 14
 ---
 
@@ -14,7 +14,7 @@ Module switcher provides host switch functionality for [Macaron](https://github.
 ## Installation
 
 	go get github.com/macaron-contrib/switcher
-	
+
 ## Usage
 
 If you want to run 2 instances in one program, Host Switcher is the feature you're looking for.

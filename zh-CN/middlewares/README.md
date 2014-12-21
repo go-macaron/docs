@@ -10,11 +10,11 @@ sort: 0
 
 现在已经有许多 [中间件和模块](https://github.com/macaron-contrib) 来简化您的工作：
 
-- [binding](https://github.com/macaron-contrib/binding) - 请求数据绑定和校验
-- [i18n](https://github.com/macaron-contrib/i18n) - 应用的国际化与本地化
+- [binding](binding) - 请求数据绑定和校验
+- [i18n](i18n) - 应用的国际化与本地化
 - [cache](https://github.com/macaron-contrib/cache) - Cache 管理器
 - [session](https://github.com/macaron-contrib/session) - Session 管理器
-- [csrf](https://github.com/macaron-contrib/csrf) - 生成和管理 CSRF 令牌
+- [csrf](csrf) - 生成和管理 CSRF 令牌
 - [captcha](https://github.com/macaron-contrib/captcha) - 验证码服务
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 模板引擎支持
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets 管道绑定

@@ -10,11 +10,11 @@ Middlewares and helper modules allow you easily plugin/unplugin features for you
 
 There are already many [middlewares and modules](https://github.com/macaron-contrib) to simplify your work:
 
-- [binding](https://github.com/macaron-contrib/binding) - Request data binding and validation
+- [binding](binding) - Request data binding and validation
 - [i18n](i18n) - Internationalization and Localization
 - [cache](https://github.com/macaron-contrib/cache) - Cache manager
 - [session](https://github.com/macaron-contrib/session) - Session manager
-- [csrf](https://github.com/macaron-contrib/csrf) - Generates and validates csrf tokens
+- [csrf](csrf) - Generates and validates csrf tokens
 - [captcha](https://github.com/macaron-contrib/captcha) - Captcha service
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 template engine support
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
