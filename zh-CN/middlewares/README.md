@@ -12,7 +12,7 @@ sort: 0
 
 - [binding](binding) - 请求数据绑定和校验
 - [i18n](i18n) - 应用的国际化与本地化
-- [cache](https://github.com/macaron-contrib/cache) - Cache 管理器
+- [cache](cache) - Cache 管理器
 - [session](session) - Session 管理器
 - [csrf](csrf) - 生成和管理 CSRF 令牌
 - [captcha](https://github.com/macaron-contrib/captcha) - 验证码服务

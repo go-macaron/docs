@@ -221,7 +221,7 @@ type RawStore interface {
 	Set(key, value interface{}) error
 	// Get gets value by given key in session.
 	Get(key interface{}) interface{}
-	// Delete delete a key from session.
+	// Delete deletes a key from session.
 	Delete(key interface{}) error
 	// ID returns current session ID.
 	ID() string

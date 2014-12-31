@@ -12,7 +12,7 @@ There are already many [middlewares and modules](https://github.com/macaron-cont
 
 - [binding](binding) - Request data binding and validation
 - [i18n](i18n) - Internationalization and Localization
-- [cache](https://github.com/macaron-contrib/cache) - Cache manager
+- [cache](cache) - Cache manager
 - [session](session) - Session manager
 - [csrf](csrf) - Generates and validates csrf tokens
 - [captcha](https://github.com/macaron-contrib/captcha) - Captcha service
