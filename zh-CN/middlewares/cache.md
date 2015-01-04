@@ -58,7 +58,7 @@ m.Use(cache.Cacher(cache.Options{
 ## 适配器
 
 
-目前有 5 款内置的适配器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它适配器的驱动。
+目前有 6 款内置的适配器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它适配器的驱动。
 
 以下为适配器的基本用法：
 
@@ -106,6 +106,31 @@ import _ "github.com/macaron-contrib/cache/memcache"
 m.Use(cache.Cacher(cache.Options{
     Adapter:       "memcache",
     AdapterConfig: "127.0.0.1:11211",
+}))
+//...
+```
+
+### PostgreSQL
+
+可以使用以下 SQL 语句创建数据库：
+
+```sql
+CREATE TABLE session (
+    key       CHAR(32) NOT NULL,
+    data      BYTEA,
+    created   INTEGER NOT NULL,
+    expire    INTEGER NOT NULL,
+    PRIMARY KEY (key)
+);
+```
+
+```go
+import _ "github.com/macaron-contrib/cache/postgres"
+
+//...
+m.Use(cache.Cacher(cache.Options{
+    Adapter:       "postgres",
+    AdapterConfig: "user=a password=b host=localhost port=5432 dbname=c sslmode=disable",
 }))
 //...
 ```

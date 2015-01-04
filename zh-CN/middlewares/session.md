@@ -78,10 +78,10 @@ m.Use(session.Sessioner(session.Options{
     // Cookie 储存域名，默认为空
     Domain:         "",
     // 会话 ID 长度，默认为 16 位
-    IdLength:       16,
+    IDLength:       16,
     // 配置分区名称，默认为 "session"
     Section:        "session",
-}))
+}))D
 //...
 ```
 
@@ -139,15 +139,15 @@ m.Use(session.Sessioner(session.Options{
 
 ### PostgreSQL
 
-可以使用以下 SQL 语句创建数据库：
+可以使用以下 SQL 语句创建数据库（请确保 `key` 的长度和您设置的 `Options.IDLength` 一致）：
 
 ```sql
-CREATE TABLE `session` (
-    `session_key` char(64) NOT NULL,
-    `session_data` blob,
-    `session_expiry` int(11) unsigned NOT NULL,
-    PRIMARY KEY (`session_key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE session (
+    key       CHAR(16) NOT NULL,
+    data      BYTEA,
+    expiry    INTEGER NOT NULL,
+    PRIMARY KEY (key)
+);
 ```
 
 ```go

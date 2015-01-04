@@ -78,7 +78,7 @@ m.Use(session.Sessioner(session.Options{
     // Cookie domain name. Default is empty.
     Domain:         "",
     // Session ID length. Default is 16.
-    IdLength:       16,
+    IDLength:       16,
     // Configuration section name. Default is "session".
     Section:        "session",
 }))
@@ -139,15 +139,15 @@ m.Use(session.Sessioner(session.Options{
 
 ### PostgreSQL
 
-Use following SQL to create database:
+Use following SQL to create database(make sure `key` length matches your `Options.IDLength`):
 
 ```sql
-CREATE TABLE `session` (
-    `session_key` char(64) NOT NULL,
-    `session_data` blob,
-    `session_expiry` int(11) unsigned NOT NULL,
-    PRIMARY KEY (`session_key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE session (
+    key       CHAR(16) NOT NULL,
+    data      BYTEA,
+    expiry    INTEGER NOT NULL,
+    PRIMARY KEY (key)
+);
 ```
 
 ```go
@@ -156,7 +156,7 @@ import _ "github.com/macaron-contrib/session/postgres"
 //...
 m.Use(session.Sessioner(session.Options{
     Provider:       "postgres",
-    ProviderConfig: "user=a password=b dbname=c sslmode=disable",
+    ProviderConfig: "user=a password=b host=localhost port=5432 dbname=c sslmode=disable",
 }))
 //...
 ```

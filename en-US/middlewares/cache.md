@@ -57,7 +57,7 @@ m.Use(cache.Cacher(cache.Options{
 
 ## Adapters
 
-There are 5 built-in implementations of cache adapter, you have to import adapter driver explicitly except for **memory** and **file** adapters.
+There are 6 built-in implementations of cache adapter, you have to import adapter driver explicitly except for **memory** and **file** adapters.
 
 Following are some basic usage examples for adapters.
 
@@ -105,6 +105,31 @@ import _ "github.com/macaron-contrib/cache/memcache"
 m.Use(cache.Cacher(cache.Options{
     Adapter:       "memcache",
     AdapterConfig: "127.0.0.1:11211",
+}))
+//...
+```
+
+### PostgreSQL
+
+Use following SQL to create database:
+
+```sql
+CREATE TABLE cache (
+    key       CHAR(32) NOT NULL,
+    data      BYTEA,
+    created   INTEGER NOT NULL,
+    expire    INTEGER NOT NULL,
+    PRIMARY KEY (key)
+);
+```
+
+```go
+import _ "github.com/macaron-contrib/cache/postgres"
+
+//...
+m.Use(cache.Cacher(cache.Options{
+    Adapter:       "postgres",
+    AdapterConfig: "user=a password=b host=localhost port=5432 dbname=c sslmode=disable",
 }))
 //...
 ```
