@@ -118,7 +118,8 @@ import _ "github.com/macaron-contrib/session/redis"
 //...
 m.Use(session.Sessioner(session.Options{
     Provider:       "redis",
-    ProviderConfig: "127.0.0.1:6379,100,macaron",
+    // e.g.: network=tcp,addr=:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
+    ProviderConfig: "addr=:6379,password=macaron",
 }))
 //...
 ```

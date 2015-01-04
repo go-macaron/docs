@@ -74,21 +74,24 @@ m.Use(cache.Cacher())
 ```go
 //...
 m.Use(cache.Cacher(cache.Options{
-    Provider:       "file",
-    ProviderConfig: "data/caches",
+    Adapter:       "file",
+    AdapterConfig: "data/caches",
 }))
 //...
 ```
 
 ### Redis
 
+**Notice** Only string and int-type are allowed.
+
 ```go
 import _ "github.com/macaron-contrib/cache/redis"
 
 //...
 m.Use(cache.Cacher(cache.Options{
-    Provider:       "redis",
-    ProviderConfig: ":6039",
+    Adapter:       "redis",
+    // e.g.: network=tcp,addr=:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
+    AdapterConfig: "addr=:6379,password=macaron",
 }))
 //...
 ```
@@ -100,8 +103,8 @@ import _ "github.com/macaron-contrib/cache/memcache"
 
 //...
 m.Use(cache.Cacher(cache.Options{
-    Provider:       "memcache",
-    ProviderConfig: "127.0.0.1:11211",
+    Adapter:       "memcache",
+    AdapterConfig: "127.0.0.1:11211",
 }))
 //...
 ```
@@ -113,8 +116,8 @@ import _ "github.com/macaron-contrib/cache/nodb"
 
 //...
 m.Use(cache.Cacher(cache.Options{
-    Provider:       "nodb",
-    ProviderConfig: "data/cache.db",
+    Adapter:       "nodb",
+    AdapterConfig: "data/cache.db",
 }))
 //...
 ```
