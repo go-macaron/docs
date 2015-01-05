@@ -167,10 +167,10 @@ m.Use(session.Sessioner(session.Options{
 
 ```sql
 CREATE TABLE `session` (
-    `session_key` char(64) NOT NULL,
-    `session_data` blob,
-    `session_expiry` int(11) unsigned NOT NULL,
-    PRIMARY KEY (`session_key`)
+    `key`       CHAR(16) NOT NULL,
+    `data`      BLOB,
+    `expiry`    INT(11) UNSIGNED NOT NULL,
+    PRIMARY KEY (`key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ```
 

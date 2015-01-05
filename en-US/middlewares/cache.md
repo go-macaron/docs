@@ -134,6 +134,31 @@ m.Use(cache.Cacher(cache.Options{
 //...
 ```
 
+### MySQL
+
+Use following SQL to create database:
+
+```sql
+CREATE TABLE `cache` (
+    `key`       CHAR(32) NOT NULL,
+    `data`      BLOB,
+    `created`   INT(11) UNSIGNED NOT NULL,
+    `expire`    INT(11) UNSIGNED NOT NULL,
+    PRIMARY KEY (`key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+```
+
+```go
+import _ "github.com/macaron-contrib/cache/mysql"
+
+//...
+m.Use(cache.Cacher(cache.Options{
+    Adapter:       "mysql",
+    AdapterConfig: "username:password@protocol(address)/dbname?param=value",
+}))
+//...
+```
+
 ### Nodb
 
 ```go

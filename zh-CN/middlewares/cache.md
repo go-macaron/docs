@@ -58,7 +58,7 @@ m.Use(cache.Cacher(cache.Options{
 ## 适配器
 
 
-目前有 6 款内置的适配器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它适配器的驱动。
+目前有 7 款内置的适配器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它适配器的驱动。
 
 以下为适配器的基本用法：
 
@@ -131,6 +131,31 @@ import _ "github.com/macaron-contrib/cache/postgres"
 m.Use(cache.Cacher(cache.Options{
     Adapter:       "postgres",
     AdapterConfig: "user=a password=b host=localhost port=5432 dbname=c sslmode=disable",
+}))
+//...
+```
+
+### MySQL
+
+可以使用以下 SQL 语句创建数据库：
+
+```sql
+CREATE TABLE `cache` (
+    `key`       CHAR(32) NOT NULL,
+    `data`      BLOB,
+    `created`   INT(11) UNSIGNED NOT NULL,
+    `expire`    INT(11) UNSIGNED NOT NULL,
+    PRIMARY KEY (`key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+```
+
+```go
+import _ "github.com/macaron-contrib/cache/mysql"
+
+//...
+m.Use(cache.Cacher(cache.Options{
+    Adapter:       "mysql",
+    AdapterConfig: "username:password@protocol(address)/dbname?param=value",
 }))
 //...
 ```
