@@ -70,6 +70,10 @@ Route patterns may include named parameters, accessible via the method [`*Contex
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
 	return "Hello " + ctx.Params(":name")
 })
+
+m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params(":year"), ctx.Params(":month"), ctx.Params(":day"))
+})
 ```
 
 Routes can be matched with globs:
@@ -88,11 +92,11 @@ Regular expressions can be used as well:
 	m.Get("/user/:username([\\w]+)", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("Hello %s", ctx.Params(":username"))
 	})
-	
+
 	m.Get("/user/:id([0-9]+)", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("User ID: %s", ctx.Params(":id"))
 	})
-	
+
 	m.Get("/user/*.*", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("Last part is: %s", ctx.Params(":path"), ctx.Params(":ext"))
 	})
@@ -111,7 +115,7 @@ Regular expressions can be used as well:
 - Shortcuts:
 	- `/user/:id:int`, `:int` is shortcut for `([0-9]+)`.
 	- `/user/:name:string`, `:string` is shortcut for `([\w]+)`.
-	
+
 ## Advanced Routing
 
 Route handlers can be stacked on top of each other, which is useful for things like authentication and authorization:
@@ -210,7 +214,7 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
-    
+
     m.Group("/chapters", func() {
 	    m.Get("/:id", GetBooks)
 	    m.Post("/new", NewBook)
@@ -228,7 +232,7 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
-    
+
     m.Group("/chapters", func() {
 	    m.Get("/:id", GetBooks)
 	    m.Post("/new", NewBook)

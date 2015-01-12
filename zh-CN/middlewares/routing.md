@@ -69,6 +69,10 @@ m.NotFound(func() {
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
 	return "Hello " + ctx.Params(":name")
 })
+
+m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params(":year"), ctx.Params(":month"), ctx.Params(":day"))
+})
 ```
 
 路由匹配可以通过全局匹配的形式:
@@ -87,11 +91,11 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 	m.Get("/user/:username([\\w]+)", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("Hello %s", ctx.Params(":username"))
 	})
-	
+
 	m.Get("/user/:id([0-9]+)", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("User ID: %s", ctx.Params(":id"))
 	})
-	
+
 	m.Get("/user/*.*", func(ctx *macaron.Context) string {
 		return fmt.Sprintf("Last part is: %s", ctx.Params(":path"), ctx.Params(":ext"))
 	})
@@ -209,7 +213,7 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
-    
+
     m.Group("/chapters", func() {
 	    m.Get("/:id", GetBooks)
 	    m.Post("/new", NewBook)
@@ -227,7 +231,7 @@ m.Group("/books", func() {
     m.Post("/new", NewBook)
     m.Put("/update/:id", UpdateBook)
     m.Delete("/delete/:id", DeleteBook)
-    
+
     m.Group("/chapters", func() {
 	    m.Get("/:id", GetBooks)
 	    m.Post("/new", NewBook)

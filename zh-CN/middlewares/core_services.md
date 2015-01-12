@@ -111,7 +111,7 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 ### 其它辅助方法
 
-- 获取 URL 参数：[`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
+- 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
 - 获取查询参数：[`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64)、[`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
 - 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
 - 获取远程 IP 地址：[`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
@@ -132,7 +132,7 @@ func main() {
 	m.Use(macaron.Logger())
 	// ...
 }
-``` 
+```
 
 **备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会被自动注入。
 
@@ -159,7 +159,7 @@ func main() {
 	m.Use(macaron.Recovery())
 	// ...
 }
-``` 
+```
 
 **备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会被自动注入。
 
@@ -180,7 +180,7 @@ func main() {
 	m.Use(macaron.Static("assets"))
 	// ...
 }
-``` 
+```
 
 **备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会以 `public` 为静态目录被自动注入。
 
@@ -234,14 +234,14 @@ import "github.com/Unknwon/macaron"
 
 func main() {
 	m := macaron.New()
-	m.Use(macaron.Static("public", 
+	m.Use(macaron.Static("public",
 		macaron.StaticOptions{
 			// 请求静态资源时的 URL 前缀，默认没有前缀
-			Prefix: "public", 	
+			Prefix: "public",
 			// 禁止记录静态资源路由日志，默认为不禁止记录
-			SkipLogging: true, 	
+			SkipLogging: true,
 			// 当请求目录时的默认索引文件，默认为 "index.html"
-			IndexFile: "index.html",	
+			IndexFile: "index.html",
 			// 用于返回自定义过期响应头，不能为不设置
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
 			Expires: func() string { return "max-age=0" },

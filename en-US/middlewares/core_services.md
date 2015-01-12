@@ -111,7 +111,7 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 ### Other Helper methods
 
-- To get URL parameters: [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
+- To set/get URL parameters: [`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
 - To get query parameters: [`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64), [`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
 - To serve content or file: [`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
 - To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
@@ -132,7 +132,7 @@ func main() {
 	m.Use(macaron.Logger())
 	// ...
 }
-``` 
+```
 
 **Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
 
@@ -159,7 +159,7 @@ func main() {
 	m.Use(macaron.Recovery())
 	// ...
 }
-``` 
+```
 
 **Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
 
@@ -180,7 +180,7 @@ func main() {
 	m.Use(macaron.Static("assets"))
 	// ...
 }
-``` 
+```
 
 **Note** this service is injected automatically with directory `public` when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
 
@@ -234,14 +234,14 @@ import "github.com/Unknwon/macaron"
 
 func main() {
 	m := macaron.New()
-	m.Use(macaron.Static("public", 
+	m.Use(macaron.Static("public",
 		macaron.StaticOptions{
 			// Prefix is the optional prefix used to serve the static directory content. Default is empty string.
-			Prefix: "public", 	
+			Prefix: "public",
 			// SkipLogging will disable [Static] log messages when a static file is served. Default is false.
-			SkipLogging: true, 	
+			SkipLogging: true,
 			// IndexFile defines which file to serve as index if it exists. Default is "index.html".
-			IndexFile: "index.html",	
+			IndexFile: "index.html",
 			// Expires defines which user-defined function to use for producing a HTTP Expires Header. Default is nil.
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
 			Expires: func() string { return "max-age=0" },
@@ -268,7 +268,7 @@ This will register both `public` and `views` as static directories.
 
 ### Global Logger
 
-This service is represented by type [`*log.Logger`](http://gowalker.org/log#Logger). It is optional to use, but for convenience when you do not have a global level logger. 
+This service is represented by type [`*log.Logger`](http://gowalker.org/log#Logger). It is optional to use, but for convenience when you do not have a global level logger.
 
 To use it:
 
