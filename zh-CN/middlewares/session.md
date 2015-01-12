@@ -132,6 +132,7 @@ import _ "github.com/macaron-contrib/session/memcache"
 //...
 m.Use(session.Sessioner(session.Options{
     Provider:       "memcache",
+    // e.g.: 127.0.0.1:9090;127.0.0.1:9091
     ProviderConfig: "127.0.0.1:9090",
 }))
 //...

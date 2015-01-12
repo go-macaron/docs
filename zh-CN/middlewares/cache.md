@@ -105,6 +105,7 @@ import _ "github.com/macaron-contrib/cache/memcache"
 //...
 m.Use(cache.Cacher(cache.Options{
     Adapter:       "memcache",
+    // e.g.: 127.0.0.1:9090;127.0.0.1:9091
     AdapterConfig: "127.0.0.1:11211",
 }))
 //...
