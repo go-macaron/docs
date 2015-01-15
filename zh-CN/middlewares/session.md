@@ -207,7 +207,7 @@ import _ "github.com/macaron-contrib/session/ledis"
 //...
 m.Use(session.Sessioner(session.Options{
     Provider:       "ledis",
-    ProviderConfig: "data/sessions",
+    ProviderConfig: "data_dir=./app.db,db=0",
 }))
 //...
 ```

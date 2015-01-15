@@ -160,6 +160,19 @@ m.Use(cache.Cacher(cache.Options{
 //...
 ```
 
+### Ledis
+
+```go
+import _ "github.com/macaron-contrib/cache/ledis"
+
+//...
+m.Use(cache.Cacher(cache.Options{
+    Adapter:       "ledis",
+    AdapterConfig: "data_dir=./app.db,db=0",
+}))
+//...
+```
+
 ### Nodb
 
 ```go
