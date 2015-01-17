@@ -44,7 +44,7 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 最基本的 Cookie 用法：
 
 - [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)、[`*macaron.Context.GetCookieInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt)、[`*macaron.Context.GetCookieInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt64)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)、[`*macaron.Context.GetCookieInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt)、[`*macaron.Context.GetCookieInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt64)、[`*macaron.Context.GetCookieFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieFloat64)
 
 使用方法：
 
@@ -111,8 +111,8 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 ### 其它辅助方法
 
-- 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)
-- 获取查询参数：[`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64)、[`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
+- 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)、[`ctx.ParamsFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsFloat64)
+- 获取查询参数：[`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64)、[`ctx.QueryFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryFloat64)、[`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
 - 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
 - 获取远程 IP 地址：[`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
 

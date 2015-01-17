@@ -57,7 +57,7 @@ m.Use(cache.Cacher(cache.Options{
 
 ## Adapters
 
-There are 6 built-in implementations of cache adapter, you have to import adapter driver explicitly except for **memory** and **file** adapters.
+There are 8 built-in implementations of cache adapter, you have to import adapter driver explicitly except for **memory** and **file** adapters.
 
 Following are some basic usage examples for adapters.
 
