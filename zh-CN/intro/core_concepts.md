@@ -44,6 +44,10 @@ m.Get("/", func() {
 m.Get("/", func() string {
 	return "hello world" // HTTP 200 : "hello world"
 })
+
+m.Get("/", func() []byte {
+    return []byte("hello world") // HTTP 200 : "hello world"
+})
 ```
 
 另外你也可以选择性的返回状态码:
@@ -61,7 +65,7 @@ m.Get("/", func() (int, string) {
 如果你加入一个参数到你的处理器, Macaron 将会搜索它参数列表中的服务，并且通过类型判断来解决依赖关系：
 
 ```go
-m.Get("/", func(resp http.ResponseWriter, req *http.Request) { 
+m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 	// resp 和 req 是由 Macaron 默认注入的服务
 	resp.WriteHeader(200) // HTTP 200
 })

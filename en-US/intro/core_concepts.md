@@ -44,6 +44,11 @@ If a handler returns something, Macaron will write the result to the current [`h
 m.Get("/", func() string {
 	return "hello world" // HTTP 200 : "hello world"
 })
+
+
+m.Get("/", func() []byte {
+    return []byte("hello world") // HTTP 200 : "hello world"
+})
 ```
 
 You can also optionally return a status code:
@@ -61,7 +66,7 @@ Handlers are invoked via reflection. Macaron makes use of [Dependency Injection]
 If you add an argument to your handler, Macaron will search its list of services and attempt to resolve the dependency via type assertion:
 
 ```go
-m.Get("/", func(resp http.ResponseWriter, req *http.Request) { 
+m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 	// resp and req are injected by Macaron
 	resp.WriteHeader(200) // HTTP 200
 })
