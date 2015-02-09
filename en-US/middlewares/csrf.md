@@ -17,7 +17,7 @@ Middleware csrf generates and validates CSRF tokens for Macaron [Instances](../i
 
 ## Usage
 
-To use this middleware, you have to enable [session](session) as well.
+To use this middleware, you have to enable [session](./session) as well.
 
 ```go
 package main

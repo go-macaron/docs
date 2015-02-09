@@ -17,7 +17,7 @@ sort: 8
 
 ## 使用示例
 
-想要使用该中间件，您必须同时使用 [session](session) 中间件。
+想要使用该中间件，您必须同时使用 [session](./session) 中间件。
 
 ```go
 package main
