@@ -17,7 +17,7 @@ sort: 9
 
 ## 使用示例
 
-想要使用该中间件，您必须同时使用 [cache](./cache) 中间件。
+想要使用该中间件，您必须同时使用 [cache](cache) 中间件。
 
 ```go
 // main.go
@@ -48,28 +48,28 @@ func main() {
 {{.Captcha.CreateHtml}}
 ```
 
-## Options
+## 自定义选项
 
-`captcha.Captchaer` comes with a variety of configuration options:
+该服务允许接受一个参数来进行自定义选项（[`captcha.Options`](https://gowalker.org/github.com/macaron-contrib/captcha#Options)）：
 
 ```go
 // ...
 m.Use(captcha.Captchaer(captcha.Options{
-    // URL prefix of getting captcha pictures. Default is "/captcha/".
+    // 获取验证码图片的 URL 前缀，默认为 "/captcha/"
     URLPrefix:			"/captcha/",
-    // Hidden input element ID. Default is "captcha_id".
+    // 表单隐藏元素的 ID 名称，默认为 "captcha_id"
     FieldIdName:		"captcha_id",
-    // User input value element name in request form. Default is "captcha".
+    // 用户输入验证码值的元素 ID，默认为 "captcha"
     FieldCaptchaName:	"captcha",
-    // Challenge number. Default is 6.
+    // 验证字符的个数，默认为 6
     ChallengeNums:		6,
-    // Captcha image width. Default is 240.
+    // 验证码图片的宽度，默认为 240 像素
     Width:				240,
-    // Captcha image height. Default is 80.
+    // 验证码图片的高度，默认为 80 像素
     Height:				80,
-    // Captcha expiration time in seconds. Default is 600.
+    // 验证码过期时间，默认为 600 秒
     Expiration:			600,
-    // Cache key prefix captcha characters. Default is "captcha_".
+    // 用于存储验证码正确值的 Cache 键名，默认为 "captcha_"
     CachePrefix:		"captcha_",
 }))
 // ...

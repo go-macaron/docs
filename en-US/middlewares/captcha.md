@@ -17,7 +17,7 @@ Middleware captcha provides captcha service for Macaron [Instances](../intro/cor
 
 ## Usage
 
-To use this middleware, you have to enable [cache](./cache) as well.
+To use this middleware, you have to enable [cache](cache) as well.
 
 ```go
 // main.go
