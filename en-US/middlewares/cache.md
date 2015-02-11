@@ -90,8 +90,8 @@ import _ "github.com/macaron-contrib/cache/redis"
 //...
 m.Use(cache.Cacher(cache.Options{
     Adapter:       "redis",
-    // e.g.: network=tcp,addr=:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
-    AdapterConfig: "addr=:6379,password=macaron",
+    // e.g.: network=tcp,addr=127.0.0.1:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
+    AdapterConfig: "addr=127.0.0.1:6379,password=macaron",
 }))
 //...
 ```
