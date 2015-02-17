@@ -87,7 +87,7 @@ m.Use(session.Sessioner(session.Options{
 
 ## 提供器
 
-目前有 8 款内置的提供器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它提供器的驱动。
+目前有 9 款内置的提供器，除了 **内存** 和 **文件** 提供器外，您都必须显式导入其它提供器的驱动。
 
 以下为提供器的基本用法：
 
@@ -208,6 +208,19 @@ import _ "github.com/macaron-contrib/session/ledis"
 m.Use(session.Sessioner(session.Options{
     Provider:       "ledis",
     ProviderConfig: "data_dir=./app.db,db=0",
+}))
+//...
+```
+
+### Nodb
+
+```go
+import _ "github.com/macaron-contrib/session/nodb"
+
+//...
+m.Use(session.Sessioner(session.Options{
+    Provider:       "nodb",
+    ProviderConfig: "data/cache.db",
 }))
 //...
 ```

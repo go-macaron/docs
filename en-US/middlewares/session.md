@@ -87,7 +87,7 @@ m.Use(session.Sessioner(session.Options{
 
 ## Providers
 
-There are 8 built-in implementations of session provider, you have to import provider driver explicitly except for **memory** and **file** providers.
+There are 9 built-in implementations of session provider, you have to import provider driver explicitly except for **memory** and **file** providers.
 
 Following are some basic usage examples for providers.
 
@@ -208,6 +208,19 @@ import _ "github.com/macaron-contrib/session/ledis"
 m.Use(session.Sessioner(session.Options{
     Provider:       "ledis",
     ProviderConfig: "data_dir=./app.db,db=0",
+}))
+//...
+```
+
+### Nodb
+
+```go
+import _ "github.com/macaron-contrib/session/nodb"
+
+//...
+m.Use(session.Sessioner(session.Options{
+    Provider:       "nodb",
+    ProviderConfig: "data/cache.db",
 }))
 //...
 ```
