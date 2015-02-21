@@ -18,7 +18,7 @@ There are already many [middlewares and modules](https://github.com/macaron-cont
 - [captcha](captcha) - Captcha service
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 template engine support
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
-- [bindata](https://github.com/macaron-contrib/bindata) - Embed binary data as static and template files
+- [bindata](bindata) - Embed binary data as static and template files
 - [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend
 - [switcher](switcher) - Multiple-site support

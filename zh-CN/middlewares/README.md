@@ -18,7 +18,7 @@ sort: 0
 - [captcha](captcha) - 验证码服务
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 模板引擎支持
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets 管道绑定
-- [bindata](https://github.com/macaron-contrib/bindata) - 嵌入二进制数据作为静态资源和模板文件
+- [bindata](bindata) - 嵌入二进制数据作为静态资源和模板文件
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 服务器后端
 - [switcher](switcher) - 多站点支持
