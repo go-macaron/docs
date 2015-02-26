@@ -52,6 +52,33 @@ func main() {
 <h2>{{.Flash.WarningMsg}}</h2>
 ```
 
+### Pongo2
+
+如果您正在使用 [pongo2](https://github.com/macaron-contrib/pongo2) 作为应用的模板引擎，则需要对 HTML 进行如下修改：
+
+```html
+<!-- templates/signup.tmpl -->
+<h2>{{Flash.SuccessMsg}}</h2>
+<h2>{{Flash.ErrorMsg}}</h2>
+<h2>{{Flash.InfoMsg}}</h2>
+<h2>{{Flash.WarningMsg}}</h2>
+```
+
+### 将 Flash 输出到当前响应
+
+默认情况下，Flash 的数据只会在相对应会话的下一个响应中使用，但函数 `Success`、`Error`、`Info` 和 `Warning` 均接受第二个参数来指示是否在当前响应输出数据：
+
+```go
+// ...
+f.Success("yes!!!", true)
+f.Error("opps...", true)
+f.Info("aha?!", true)
+f.Warning("Just be careful.", true)
+// ...
+```
+
+但是请注意，不管您选择什么时候输出 Flash 的数据，它都只能够被使用一次。
+
 ## 自定义选项
 
 该服务允许接受一个参数来进行自定义选项（[`session.Options`](https://gowalker.org/github.com/macaron-contrib/session#Options)）：

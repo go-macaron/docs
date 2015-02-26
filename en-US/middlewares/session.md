@@ -52,6 +52,33 @@ func main() {
 <h2>{{.Flash.WarningMsg}}</h2>
 ```
 
+### Pongo2
+
+If you're using [pongo2](https://github.com/macaron-contrib/pongo2) as template engine, you will use flash in HTML as follows:
+
+```html
+<!-- templates/signup.tmpl -->
+<h2>{{Flash.SuccessMsg}}</h2>
+<h2>{{Flash.ErrorMsg}}</h2>
+<h2>{{Flash.InfoMsg}}</h2>
+<h2>{{Flash.WarningMsg}}</h2>
+```
+
+### Output flash in current response
+
+By default, flash will be only used for the next coming response corresponding to the session, but functions `Success`, `Error`, `Info` and `Warning` are all accept a second argument to indicate whether output flash in current response or not.
+
+```go
+// ...
+f.Success("yes!!!", true)
+f.Error("opps...", true)
+f.Info("aha?!", true)
+f.Warning("Just be careful.", true)
+// ...
+```
+
+But remember, flash can only be used once no matter which way you use.
+
 ## Options
 
 `session.Sessioner` comes with a variety of configuration options([`session.Options`](https://gowalker.org/github.com/macaron-contrib/session#Options)):
