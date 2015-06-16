@@ -97,7 +97,7 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 	})
 
 	m.Get("/user/*.*", func(ctx *macaron.Context) string {
-		return fmt.Sprintf("Last part is: %s", ctx.Params(":path"), ctx.Params(":ext"))
+		return fmt.Sprintf("Last part is: %s, Ext: %s", ctx.Params(":path"), ctx.Params(":ext"))
 	})
 	```
 
