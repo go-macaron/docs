@@ -159,6 +159,7 @@ There are some builtin validation rules. To use them, the tag format is `binding
 
 |Name|Note|
 |----|----|
+|`OmitEmpty`|Omit rest of validations if value is empty|
 |`Required`|Must be non-zero value|
 |`AlphaDash`|Must be alpha characters or numerics or `-_`|
 |`AlphaDashDot`|Must be alpha characters or numerics, `-_` or `.`|

@@ -414,7 +414,8 @@ func main() {
 	m.Get("/old", func(ctx *macaron.Context) {
 		ctx.Data["Name"] = "Unknwon"
 		ctx.HTML(200, "hello")
-		ctx.SetTemplatePath("templates2")
+		// 空字符串表示操作默认模板集
+		ctx.SetTemplatePath("", "templates2")
 	})
 	m.Get("/new", func(ctx *macaron.Context) {
 		ctx.Data["Name"] = "Unknwon"
