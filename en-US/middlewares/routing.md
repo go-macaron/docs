@@ -62,6 +62,16 @@ Notes:
 - ...but, narrow range routes have higher priority than wider range routes(e.g.: fixed URLs > regex URLs)
 - The first route that matches the request is invoked.
 
+In some cases, HEAD method is also used wherever GET method is registered. To reduce redundant code, there is a method called [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) can help you automatically register it:
+
+```go
+m := New()
+m.SetAutoHead(true)
+m.Get("/", func() string {
+	return "GET"
+}) // HEAD method for path "/" is now registered as well.
+```
+
 If you want to use suburl without having a huge group indent, use `m.SetURLPrefix(suburl)`.
 
 Route patterns may include named parameters, accessible via the method [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params):

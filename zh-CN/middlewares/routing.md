@@ -61,6 +61,16 @@ m.NotFound(func() {
 - ...但是，匹配范围较小的路由优先级比匹配范围大的优先级高（例如：固定 URL > 正则 URL）。
 - 最先被定义的路由将会首先被用户请求匹配并调用。
 
+在一些时候，每当 GET 方法被注册的时候，都会需要注册一个一模一样的 HEAD 方法。为了达到减少代码的目的，您可以使用一个名为 [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) 的方法来协助您自动注册：
+
+```go
+m := New()
+m.SetAutoHead(true)
+m.Get("/", func() string {
+	return "GET"
+}) // 路径 "/" 的 HEAD 也已经被自动注册
+```
+
 如果您想要使用子路径但让路由代码保持简洁，可以调用 `m.SetURLPrefix(suburl)`。
 
 路由模型可能包含参数列表, 可以通过  [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params) 来获取:
