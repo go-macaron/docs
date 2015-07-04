@@ -58,7 +58,7 @@ m.NotFound(func() {
 几点说明：
 
 - 路由匹配的顺序是按照他们被定义的顺序执行的，
-- ...但是，匹配范围较小的路由优先级比匹配范围大的优先级高（例如：固定 URL > 正则 URL）。
+- ...但是，匹配范围较小的路由优先级比匹配范围大的优先级高（详见 **匹配优先级**）。
 - 最先被定义的路由将会首先被用户请求匹配并调用。
 
 在一些时候，每当 GET 方法被注册的时候，都会需要注册一个一模一样的 HEAD 方法。为了达到减少代码的目的，您可以使用一个名为 [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) 的方法来协助您自动注册：
@@ -73,7 +73,13 @@ m.Get("/", func() string {
 
 如果您想要使用子路径但让路由代码保持简洁，可以调用 `m.SetURLPrefix(suburl)`。
 
+## 命名参数
+
 路由模型可能包含参数列表, 可以通过  [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params) 来获取:
+
+### 占位符
+
+使用一个特定的名称来代表路由的某个部分：
 
 ```go
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
@@ -85,6 +91,20 @@ m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
 })
 ```
 
+当然，想要偷懒的时候可以将 `:` 前缀去掉：
+
+```go
+m.Get("/hello/:name", func(ctx *macaron.Context) string {
+	return "Hello " + ctx.Params("name")
+})
+
+m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params("year"), ctx.Params("month"), ctx.Params("day"))
+})
+```
+
+### 全局匹配
+
 路由匹配可以通过全局匹配的形式:
 
 ```go
@@ -92,6 +112,16 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 	return "Hello " + ctx.Params("*")
 })
 ```
+
+那么，如果将 `*` 放在路由中间会发生什么呢？
+
+```go
+m.Get("/date/*/*/*/events", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params("*0"), ctx.Params("*1"), ctx.Params("*2"))
+})
+```
+
+### 正则表达式
 
 您还可以使用正则表达式来书写路由规则：
 
@@ -124,6 +154,30 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 - 简写：
 	- `/user/:id:int`：`:int` 是 `([0-9]+)` 正则的简写。
 	- `/user/:name:string`：`:string` 是 `([\w]+)` 正则的简写。
+
+## 匹配优先级
+
+以下为从高到低的不同模式的匹配优先级：
+
+- 静态路由：
+	- `/`
+	- `/home`
+- 正则表达式路由：
+	- `/(.+).html`
+	- `/([0-9]+).css`
+- 路径-后缀路由：
+	- `/*.*`
+- 占位符路由：
+	- `/:id`
+	- `/:name`
+- 全局匹配路由：
+	- `/*`
+
+其它说明：
+
+- 相同模式的匹配优先级是根据添加的先后顺序决定的。
+- 层级相对明确的模式匹配优先级要高于相对模糊的模式：
+	- `/*/*/events` > `/*`
 
 ## 高级路由定义
 

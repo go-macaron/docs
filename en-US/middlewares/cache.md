@@ -92,9 +92,12 @@ m.Use(cache.Cacher(cache.Options{
     Adapter:       "redis",
     // e.g.: network=tcp,addr=127.0.0.1:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
     AdapterConfig: "addr=127.0.0.1:6379,password=macaron",
+    OccupyMode:    false,
 }))
 //...
 ```
+
+There is a special **occupy mode** for Redis cacher when you want to use entire database selection with large amount of cache data. By setting `OccupyMode` to `true` to enable this mode, then cacher will stop maintaining the index collection of cache data that is used to determine what data are belonging to your app, and helps you reduce CPU and memory usage in such cases.
 
 ### Memcache
 

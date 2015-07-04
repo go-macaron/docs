@@ -93,9 +93,12 @@ m.Use(cache.Cacher(cache.Options{
     Adapter:       "redis",
     // e.g.: network=tcp,addr=127.0.0.1:6379,password=macaron,db=0,pool_size=100,idle_timeout=180
     AdapterConfig: "addr=127.0.0.1:6379,password=macaron",
+    OccupyMode:    false,
 }))
 //...
 ```
+
+当您使用 Redis 作为缓存器时，可以通过将 `OccupyMode` 的值设置为 `true` 来启用独占模式。在该模式下，缓存器将直接占用所选用的整个数据库，而不是通过维护一个索引集合来判断哪些数据是属于您的应用的。当您的缓存数据非常巨大时，该模式可以有效降低应用的 CPU 和内存使用率。
 
 ### Memcache
 

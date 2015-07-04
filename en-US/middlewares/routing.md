@@ -59,7 +59,7 @@ m.NotFound(func() {
 Notes:
 
 - Routes are matched in the order they are defined,
-- ...but, narrow range routes have higher priority than wider range routes(e.g.: fixed URLs > regex URLs)
+- ...but, narrow range routes have higher priority than wider range routes(see below: **Matching Priority**)
 - The first route that matches the request is invoked.
 
 In some cases, HEAD method is also used wherever GET method is registered. To reduce redundant code, there is a method called [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) can help you automatically register it:
@@ -74,7 +74,13 @@ m.Get("/", func() string {
 
 If you want to use suburl without having a huge group indent, use `m.SetURLPrefix(suburl)`.
 
+## Named Parameters
+
 Route patterns may include named parameters, accessible via the method [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params):
+
+### Placeholders
+
+Use a specific name to represent a route part:
 
 ```go
 m.Get("/hello/:name", func(ctx *macaron.Context) string {
@@ -86,6 +92,20 @@ m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
 })
 ```
 
+Of course, `:` seems noising sometimes, take it out when you feels like:
+
+```go
+m.Get("/hello/:name", func(ctx *macaron.Context) string {
+	return "Hello " + ctx.Params("name")
+})
+
+m.Get("/date/:year/:month/:day", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params("year"), ctx.Params("month"), ctx.Params("day"))
+})
+```
+
+### Globs
+
 Routes can be matched with globs:
 
 ```go
@@ -93,6 +113,16 @@ m.Get("/hello/*", func(ctx *macaron.Context) string {
 	return "Hello " + ctx.Params("*")
 })
 ```
+
+What happens when `*` is in the middle?
+
+```go
+m.Get("/date/*/*/*/events", func(ctx *macaron.Context) string {
+	return fmt.Sprintf("Date: %s/%s/%s", ctx.Params("*0"), ctx.Params("*1"), ctx.Params("*2"))
+})
+```
+
+### Regular Expressions
 
 Regular expressions can be used as well:
 
@@ -125,6 +155,30 @@ Regular expressions can be used as well:
 - Shortcuts:
 	- `/user/:id:int`, `:int` is shortcut for `([0-9]+)`.
 	- `/user/:name:string`, `:string` is shortcut for `([\w]+)`.
+
+## Matching Priority
+
+Matching priority of different match patterns from higher to lower:
+
+- Static routes:
+	- `/`
+	- `/home`
+- Regular expression routes:
+	- `/(.+).html`
+	- `/([0-9]+).css`
+- Path-extension routesL
+	- `/*.*`
+- Placeholder routes:
+	- `/:id`
+	- `/:name`
+- Glob routes:
+	- `/*`
+
+Other notes:
+
+- Matching priority of same pattern is first add first match.
+- More detailed pattern gets higher matching priority:
+	- `/*/*/events` > `/*`
 
 ## Advanced Routing
 
