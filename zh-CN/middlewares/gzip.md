@@ -8,7 +8,7 @@ sort: 1
 
 中间件 Gzip 可以为响应内容提供 Gzip 压缩。请确保在其它会向响应流写入内容的中间件之前注册该服务。
 
-使用方法：
+## 使用示例
 
 ```go
 package main
@@ -39,4 +39,16 @@ func main() {
 	// 注册路由
 	m.Run()
 }
+```
+
+## 自定义选项
+
+该服务允许接受一个参数来进行自定义选项（[`macaron.GzipOptions`](https://gowalker.org/github.com/Unknwon/macaron#GzipOptions)）：
+
+```go
+// ...
+m.Use(macaron.Gziper(macaron.GzipOptions{
+	// 压缩级别，可以是 DefaultCompression（-1），或介于包括 BestSpeed（1） 和 BestCompression（9） 在内，这两者之间的任意整数
+	CompressionLevel: 1,
+}))
 ```
