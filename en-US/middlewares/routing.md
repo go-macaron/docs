@@ -180,6 +180,51 @@ Other notes:
 - More detailed pattern gets higher matching priority:
 	- `/*/*/events` > `/*`
 
+### Building URLs
+
+You can build URLs with named parameters, to do this, you should use [`*Route.Name`](https://gowalker.org/github.com/Unknwon/macaron#Route_Name) method give route a name:
+
+```go
+// ...
+m.Get("/users/:id([0-9]+)/:name:string.profile", handler).Name("user_profile")
+m.Combo("/api/:user/:repo").Get(handler).Post(handler).Name("user_repo")
+// ...
+```
+
+Then use [`*Router.URLFor`](https://gowalker.org/github.com/Unknwon/macaron#Router_URLFor) to build URLs with route of given name:
+
+```go
+// ...
+func handler(ctx *macaron.Context) {
+	// /users/12/unknwon.profile
+	userProfile := ctx.URLFor("user_profile", ":id", "12", ":name", "unknwon")
+	// /api/unknwon/macaron
+	userRepo := ctx.URLFor("user_repo", ":user", "unknwon", ":repo", "macaron")
+}
+// ...
+```
+
+#### Using it in Go templating engine
+
+```go
+// ...
+m.Use(macaron.Renderer(macaron.RenderOptions{
+	Funcs:      []template.FuncMap{map[string]interface{}{
+		"URLFor": m.URLFor,	
+	}},
+}))
+// ...
+```
+
+#### Using it in Pongo2 templating engine
+
+```go
+// ...
+ctx.Data["URLFor"] = ctx.URLFor
+ctx.HTML(200, "home")
+// ...
+```
+
 ## Advanced Routing
 
 Route handlers can be stacked on top of each other, which is useful for things like authentication and authorization:

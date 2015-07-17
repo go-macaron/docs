@@ -179,6 +179,51 @@ m.Get("/date/*/*/*/events", func(ctx *macaron.Context) string {
 - 层级相对明确的模式匹配优先级要高于相对模糊的模式：
 	- `/*/*/events` > `/*`
 
+### 构建 URL 路径
+
+您可以通过 [`*Route.Name`](https://gowalker.org/github.com/Unknwon/macaron#Route_Name) 方法配合命名参数来构建 URL 路径，不过首先需要为路由命名：
+
+```go
+// ...
+m.Get("/users/:id([0-9]+)/:name:string.profile", handler).Name("user_profile")
+m.Combo("/api/:user/:repo").Get(handler).Post(handler).Name("user_repo")
+// ...
+```
+
+然后通过 [`*Router.URLFor`](https://gowalker.org/github.com/Unknwon/macaron#Router_URLFor) 方法来为指定名称的路由构建 URL 路径：
+
+```go
+// ...
+func handler(ctx *macaron.Context) {
+	// /users/12/unknwon.profile
+	userProfile := ctx.URLFor("user_profile", ":id", "12", ":name", "unknwon")
+	// /api/unknwon/macaron
+	userRepo := ctx.URLFor("user_repo", ":user", "unknwon", ":repo", "macaron")
+}
+// ...
+```
+
+#### 配合 Go 模板引擎使用
+
+```go
+// ...
+m.Use(macaron.Renderer(macaron.RenderOptions{
+	Funcs:      []template.FuncMap{map[string]interface{}{
+		"URLFor": m.URLFor,	
+	}},
+}))
+// ...
+```
+
+#### 配合 Pongo2 模板引擎使用
+
+```go
+// ...
+ctx.Data["URLFor"] = ctx.URLFor
+ctx.HTML(200, "home")
+// ...
+```
+
 ## 高级路由定义
 
 路由处理器可以被相互叠加使用, 例如很有用的地方可以是在验证和授权的时候:
