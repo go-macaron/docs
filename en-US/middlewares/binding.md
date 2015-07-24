@@ -163,6 +163,7 @@ There are some builtin validation rules. To use them, the tag format is `binding
 |`Required`|Must be non-zero value|
 |`AlphaDash`|Must be alpha characters or numerics or `-_`|
 |`AlphaDashDot`|Must be alpha characters or numerics, `-_` or `.`|
+|`Size(int)`|Fixed length|
 |`MinSize(int)`|Minimum length|
 |`MaxSize(int)`|Maximum length|
 |`Range(int,int)`|Value range(inclusive)|

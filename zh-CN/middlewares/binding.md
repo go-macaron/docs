@@ -170,6 +170,7 @@ func main() {
 |`Required`|必须为相同类型的非零值|
 |`AlphaDash`|必须为半角英文字母、阿拉伯数字或 `-_`|
 |`AlphaDashDot`|必须为半角英文字母、阿拉伯数字、`-_` 或 `.`|
+|`Size(int)`|固定长度|
 |`MinSize(int)`|最小长度|
 |`MaxSize(int)`|最大长度|
 |`Range(int,int)`|取值范围（包含边界值）|
