@@ -37,6 +37,22 @@ func main() {
 
 By default, this program will listen on ports `4000`(for `m1`) and `4001`(for `m2`) in `macaron.DEV` mode just for convenience. And only listen on `4000` in `macaron.PROD` mode.
 
+### Dynamic match
+
+In case you have different subdomains that need only one Macaron instance:
+
+```go
+// ...
+m := macaron.Classic()
+// Register m middlewares and routers.
+
+hs := macaron.NewHostSwitcher()
+// Set instance corresponding to host address.
+hs.Set("*.example.com", m)
+hs.Run()
+// ...
+```
+
 ## Others
 
 - See [gogs.io](https://github.com/gogits/gogsweb) as a study example.
