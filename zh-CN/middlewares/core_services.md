@@ -244,7 +244,9 @@ func main() {
 			IndexFile: "index.html",
 			// 用于返回自定义过期响应头，不能为不设置
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
-			Expires: func() string { return "max-age=0" },
+			Expires: func() string { 
+				return time.Now().Add(24 * 60 * time.Minute).UTC().Format("Mon, 02 Jan 2006 15:04:05 GMT")
+			},
 		}))
 	// ...
 }
