@@ -260,7 +260,7 @@ To use it:
 
 ```go
 // ...
-m.Use(Statics(StaticOptions{}, "public", "views"))
+m.Use(macaron.Statics(macaron.StaticOptions{}, "public", "views"))
 // ...
 ```
 
