@@ -1,7 +1,5 @@
 ---
-root: false
 name: Getting Started
-sort: 0
 ---
 
 # Getting Started 
@@ -10,7 +8,9 @@ Before we get started, one thing you should know that documentation does not tea
 
 To install Macaron:
 
-	go get github.com/Unknwon/macaron
+```sh
+go get github.com/Unknwon/macaron
+```
 
 ## Minimal Example
 
@@ -40,7 +40,9 @@ Finally, we call method [`m.Run`](https://gowalker.org/github.com/Unknwon/macaro
 
 Then, execute command `go run main.go`, you should see a log message is printed to the console:
 
-	[Macaron] listening on 0.0.0.0:4000 (development)
+```sh
+[Macaron] listening on 0.0.0.0:4000 (development)
+```
 
 Now, open your browser and visit [localhost:4000](http://localhost:4000), maigc happens!
 

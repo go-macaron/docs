@@ -20,7 +20,7 @@ sort: 0
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets 管道绑定
 - [bindata](bindata) - 嵌入二进制数据作为静态资源和模板文件
 - [toolbox](https://github.com/macaron-contrib/toolbox) - 健康检查、性能调试和路由统计等服务
-- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 服务器后端
+- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 服务器后端客户端
 - [switcher](switcher) - 多站点支持
 - [method](https://github.com/macaron-contrib/method) - HTTP 方法覆盖
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies、多用户和权限管理

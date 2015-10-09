@@ -1,7 +1,5 @@
 ---
-root: false
 name: 开始使用
-sort: 0
 ---
 
 # 开始使用 Macaron
@@ -10,7 +8,9 @@ sort: 0
 
 通过执行以下命令来安装 Macaron：
 
-	go get github.com/Unknwon/macaron
+```sh
+go get github.com/Unknwon/macaron
+```
 
 ## 最简示例
 
@@ -40,7 +40,9 @@ func main() {
 
 接下来，就可以执行命令 `go run main.go` 运行程序。您应该在程序启动后看到一条日志信息：
 
-	[Macaron] listening on 0.0.0.0:4000 (development)
+```sh
+[Macaron] listening on 0.0.0.0:4000 (development)
+```
 
 现在，打开您的浏览器然后访问 [localhost:4000](http://localhost:4000)。您会发现，一切是如此的美好！
 

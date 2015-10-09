@@ -1,7 +1,5 @@
 ---
-root: true
 name: Introduction
-sort: 0
 ---
 
 # Macaron
@@ -24,16 +22,16 @@ Package macaron is a high productive and modular design web framework in Go. It 
 
 ## Use Cases
 
-- [Gogs](https://github.com/gogits/gogs): Go Git Service
-- [Gogs Web](https://github.com/gogits/gogsweb): Gogs official website
+- [Gogs](http://gogs.io): A painless self-hosted Git Service
+- [Peach](http://peachdocs.org): A modern web documentation server
 - [Go Walker](https://gowalker.org): Go online API documentation
-- [Switch](https://github.com/gpmgo/switch): Gopm registry
+- [Switch](http://gopm.io): Gopm registry
 - [YouGam](http://yougam.com): Online Forum
-- [Car Girl](http://qcnl.gzsy.com/): Online campaign
+- [Critical Stack Intel](https://intel.criticalstack.com/): A 100% free intel marketplace from Critical Stack, Inc.
 
 ## Quick Start
 
-- New to Macaron? Let’s [get started](./getting_started)!
-- [Middlewares](../middlewares) that are built for Macaron.
-- Have any questions? Maybe there are [answers](../faqs) for you!
+- New to Macaron? Let’s [get started](/docs/intro/getting_started)!
+- [Middlewares](/docs/middlewares) that are built for Macaron.
+- Have any questions? Maybe there are [answers](/docs/faqs) for you!
 - If you think anything is not clear in the documentation, just [file an issue](https://github.com/macaron-contrib/docs/issues)!

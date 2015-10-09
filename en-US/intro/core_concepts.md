@@ -1,7 +1,5 @@
 ---
-root: false
 name: Core Concepts
-sort: 1
 ---
 
 # Core Concepts

@@ -54,7 +54,7 @@ See example [here](../middlewares/routing#advanced-routing).
 ### What's the idea behind this other than Martini?
 
 - Integrate frequently used middlewares and helper methods with less reflection.
-- Replace default router with faster beego router.
+- Replace default router with faster multi-tree router.
 - To make much easier power [Gogs](http://gogs.io) project.
 - Make a deep source study against Martini.
 

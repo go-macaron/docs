@@ -1,7 +1,5 @@
 ---
-root: false
 name: 核心概念
-sort: 1
 ---
 
 # Macaron 核心概念

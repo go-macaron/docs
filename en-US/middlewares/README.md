@@ -1,7 +1,5 @@
 ---
-root: true
 name: Middlewares
-sort: 1
 ---
 
 # Middlewares and helper modules
@@ -20,7 +18,7 @@ There are already many [middlewares and modules](https://github.com/macaron-cont
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
 - [bindata](bindata) - Embed binary data as static and template files
 - [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
-- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend
+- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend client
 - [switcher](switcher) - Multiple-site support
 - [method](https://github.com/macaron-contrib/method) - HTTP method override
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions

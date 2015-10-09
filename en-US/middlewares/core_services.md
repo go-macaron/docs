@@ -1,7 +1,5 @@
 ---
-root: false
 name: Core Services
-sort: 0
 ---
 
 # Core Services
@@ -136,7 +134,7 @@ func main() {
 
 **Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
 
-Sample output take from [Gogs Web](https://github.com/gogits/gogs):
+Sample output take from [Peach](https://github.com/peachdocs/peach):
 
 ```
 [Macaron] Started GET /docs/middlewares/core.html for [::1]
@@ -186,7 +184,7 @@ func main() {
 
 By default, when you try to request a directory, this service will not list directory files. Instead, it tries to find the `index.html` file.
 
-Sample output take from [Gogs Web](https://github.com/gogits/gogs):
+Sample output take from [Peach](https://github.com/peachdocs/peach):
 
 ```
 [Macaron] Started GET /css/prettify.css for [::1]

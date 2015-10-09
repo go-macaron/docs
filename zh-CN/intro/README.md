@@ -24,16 +24,16 @@ Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。框架�
 
 ## 使用案例
 
-- [Gogs](https://github.com/gogits/gogs)：由 Go 语言编写的自助 Git 服务
-- [Gogs Web](https://github.com/gogits/gogsweb)：Gogs 官方网站
+- [Gogs](http://gogs.io)：极易搭建的自助 Git 服务
+- [Peach](http://peachdocs.org)：现代 Web 文档服务器
 - [Go Walker](https://gowalker.org): Go 语言在线 API 文档
-- [Switch](https://github.com/gpmgo/switch)：Go 语言包管理
+- [Switch](http://gopm.io)：Go 语言包管理
 - [YouGam](http://yougam.com)：在线论坛
-- [Car Girl](http://qcnl.gzsy.com/)：在线活动网站
+- [Critical Stack Intel](https://intel.criticalstack.com/)：A 100% free intel marketplace from Critical Stack, Inc.
 
 ## 快速导航
 
-- 刚开始了解 Macaron 的话，不妨从 [开始使用](./getting_started) 看起。
-- Macaron 已经拥有许多 [中间件](../middlewares) 来简化您的工作。
-- 如果您有任何问题，建议先从 [常见问题](../faqs) 中寻找答案。
+- 刚开始了解 Macaron 的话，不妨从 [开始使用](/docs/intro/getting_started) 看起。
+- Macaron 已经拥有许多 [中间件](/docs/middlewares) 来简化您的工作。
+- 如果您有任何问题，建议先从 [常见问题](/docs/faqs) 中寻找答案。
 - 如果您觉得文档有描述得不够清楚之处，请通过 [提交工单](https://github.com/macaron-contrib/docs/issues) 告知我们。

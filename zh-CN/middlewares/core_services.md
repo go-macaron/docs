@@ -1,7 +1,5 @@
 ---
-root: false
 name: 核心服务
-sort: 0
 ---
 
 # 核心服务
@@ -136,7 +134,7 @@ func main() {
 
 **备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会被自动注入。
 
-从 [Gogs Web](https://github.com/gogits/gogs) 项目中提取的样例输出：
+从 [Peach](https://github.com/peachdocs/peach) 项目中提取的样例输出：
 
 ```
 [Macaron] Started GET /docs/middlewares/core.html for [::1]
@@ -186,7 +184,7 @@ func main() {
 
 默认情况下，当您请求一个目录时，该服务不会列出目录下的文件，而是去寻找 `index.html` 文件。
 
-从 [Gogs Web](https://github.com/gogits/gogs) 项目中提取的样例输出：
+从 [Peach](https://github.com/peachdocs/peach) 项目中提取的样例输出：
 
 ```
 [Macaron] Started GET /css/prettify.css for [::1]
@@ -242,7 +240,7 @@ func main() {
 			SkipLogging: true,
 			// 当请求目录时的默认索引文件，默认为 "index.html"
 			IndexFile: "index.html",
-			// 用于返回自定义过期响应头，不能为不设置
+			// 用于返回自定义过期响应头，默认为不设置
 			// https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
 			Expires: func() string { 
 				return time.Now().Add(24 * 60 * time.Minute).UTC().Format("Mon, 02 Jan 2006 15:04:05 GMT")
