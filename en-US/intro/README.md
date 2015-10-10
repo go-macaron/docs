@@ -4,9 +4,11 @@ name: Introduction
 
 # Macaron
 
-Package macaron is a high productive and modular design web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
+Package macaron is a high productive and modular web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
 
 [API Reference](https://gowalker.org/github.com/Unknwon/macaron)
+
+The minimum requirement of Go is **1.3**.
 
 ## Features
 
