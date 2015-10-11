@@ -56,7 +56,7 @@ func main() {
 
 ## Options
 
-`macaron.Gziper` comes with a variety of configuration options([`gzip.Options`](https://gowalker.org/github.com/go-macaron/gzip#Options)):
+This service comes with a variety of configuration options([`gzip.Options`](https://gowalker.org/github.com/go-macaron/gzip#Options)):
 
 ```go
 // ...
