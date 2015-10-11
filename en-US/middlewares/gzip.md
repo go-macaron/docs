@@ -54,6 +54,21 @@ func main() {
 }
 ```
 
+Or you can choose to only compress a group of routes responses:
+
+```go
+// ...
+
+func main() {
+	m := macaron.Classic()
+	m.Group("/gzip", func() {
+		// ...
+	}, gzip.Gziper())
+	// ...
+	m.Run()
+}
+```
+
 ## Options
 
 This service comes with a variety of configuration options([`gzip.Options`](https://gowalker.org/github.com/go-macaron/gzip#Options)):

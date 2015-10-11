@@ -14,7 +14,7 @@ name: Gzip
 ```sh
 go get github.com/github.com/go-macaron/gzip
 ```
-	
+
 ## 使用示例
 
 ```go
@@ -50,6 +50,21 @@ func main() {
 	m.Use(gzip.Gziper())
 	m.Use(macaron.Static("public"))
 	// 注册路由
+	m.Run()
+}
+```
+
+或者选择只压缩某一组路由的响应内容：
+
+```go
+// ...
+
+func main() {
+	m := macaron.Classic()
+	m.Group("/gzip", func() {
+		// ...
+	}, gzip.Gziper())
+	// ...
 	m.Run()
 }
 ```
