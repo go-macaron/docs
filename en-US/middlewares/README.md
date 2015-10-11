@@ -6,20 +6,21 @@ name: Middlewares
 
 Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
-There are already many [middlewares and modules](https://github.com/macaron-contrib) to simplify your work:
+There are already many [middlewares and modules](https://github.com/go-macaron) to simplify your work:
 
-- [binding](binding) - Request data binding and validation
-- [i18n](i18n) - Internationalization and Localization
-- [cache](cache) - Cache manager
-- [session](session) - Session manager
-- [csrf](csrf) - Generates and validates CSRF tokens
-- [captcha](captcha) - Captcha service
+- [gzip](/docs/middlewares/gzip) - Gzip compression to all responses
+- [binding](/docs/middlewares/binding) - Request data binding and validation
+- [i18n](/docs/middlewares/i18n) - Internationalization and Localization
+- [cache](/docs/middlewares/cache) - Cache manager
+- [session](/docs/middlewares/session) - Session manager
+- [csrf](/docs/middlewares/csrf) - Generates and validates CSRF tokens
+- [captcha](/docs/middlewares/captcha) - Captcha service
 - [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 template engine support
 - [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
-- [bindata](bindata) - Embed binary data as static and template files
+- [bindata](/docs/middlewares/bindata) - Embed binary data as static and template files
 - [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
 - [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend client
-- [switcher](switcher) - Multiple-site support
+- [switcher](/docs/middlewares/switcher) - Multiple-site support
 - [method](https://github.com/macaron-contrib/method) - HTTP method override
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions
 - [renders](https://github.com/macaron-contrib/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)

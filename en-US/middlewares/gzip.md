@@ -1,23 +1,33 @@
 ---
-root: false
 name: Gzip
-sort: 1
 ---
 
 # Gzip
 
-Middleware Gzip provides Gzip compress to responses. Make sure to register it before other middlewares that write content to response.
+Middleware gzip provides compress to responses for Macaron [Instances](../intro/core_concepts#instances). Make sure to register it before other middlewares that write content to response.
+
+- [GitHub](https://github.com/go-macaron/gzip)
+- [API Reference](https://gowalker.org/github.com/go-macaron/gzip)
+
+## Installation
+
+```sh
+go get github.com/github.com/go-macaron/gzip
+```
 
 ## Usage
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import (
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/gzip"
+)
 
 func main() {
 	m := macaron.Classic()
-	m.Use(macaron.Gziper())
+	m.Use(gzip.Gziper())
 	// Register routers.
 	m.Run()
 }
@@ -28,13 +38,16 @@ In this case, the static files will not be compressed by Gzip, to compress them:
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import (
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/gzip"
+)
 
 func main() {
 	m := macaron.New()
 	m.Use(macaron.Logger())
 	m.Use(macaron.Recovery())
-	m.Use(macaron.Gziper())
+	m.Use(gzip.Gziper())
 	m.Use(macaron.Static("public"))
 	// Register routers.
 	m.Run()
@@ -43,12 +56,14 @@ func main() {
 
 ## Options
 
-`macaron.Gziper` comes with a variety of configuration options([`macaron.GzipOptions`](https://gowalker.org/github.com/Unknwon/macaron#GzipOptions)):
+`macaron.Gziper` comes with a variety of configuration options([`gzip.Options`](https://gowalker.org/github.com/go-macaron/gzip#Options)):
 
 ```go
 // ...
-m.Use(macaron.Gziper(macaron.GzipOptions{
-	// Compression level. Can be DefaultCompression(-1) or any integer value between BestSpeed(1) and BestCompression(9) inclusive.
-	CompressionLevel: 1,
+m.Use(gzip.Gziper(gzip.Options{
+	// Compression level. Can be DefaultCompression(-1), ConstantCompression(-2)
+	// or any integer value between BestSpeed(1) and BestCompression(9) inclusive.
+	CompressionLevel: 4,
 }))
+// ...
 ```
