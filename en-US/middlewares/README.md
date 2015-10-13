@@ -15,15 +15,15 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 - [session](/docs/middlewares/session) - Session manager
 - [csrf](/docs/middlewares/csrf) - Generates and validates CSRF tokens
 - [captcha](/docs/middlewares/captcha) - Captcha service
-- [pongo2](https://github.com/macaron-contrib/pongo2) - Pongo2 template engine support
-- [sockets](https://github.com/macaron-contrib/sockets) - WebSockets channels binding
+- [pongo2](https://github.com/go-macaron/pongo2) - Pongo2 template engine support
+- [sockets](https://github.com/go-macaron/sockets) - WebSockets channels binding
 - [bindata](/docs/middlewares/bindata) - Embed binary data as static and template files
-- [toolbox](https://github.com/macaron-contrib/toolbox) - Health check, pprof, profile and statistic services
-- [oauth2](https://github.com/macaron-contrib/oauth2) - OAuth 2.0 backend client
+- [toolbox](https://github.com/go-macaron/toolbox) - Health check, pprof, profile and statistic services
+- [oauth2](https://github.com/go-macaron/oauth2) - OAuth 2.0 backend client
 - [switcher](/docs/middlewares/switcher) - Multiple-site support
-- [method](https://github.com/macaron-contrib/method) - HTTP method override
+- [method](https://github.com/go-macaron/method) - HTTP method override
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions
-- [renders](https://github.com/macaron-contrib/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)
+- [renders](https://github.com/go-macaron/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)
 
 ### Best register order for middlewares
 

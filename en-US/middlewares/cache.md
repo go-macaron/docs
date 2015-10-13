@@ -1,26 +1,26 @@
 ---
-root: false
 name: Cache
-sort: 6
 ---
 
 # Cache
 
 Middleware cache provides cache management for Macaron [Instances](../intro/core_concepts#instances).
 
-- [GitHub](https://github.com/macaron-contrib/cache)
-- [API Reference](https://gowalker.org/github.com/macaron-contrib/cache)
+- [GitHub](https://github.com/go-macaron/cache)
+- [API Reference](https://gowalker.org/github.com/go-macaron/cache)
 
 ## Installation
 
-    go get github.com/macaron-contrib/cache
+```sh
+go get github.com/go-macaron/cache
+```
 
 ## Usage
 
 ```go
 import (
-    "github.com/Unknwon/macaron"
-    "github.com/macaron-contrib/cache"
+    "gopkg.in/macaron.v1"
+    "github.com/go-macaron/cache"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 
 ## Options
 
-`cache.Cacher` comes with a variety of configuration options([`cache.Options`](https://gowalker.org/github.com/macaron-contrib/cache#Options)):
+`cache.Cacher` comes with a variety of configuration options([`cache.Options`](https://gowalker.org/github.com/go-macaron/cache#Options)):
 
 ```go
 //...
@@ -85,7 +85,7 @@ m.Use(cache.Cacher(cache.Options{
 **Notice** Only string and int-type are allowed.
 
 ```go
-import _ "github.com/macaron-contrib/cache/redis"
+import _ "github.com/go-macaron/cache/redis"
 
 //...
 m.Use(cache.Cacher(cache.Options{
@@ -102,7 +102,7 @@ There is a special **occupy mode** for Redis cacher when you want to use entire 
 ### Memcache
 
 ```go
-import _ "github.com/macaron-contrib/cache/memcache"
+import _ "github.com/go-macaron/cache/memcache"
 
 //...
 m.Use(cache.Cacher(cache.Options{
@@ -128,7 +128,7 @@ CREATE TABLE cache (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/cache/postgres"
+import _ "github.com/go-macaron/cache/postgres"
 
 //...
 m.Use(cache.Cacher(cache.Options{
@@ -153,7 +153,7 @@ CREATE TABLE `cache` (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/cache/mysql"
+import _ "github.com/go-macaron/cache/mysql"
 
 //...
 m.Use(cache.Cacher(cache.Options{
@@ -166,7 +166,7 @@ m.Use(cache.Cacher(cache.Options{
 ### Ledis
 
 ```go
-import _ "github.com/macaron-contrib/cache/ledis"
+import _ "github.com/go-macaron/cache/ledis"
 
 //...
 m.Use(cache.Cacher(cache.Options{
@@ -179,7 +179,7 @@ m.Use(cache.Cacher(cache.Options{
 ### Nodb
 
 ```go
-import _ "github.com/macaron-contrib/cache/nodb"
+import _ "github.com/go-macaron/cache/nodb"
 
 //...
 m.Use(cache.Cacher(cache.Options{
