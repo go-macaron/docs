@@ -8,14 +8,14 @@ By default, Macaron injects some services to power your application, those servi
 
 ## Context
 
-This service is represented by type [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context). This is the very core serivce for everything you do upon Macaron. It contains all the information you need for request, response, templating, data store, and inject or retrieve other services.
+This service is represented by type [`*macaron.Context`](https://gowalker.org/gopkg.in/macaron.v1#Context). This is the very core serivce for everything you do upon Macaron. It contains all the information you need for request, response, templating, data store, and inject or retrieve other services.
 
 To use it:
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func Home(ctx *macaron.Context) {
 	// ...
@@ -24,7 +24,7 @@ func Home(ctx *macaron.Context) {
 
 ### Next()
 
-Method [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next) is an optional feature that Middleware Handlers can call to yield the until after the other Handlers have been executed. This works really well for any operations that must happen after an HTTP request:
+Method [`Context.Next`](https://gowalker.org/gopkg.in/macaron.v1#Context_Next) is an optional feature that Middleware Handlers can call to yield the until after the other Handlers have been executed. This works really well for any operations that must happen after an HTTP request:
 
 ```go
 // log before and after a request
@@ -41,8 +41,8 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 
 The very basic usage of cookie is just:
 
-- [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie), [`*macaron.Context.GetCookieInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt), [`*macaron.Context.GetCookieInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt64), [`*macaron.Context.GetCookieFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieFloat64)
+- [`*macaron.Context.SetCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetCookie)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookie), [`*macaron.Context.GetCookieInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieInt), [`*macaron.Context.GetCookieInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieInt64), [`*macaron.Context.GetCookieFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieFloat64)
 
 To use them:
 
@@ -64,10 +64,10 @@ For example, the most advanced usage would be: `SetCookie("user", "unknwon", 999
 
 Note that order is fixed.
 
-There are also more secure cookie support. First, you need to call [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret), then use it by calling:
+There are also more secure cookie support. First, you need to call [`macaron.SetDefaultCookieSecret`](https://gowalker.org/gopkg.in/macaron.v1#Macaron_SetDefaultCookieSecret), then use it by calling:
 
-- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
-- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
+- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetSecureCookie)
+- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetSecureCookie)
 
 These two methods uses default secret string you set globally to encode and decode values.
 
@@ -89,8 +89,8 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 For people who wants even more secure cookies that change secret string every time, just use:
 
-- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
-- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetSuperSecureCookie)
+- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetSuperSecureCookie)
 
 To use them:
 
@@ -109,21 +109,21 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 ### Other Helper methods
 
-- To set/get URL parameters: [`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64), [`ctx.ParamsFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsFloat64)
-- To get query parameters: [`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64), [`ctx.QueryFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryFloat64), [`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
-- To serve content or file: [`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
-- To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
+- To set/get URL parameters: [`ctx.SetParams`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetParams) / [`ctx.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt64), [`ctx.ParamsFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsFloat64)
+- To get query parameters: [`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64), [`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64), [`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings)
+- To serve content or file: [`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile)
+- To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/gopkg.in/macaron.v1#Context_RemoteAddr)
 
 ## Router Logger
 
-This service can be injected by function  [`macaron.Logger`](https://gowalker.org/github.com/Unknwon/macaron#Logger). It is responsible for your application routing log.
+This service can be injected by function  [`macaron.Logger`](https://gowalker.org/gopkg.in/macaron.v1#Logger). It is responsible for your application routing log.
 
 To use it:
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -132,7 +132,7 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
+**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
 
 Sample output take from [Peach](https://github.com/peachdocs/peach):
 
@@ -143,14 +143,14 @@ Sample output take from [Peach](https://github.com/peachdocs/peach):
 
 ## Panic Recovery
 
-This service can be injected by function [`macaron.Recovery`](https://gowalker.org/github.com/Unknwon/macaron#Recovery). It is responsible for recovering your application when panic haapens.
+This service can be injected by function [`macaron.Recovery`](https://gowalker.org/gopkg.in/macaron.v1#Recovery). It is responsible for recovering your application when panic haapens.
 
 To use it:
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -159,18 +159,18 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
+**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
 
 ## Static Files
 
-This service can be injected by function [`macaron.Static`](https://gowalker.org/github.com/Unknwon/macaron#Static). It is responsible for serving static resources of your application, it can be injected as many times as you want if you have multiple static directories.
+This service can be injected by function [`macaron.Static`](https://gowalker.org/gopkg.in/macaron.v1#Static). It is responsible for serving static resources of your application, it can be injected as many times as you want if you have multiple static directories.
 
 To use it:
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -180,7 +180,7 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically with directory `public` when you use [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic).
+**Note** this service is injected automatically with directory `public` when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
 
 By default, when you try to request a directory, this service will not list directory files. Instead, it tries to find the `index.html` file.
 
@@ -223,12 +223,12 @@ Request URL|Match File
 
 ### Options
 
-This service also accepts second argument for custom options([`macaron.StaticOptions`](https://gowalker.org/github.com/Unknwon/macaron#StaticOptions)):
+This service also accepts second argument for custom options([`macaron.StaticOptions`](https://gowalker.org/gopkg.in/macaron.v1#StaticOptions)):
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -252,7 +252,7 @@ func main() {
 
 ### Multiple Static Handlers
 
-In case you have multiple static directories, there is one helper function [`macaron.Statics`](https://gowalker.org/github.com/Unknwon/macaron#Statics) to make your life easier.
+In case you have multiple static directories, there is one helper function [`macaron.Statics`](https://gowalker.org/gopkg.in/macaron.v1#Statics) to make your life easier.
 
 To use it:
 
@@ -278,7 +278,7 @@ package main
 import (
 	"log"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -305,7 +305,7 @@ To use it:
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -327,9 +327,9 @@ This service is represented by type [`*http.Request`](http://gowalker.org/net/ht
 
 Besides, this service provides three methods to help you easily retrieve request body:
 
-- [`*macaron.Context.Req.Body().String()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_String): get request body in `string` type
-- [`*macaron.Context.Req.Body().Bytes()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_Bytes): get request body in `[]byte` type
-- [`*macaron.Context.Req.Body().ReadCloser()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_ReadCloser): get request body in `io.ReadCloser` type
+- [`*macaron.Context.Req.Body().String()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_String): get request body in `string` type
+- [`*macaron.Context.Req.Body().Bytes()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_Bytes): get request body in `[]byte` type
+- [`*macaron.Context.Req.Body().ReadCloser()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_ReadCloser): get request body in `io.ReadCloser` type
 
 To use them:
 
@@ -337,7 +337,7 @@ To use them:
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {

@@ -1,12 +1,10 @@
 ---
-root: false
 name: 模板引擎
-sort: 3
 ---
 
 # 模板引擎
 
-目前 Macaron 应用有两款官方模板引擎中间件可供选择，即 [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) 和 [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer)。
+目前 Macaron 应用有两款官方模板引擎中间件可供选择，即 [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) 和 [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer)。
 
 您可以自由选择使用哪一款模板引擎，并且您只能为一个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 注册一款模板引擎。
 
@@ -21,7 +19,7 @@ sort: 3
 
 ### Go 模板引擎
 
-该服务可以通过函数 [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Go 语言内置的模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://gowalker.org/html/template)。
+该服务可以通过函数 [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render) 来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Go 语言内置的模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://gowalker.org/html/template)。
 
 #### 使用示例
 
@@ -45,7 +43,7 @@ main.go：
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()
@@ -62,12 +60,12 @@ func main() {
 
 #### 自定义选项
 
-该服务允许接受一个参数来进行自定义选项（[`macaron.RenderOptions`](https://gowalker.org/github.com/Unknwon/macaron#RenderOptions)）：
+该服务允许接受一个参数来进行自定义选项（[`macaron.RenderOptions`](https://gowalker.org/gopkg.in/macaron.v1#RenderOptions)）：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()
@@ -106,7 +104,7 @@ func main() {
 
 ### Pongo2 模板引擎
 
-该服务可以通过函数 [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render)来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Pongo2 **v3** 模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://github.com/flosch/pongo2)。
+该服务可以通过函数 [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer) 来注入，并通过类型 [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render)来体现。该服务为可选，一般情况下可直接使用 `*macaron.Context.Render`。该服务使用 Pongo2 **v3** 模板引擎来渲染 HTML。如果想要了解更多有关使用方面的信息，请参见 [官方文档](https://github.com/flosch/pongo2)。
 
 #### 使用示例
 
@@ -131,8 +129,8 @@ main.go：
 package main
 
 import (
-	"github.com/Unknwon/macaron"
-	"github.com/macaron-contrib/pongo2"
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/pongo2"
 )
 
 func main() {
@@ -150,14 +148,14 @@ func main() {
 
 #### 自定义选项
 
-该服务允许接受一个参数来进行自定义选项（[`pongo2.Options`](https://gowalker.org/github.com/macaron-contrib/pongo2#Options)）：
+该服务允许接受一个参数来进行自定义选项（[`pongo2.Options`](https://gowalker.org/github.com/go-macaron/pongo2#Options)）：
 
 ```go
 package main
 
 import (
-	"github.com/Unknwon/macaron"
-	"github.com/macaron-contrib/pongo2"
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/pongo2"
 )
 
 func main() {
@@ -228,7 +226,7 @@ m.Get("/foobar2", func(ctx *macaron.Context) {
 // ...
 ```
 
-正如您所看到的那样，其实就是 2 个方法的不同：[`macaron.Renderers`](https://gowalker.org/github.com/Unknwon/macaron#Renderers) 和 [`pongo2.Pongoers`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoers)。
+正如您所看到的那样，其实就是 2 个方法的不同：[`macaron.Renderers`](https://gowalker.org/gopkg.in/macaron.v1#Renderers) 和 [`pongo2.Pongoers`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoers)。
 
 第一个配置参数用于指定默认的模板集和配置选项，之后则是一个模板集名称和目录（通过 `:` 分隔）的列表。
 
@@ -287,7 +285,7 @@ m.Get("/foobar", func(ctx *macaron.Context) {
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
     m := macaron.Classic()
@@ -311,7 +309,7 @@ func main() {
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 type Person struct {
@@ -335,6 +333,9 @@ func main() {
 	m.Get("/raw", func(ctx *macaron.Context) {
 		ctx.RawData(200, []byte("raw data goes here"))
 	})
+	m.Get("/text", func(ctx *macaron.Context) {
+		ctx.PlainText(200, []byte("plain text goes here"))
+	})
 
 	m.Run()
 }
@@ -348,7 +349,7 @@ func main() {
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -404,7 +405,7 @@ main.go：
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {

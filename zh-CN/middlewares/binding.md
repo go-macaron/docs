@@ -1,19 +1,19 @@
 ---
-root: false
 name: 数据绑定与验证
-sort: 4
 ---
 
 # 数据绑定与验证
 
 中间件 binding 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了请求数据绑定与验证的功能。
 
-- [GitHub](https://github.com/macaron-contrib/binding)
-- [API 文档](https://gowalker.org/github.com/macaron-contrib/binding)
+- [GitHub](https://github.com/go-macaron/binding)
+- [API 文档](https://gowalker.org/github.com/go-macaron/binding)
 
 ## 下载安装
 
-	go get github.com/macaron-contrib/binding
+```sh
+go get github.com/go-macaron/binding
+```
 
 ## 使用示例
 
@@ -39,9 +39,9 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}), func(contact ContactForm)
 })
 ```
 
-搞定！函数 [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) 会帮助您完成对必选字段的数据验证。
+搞定！函数 [`binding.Bind`](https://gowalker.org/github.com/go-macaron/binding#Bind) 会帮助您完成对必选字段的数据验证。
 
-默认情况下，如果在验证过程中发生任何错误（例如：必填字段的值为空），binding 中间件就会直接向客户端返回错误信息，提前终止请求的处理。如果您不希望 binding 中间件自动终止请求的处理，则可以使用 [`binding.BindIgnErr`](https://gowalker.org/github.com/macaron-contrib/binding#BindIgnErr) 函数来忽略对错误的自动处理。
+默认情况下，如果在验证过程中发生任何错误（例如：必填字段的值为空），binding 中间件就会直接向客户端返回错误信息，提前终止请求的处理。如果您不希望 binding 中间件自动终止请求的处理，则可以使用 [`binding.BindIgnErr`](https://gowalker.org/github.com/go-macaron/binding#BindIgnErr) 函数来忽略对错误的自动处理。
 
 **警告** 请不要使用类型为指针的嵌入结构，这会导致错误。请查看 [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) 上的相关讨论获取完整信息。
 
@@ -65,7 +65,7 @@ type ContactForm struct {
 
 超赞！有木有？
 
-如果您想要自定义命名约定，可以通过 [`binding.SetNameMapper`](https://gowalker.org/github.com/macaron-contrib/binding#SetNameMapper) 函数来设置。该函数接受一个类型为 [`binding.NameMapper`](https://gowalker.org/github.com/macaron-contrib/binding#NameMapper) 的值作为参数。
+如果您想要自定义命名约定，可以通过 [`binding.SetNameMapper`](https://gowalker.org/github.com/go-macaron/binding#SetNameMapper) 函数来设置。该函数接受一个类型为 [`binding.NameMapper`](https://gowalker.org/github.com/go-macaron/binding#NameMapper) 的值作为参数。
 
 ### 获取 JSON 数据
 
@@ -89,13 +89,13 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}, (*MyInterface)(nil)), func
 
 ### Bind
 
-函数 [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) 是一个便利性的高层封装，它能够自动识别表单类型并完成数据绑定与验证。
+函数 [`binding.Bind`](https://gowalker.org/github.com/go-macaron/binding#Bind) 是一个便利性的高层封装，它能够自动识别表单类型并完成数据绑定与验证。
 
 请求处理流程：
 
  1. 反序列化请求数据到结构
- 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) 函数完成数据验证
- 3. 如果您的结构实现了 [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler) 接口，则会调用相应的错误处理方法 `ErrorHandler.Error`；否则会使用默认的错误处理机制。
+ 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) 函数完成数据验证
+ 3. 如果您的结构实现了 [`binding.ErrorHandler`](https://gowalker.org/github.com/go-macaron/binding#ErrorHandler) 接口，则会调用相应的错误处理方法 `ErrorHandler.Error`；否则会使用默认的错误处理机制。
 
 备注：
 
@@ -106,25 +106,25 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}, (*MyInterface)(nil)), func
 
 ### Form
 
-函数 [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form) 用于反序列化表单数据，可以是查询或 `form-urlencoded` 类型的请求。
+函数 [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form) 用于反序列化表单数据，可以是查询或 `form-urlencoded` 类型的请求。
 
 请求处理流程：
 
  1. 反序列化请求数据到结构
- 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) 函数完成数据验证
+ 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) 函数完成数据验证
 
-需要注意的是，该函数不具有默认错误处理机制。您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) 的参数来完成自定义错误处理。
+需要注意的是，该函数不具有默认错误处理机制。您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/go-macaron/binding#Errors) 的参数来完成自定义错误处理。
 
 ### MultipartForm 和文件上传
 
-类似 [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form)，函数 [`binding.MultipartForm`](https://gowalker.org/github.com/macaron-contrib/binding#MultipartForm) 同样是反序列化表单数据到结构。除此之外，它还能处理 `enctype="multipart/form-data"` 类型的 POST 请求。如果结构中包含类型为 [`*multipart.FileHeader`](http://gowalker.org/pkg/mime/multipart/#FileHeader)（或 `[]*multipart.FileHeader`）的字段，您可以直接从该字段读取客户端上传的文件。
+类似 [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form)，函数 [`binding.MultipartForm`](https://gowalker.org/github.com/go-macaron/binding#MultipartForm) 同样是反序列化表单数据到结构。除此之外，它还能处理 `enctype="multipart/form-data"` 类型的 POST 请求。如果结构中包含类型为 [`*multipart.FileHeader`](http://gowalker.org/pkg/mime/multipart/#FileHeader)（或 `[]*multipart.FileHeader`）的字段，您可以直接从该字段读取客户端上传的文件。
 
 请求处理流程：
 
  1. 反序列化请求数据到结构
- 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) 函数完成数据验证
+ 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) 函数完成数据验证
 
-同样的，和函数 [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form) 一样，该函数不具有默认错误处理机制，但您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) 的参数来完成自定义错误处理。
+同样的，和函数 [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form) 一样，该函数不具有默认错误处理机制，但您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/go-macaron/binding#Errors) 的参数来完成自定义错误处理。
 
 #### 使用示例
 
@@ -146,19 +146,19 @@ func main() {
 
 ### Json
 
-函数 [`binding.Json`](https://gowalker.org/github.com/macaron-contrib/binding#Json) 反序列化 JSON 数据。
+函数 [`binding.Json`](https://gowalker.org/github.com/go-macaron/binding#Json) 反序列化 JSON 数据。
 
 请求处理流程：
 
  1. 反序列化请求数据到结构
- 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) 函数完成数据验证
+ 2. 通过 [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) 函数完成数据验证
 
-与函数 [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form)，该函数不具有默认错误处理机制，但您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) 的参数来完成自定义错误处理。
+与函数 [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form)，该函数不具有默认错误处理机制，但您可以通过获取类型为 [`binding.Errors`](https://gowalker.org/github.com/go-macaron/binding#Errors) 的参数来完成自定义错误处理。
 
 
 ### Validate
 
-函数 [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) 接受一个结构并对它进行基本数据验证。如果该结构实现了 [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator) 接口，则会调用 `Validator.Validate()` 方法完成后续的数据验证。
+函数 [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) 接受一个结构并对它进行基本数据验证。如果该结构实现了 [`binding.Validator`](https://gowalker.org/github.com/go-macaron/binding#Validator) 接口，则会调用 `Validator.Validate()` 方法完成后续的数据验证。
 
 #### 验证规则
 
@@ -188,7 +188,7 @@ func main() {
 
 ### 自定义验证
 
-如果您想要进行自定义的附加验证操作，您的结构可以通过实现接口 [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator) 来完成：
+如果您想要进行自定义的附加验证操作，您的结构可以通过实现接口 [`binding.Validator`](https://gowalker.org/github.com/go-macaron/binding#Validator) 来完成：
 
 ```go
 func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) binding.Errors {
@@ -207,7 +207,7 @@ func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) bindin
 
 ### 自定义验证规则
 
-当您觉得内置的验证规则不够时，可以通过函数 [`binding.AddRule`](https://gowalker.org/github.com/macaron-contrib/binding#AddRule) 来增加自定义验证规则。该函数接受一个类型为 [`binding.Rule`](https://gowalker.org/github.com/macaron-contrib/binding#Rule) 的参数。
+当您觉得内置的验证规则不够时，可以通过函数 [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule) 来增加自定义验证规则。该函数接受一个类型为 [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule) 的参数。
 
 假设您需要验证字段的最小值：
 
@@ -235,7 +235,7 @@ binding.AddRule(&binding.Rule{
 
 ### 自定义错误处理
 
-如果您即不想使用默认的错误处理机制，又希望 binding 中间件自动化地调用您的自定义错误处理，则可以通过实现接口 [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler) 来完成：
+如果您即不想使用默认的错误处理机制，又希望 binding 中间件自动化地调用您的自定义错误处理，则可以通过实现接口 [`binding.ErrorHandler`](https://gowalker.org/github.com/go-macaron/binding#ErrorHandler) 来完成：
 
 ```go
 func (cf ContactForm) Error(ctx *macaron.Context, errs binding.Errors) {

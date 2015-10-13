@@ -1,12 +1,10 @@
 ---
-root: false
 name: Templating
-sort: 3
 ---
 
 # Templating
 
-There are two official middlewares built for templating for your Macaron application currently, which are [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) and [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer).
+There are two official middlewares built for templating for your Macaron application currently, which are [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) and [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer).
 
 You're free to choose one of them to use, and one Macaron [Instance](../intro/core_concepts#instances) only uses one templating engine.
 
@@ -21,7 +19,7 @@ Common behaviors:
 
 ### Go Templating Engine
 
-This service can be injected by function [`macaron.Renderer`](https://gowalker.org/github.com/Unknwon/macaron#Renderer) and is represented by type [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Go built-in templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://gowalker.org/html/template).
+This service can be injected by function [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Go built-in templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://gowalker.org/html/template).
 
 #### Example
 
@@ -45,7 +43,7 @@ main.go:
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()
@@ -62,12 +60,12 @@ func main() {
 
 #### Options
 
-This service also accepts one argument for custom options([`macaron.RenderOptions`](https://gowalker.org/github.com/Unknwon/macaron#RenderOptions)):
+This service also accepts one argument for custom options([`macaron.RenderOptions`](https://gowalker.org/gopkg.in/macaron.v1#RenderOptions)):
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()
@@ -106,7 +104,7 @@ func main() {
 
 ### Pongo2 Templating Engine
 
-This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/github.com/Unknwon/macaron#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 **v3** templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://github.com/flosch/pongo2).
+This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 **v3** templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://github.com/flosch/pongo2).
 
 #### Example
 
@@ -131,8 +129,8 @@ main.go:
 package main
 
 import (
-	"github.com/Unknwon/macaron"
-	"github.com/macaron-contrib/pongo2"
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/pongo2"
 )
 
 func main() {
@@ -150,14 +148,14 @@ func main() {
 
 #### Options
 
-This service also accepts one argument for custom options([`pongo2.Options`](https://gowalker.org/github.com/macaron-contrib/pongo2#Options)):
+This service also accepts one argument for custom options([`pongo2.Options`](https://gowalker.org/github.com/go-macaron/pongo2#Options)):
 
 ```go
 package main
 
 import (
-	"github.com/Unknwon/macaron"
-	"github.com/macaron-contrib/pongo2"
+	"gopkg.in/macaron.v1"
+	"github.com/go-macaron/pongo2"
 )
 
 func main() {
@@ -228,7 +226,7 @@ m.Get("/foobar2", func(ctx *macaron.Context) {
 // ...
 ```
 
-As you can see, the only difference here is two functions [`macaron.Renderers`](https://gowalker.org/github.com/Unknwon/macaron#Renderers) and [`pongo2.Pongoers`](https://gowalker.org/github.com/macaron-contrib/pongo2#Pongoers).
+As you can see, the only difference here is two functions [`macaron.Renderers`](https://gowalker.org/gopkg.in/macaron.v1#Renderers) and [`pongo2.Pongoers`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoers).
 
 The option argument is aiming for defualt template set and settings, and a list of name-directory pairs separate by `:`.
 
@@ -287,7 +285,7 @@ If you just want to get results of rendered HTML, call method `*macaron.Context.
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
     m := macaron.Classic()
@@ -311,7 +309,7 @@ It is fairly easy to render XML, JSON and raw content compare to HTML.
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 type Person struct {
@@ -335,6 +333,9 @@ func main() {
 	m.Get("/raw", func(ctx *macaron.Context) {
 		ctx.RawData(200, []byte("raw data goes here"))
 	})
+	m.Get("/text", func(ctx *macaron.Context) {
+		ctx.PlainText(200, []byte("plain text goes here"))
+	})
 
 	m.Run()
 }
@@ -348,7 +349,7 @@ To response status, error and redirect:
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -404,7 +405,7 @@ main.go:
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {

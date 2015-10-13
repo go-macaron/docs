@@ -6,7 +6,7 @@ name: Core Concepts
 
 ## Classic Macaron
 
-To get up and running quickly, [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) provides some reasonable defaults that work well for most of web applications:
+To get up and running quickly, [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) provides some reasonable defaults that work well for most of web applications:
 
 ```go
  m := macaron.Classic()
@@ -14,7 +14,7 @@ To get up and running quickly, [`macaron.Classic`](https://gowalker.org/github.c
  m.Run()
 ```
 
-Below is some of the functionality [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) pulls in automatically:
+Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) pulls in automatically:
 
 - Request/response logging - [`macaron.Logger`](../middlewares/core_services#routing-logger)
 - Panic recovery - [`macaron.Recovery`](../middlewares/core_services#panic-recovery)
@@ -22,7 +22,7 @@ Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gith
 
 ## Instances
 
-Any object with type [`macaron.Macaron`](https://gowalker.org/github.com/Unknwon/macaron#Macaron) can be seen as an instance of Macaron, you can have as many as instances you want in a single application.
+Any object with type [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) can be seen as an instance of Macaron, you can have as many as instances you want in a single application.
 
 ## Handlers
 
@@ -70,7 +70,7 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
-The following services are included with [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic):
+The following services are included with [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic):
 
 - [`*macaron.Context`](../middlewares/core_services#context) - HTTP request context.
 - [`*log.Logger`](../middlewares/core_services#global-logger) - Global logger for Macaron.

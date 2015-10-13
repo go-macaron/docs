@@ -8,14 +8,14 @@ Macaron 会注入一些默认服务来驱动您的应用，这些服务被称之
 
 ## 请求上下文（Context）
 
-该服务通过类型 [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) 来体现。这是 Macaron 最为核心的服务，您的任何操作都是基于它之上。该服务包含了您所需要的请求对象、响应流、模板引擎接口、数据存储和注入与获取其它服务。
+该服务通过类型 [`*macaron.Context`](https://gowalker.org/gopkg.in/macaron.v1#Context) 来体现。这是 Macaron 最为核心的服务，您的任何操作都是基于它之上。该服务包含了您所需要的请求对象、响应流、模板引擎接口、数据存储和注入与获取其它服务。
 
 使用方法：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func Home(ctx *macaron.Context) {
 	// ...
@@ -24,7 +24,7 @@ func Home(ctx *macaron.Context) {
 
 ### Next()
 
-方法 [`Context.Next`](https://gowalker.org/github.com/Unknwon/macaron#Context_Next)  是一个可选的功能，它可以用于中间件处理器暂时放弃执行，等待其他的处理器都执行完毕后继续执行。这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
+方法 [`Context.Next`](https://gowalker.org/gopkg.in/macaron.v1#Context_Next)  是一个可选的功能，它可以用于中间件处理器暂时放弃执行，等待其他的处理器都执行完毕后继续执行。这样就可以很好的处理在 HTTP 请求完成后需要做的操作：
 
 ```go
 // log before and after a request
@@ -41,8 +41,8 @@ m.Use(func(ctx *macaron.Context, log *log.Logger){
 
 最基本的 Cookie 用法：
 
-- [`*macaron.Context.SetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetCookie)
-- [`*macaron.Context.GetCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookie)、[`*macaron.Context.GetCookieInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt)、[`*macaron.Context.GetCookieInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieInt64)、[`*macaron.Context.GetCookieFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetCookieFloat64)
+- [`*macaron.Context.SetCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetCookie)
+- [`*macaron.Context.GetCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookie)、[`*macaron.Context.GetCookieInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieInt)、[`*macaron.Context.GetCookieInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieInt64)、[`*macaron.Context.GetCookieFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetCookieFloat64)
 
 使用方法：
 
@@ -64,10 +64,10 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 需要注意的是，参数的顺序是固定的。
 
-如果需要更加安全的 Cookie 机制，可以先使用 [`macaron.SetDefaultCookieSecret`](https://gowalker.org/github.com/Unknwon/macaron#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
+如果需要更加安全的 Cookie 机制，可以先使用 [`macaron.SetDefaultCookieSecret`](https://gowalker.org/gopkg.in/macaron.v1#Macaron_SetDefaultCookieSecret) 设定密钥，然后使用：
 
-- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSecureCookie)
-- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSecureCookie)
+- [`*macaron.Context.SetSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetSecureCookie)
+- [`*macaron.Context.GetSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetSecureCookie)
 
 这两个方法将会自动使用您设置的默认密钥进行加密/解密 Cookie 值。
 
@@ -89,8 +89,8 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 对于那些对安全性要求特别高的应用，可以为每次设置 Cookie 使用不同的密钥加密/解密：
 
-- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetSuperSecureCookie)
-- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/github.com/Unknwon/macaron#Context_GetSuperSecureCookie)
+- [`*macaron.Context.SetSuperSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetSuperSecureCookie)
+- [`*macaron.Context.GetSuperSecureCookie`](https://gowalker.org/gopkg.in/macaron.v1#Context_GetSuperSecureCookie)
 
 使用方法：
 
@@ -109,21 +109,21 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 ### 其它辅助方法
 
-- 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/github.com/Unknwon/macaron#Context_SetParams) / [`ctx.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsInt64)、[`ctx.ParamsFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ParamsFloat64)
-- 获取查询参数：[`ctx.Query`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryInt64)、[`ctx.QueryFloat64`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryFloat64)、[`ctx.QueryStrings`](https://gowalker.org/github.com/Unknwon/macaron#Context_ctx.QueryStrings)
-- 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/github.com/Unknwon/macaron#Context_ServeFile)
-- 获取远程 IP 地址：[`ctx.RemoteAddr`](https://gowalker.org/github.com/Unknwon/macaron#Context_RemoteAddr)
+- 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetParams) / [`ctx.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt64)、[`ctx.ParamsFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsFloat64)
+- 获取查询参数：[`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64)、[`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64)、[`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings)
+- 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile)
+- 获取远程 IP 地址：[`ctx.RemoteAddr`](https://gowalker.org/gopkg.in/macaron.v1#Context_RemoteAddr)
 
 ## 路由日志
 
-该服务可以通过函数  [`macaron.Logger`](https://gowalker.org/github.com/Unknwon/macaron#Logger) 来注入。该服务主要负责应用的路由日志。
+该服务可以通过函数  [`macaron.Logger`](https://gowalker.org/gopkg.in/macaron.v1#Logger) 来注入。该服务主要负责应用的路由日志。
 
 使用方法：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -132,7 +132,7 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会被自动注入。
+**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
 
 从 [Peach](https://github.com/peachdocs/peach) 项目中提取的样例输出：
 
@@ -143,14 +143,14 @@ func main() {
 
 ## 容错恢复
 
-该服务可以通过函数 [`macaron.Recovery`](https://gowalker.org/github.com/Unknwon/macaron#Recovery) 来注入。该服务主要负责在应用发生恐慌（panic）时进行恢复。
+该服务可以通过函数 [`macaron.Recovery`](https://gowalker.org/gopkg.in/macaron.v1#Recovery) 来注入。该服务主要负责在应用发生恐慌（panic）时进行恢复。
 
 使用方法：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -159,18 +159,18 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会被自动注入。
+**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
 
 ## 静态文件
 
-该服务可以通过函数 [`macaron.Static`](https://gowalker.org/github.com/Unknwon/macaron#Static) 来注入。该服务主要负责应用静态资源的服务，当您的应用拥有多个静态目录时，可以对其进行多次注入。
+该服务可以通过函数 [`macaron.Static`](https://gowalker.org/gopkg.in/macaron.v1#Static) 来注入。该服务主要负责应用静态资源的服务，当您的应用拥有多个静态目录时，可以对其进行多次注入。
 
 使用方法：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -180,7 +180,7 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/github.com/Unknwon/macaron#Classic) 时，该服务会以 `public` 为静态目录被自动注入。
+**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会以 `public` 为静态目录被自动注入。
 
 默认情况下，当您请求一个目录时，该服务不会列出目录下的文件，而是去寻找 `index.html` 文件。
 
@@ -223,12 +223,12 @@ public/
 
 ### 自定义选项
 
-该服务允许接受第二个参数来进行自定义选项操作（[`macaron.StaticOptions`](https://gowalker.org/github.com/Unknwon/macaron#StaticOptions)）：
+该服务允许接受第二个参数来进行自定义选项操作（[`macaron.StaticOptions`](https://gowalker.org/gopkg.in/macaron.v1#StaticOptions)）：
 
 ```go
 package main
 
-import "github.com/Unknwon/macaron"
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.New()
@@ -252,7 +252,7 @@ func main() {
 
 ### 注册多个静态处理器
 
-如果您需要一次注册多个静态处理器，可以使用方法 [`macaron.Statics`](https://gowalker.org/github.com/Unknwon/macaron#Statics) 来简化您的工作。
+如果您需要一次注册多个静态处理器，可以使用方法 [`macaron.Statics`](https://gowalker.org/gopkg.in/macaron.v1#Statics) 来简化您的工作。
 
 使用方法：
 
@@ -278,7 +278,7 @@ package main
 import (
 	"log"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -305,7 +305,7 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -327,9 +327,9 @@ func myHandler(ctx *macaron.Context) {
 
 除此之外，该服务还提供了 3 个便利的方法来获取请求体：
 
-- [`*macaron.Context.Req.Body().String()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_String)：获取 `string` 类型的请求体
-- [`*macaron.Context.Req.Body().Bytes()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_Bytes)：获取 `[]byte` 类型的请求体
-- [`*macaron.Context.Req.Body().ReadCloser()`](https://gowalker.org/github.com/Unknwon/macaron#RequestBody_ReadCloser)：获取 `io.ReadCloser` 类型的请求体
+- [`*macaron.Context.Req.Body().String()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_String)：获取 `string` 类型的请求体
+- [`*macaron.Context.Req.Body().Bytes()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_Bytes)：获取 `[]byte` 类型的请求体
+- [`*macaron.Context.Req.Body().ReadCloser()`](https://gowalker.org/gopkg.in/macaron.v1#RequestBody_ReadCloser)：获取 `io.ReadCloser` 类型的请求体
 
 使用方法：
 
@@ -337,7 +337,7 @@ func myHandler(ctx *macaron.Context) {
 package main
 
 import (
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {

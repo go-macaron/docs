@@ -1,7 +1,5 @@
 ---
-root: false
 name: 路由模块
-sort: 2
 ---
 
 # 路由模块
@@ -61,7 +59,7 @@ m.NotFound(func() {
 - ...但是，匹配范围较小的路由优先级比匹配范围大的优先级高（详见 **匹配优先级**）。
 - 最先被定义的路由将会首先被用户请求匹配并调用。
 
-在一些时候，每当 GET 方法被注册的时候，都会需要注册一个一模一样的 HEAD 方法。为了达到减少代码的目的，您可以使用一个名为 [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) 的方法来协助您自动注册：
+在一些时候，每当 GET 方法被注册的时候，都会需要注册一个一模一样的 HEAD 方法。为了达到减少代码的目的，您可以使用一个名为 [`SetAutoHead`](https://gowalker.org/gopkg.in/macaron.v1#Router_SetAutoHead) 的方法来协助您自动注册：
 
 ```go
 m := New()
@@ -75,7 +73,7 @@ m.Get("/", func() string {
 
 ## 命名参数
 
-路由模型可能包含参数列表, 可以通过  [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params) 来获取:
+路由模型可能包含参数列表, 可以通过  [`*Context.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params) 来获取:
 
 ### 占位符
 
@@ -181,7 +179,7 @@ m.Get("/date/*/*/*/events", func(ctx *macaron.Context) string {
 
 ### 构建 URL 路径
 
-您可以通过 [`*Route.Name`](https://gowalker.org/github.com/Unknwon/macaron#Route_Name) 方法配合命名参数来构建 URL 路径，不过首先需要为路由命名：
+您可以通过 [`*Route.Name`](https://gowalker.org/gopkg.in/macaron.v1#Route_Name) 方法配合命名参数来构建 URL 路径，不过首先需要为路由命名：
 
 ```go
 // ...
@@ -190,7 +188,7 @@ m.Combo("/api/:user/:repo").Get(handler).Post(handler).Name("user_repo")
 // ...
 ```
 
-然后通过 [`*Router.URLFor`](https://gowalker.org/github.com/Unknwon/macaron#Router_URLFor) 方法来为指定名称的路由构建 URL 路径：
+然后通过 [`*Router.URLFor`](https://gowalker.org/gopkg.in/macaron.v1#Router_URLFor) 方法来为指定名称的路由构建 URL 路径：
 
 ```go
 // ...
@@ -242,7 +240,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -281,7 +279,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -314,7 +312,7 @@ func main() {
 
 ### 组路由
 
-路由还可以通过 [`macaron.Group`](https://gowalker.org/github.com/Unknwon/macaron#Router_Group) 来注册组路由：
+路由还可以通过 [`macaron.Group`](https://gowalker.org/gopkg.in/macaron.v1#Router_Group) 来注册组路由：
 
 ```go
 m.Group("/books", func() {

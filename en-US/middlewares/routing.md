@@ -1,7 +1,5 @@
 ---
-root: false
 name: Routing
-sort: 2
 ---
 
 # Routing
@@ -62,7 +60,7 @@ Notes:
 - ...but, narrow range routes have higher priority than wider range routes(see below: **Matching Priority**)
 - The first route that matches the request is invoked.
 
-In some cases, HEAD method is also used wherever GET method is registered. To reduce redundant code, there is a method called [`SetAutoHead`](https://gowalker.org/github.com/Unknwon/macaron#Router_SetAutoHead) can help you automatically register it:
+In some cases, HEAD method is also used wherever GET method is registered. To reduce redundant code, there is a method called [`SetAutoHead`](https://gowalker.org/gopkg.in/macaron.v1#Router_SetAutoHead) can help you automatically register it:
 
 ```go
 m := New()
@@ -76,7 +74,7 @@ If you want to use suburl without having a huge group indent, use `m.SetURLPrefi
 
 ## Named Parameters
 
-Route patterns may include named parameters, accessible via the method [`*Context.Params`](https://gowalker.org/github.com/Unknwon/macaron#Context_Params):
+Route patterns may include named parameters, accessible via the method [`*Context.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params):
 
 ### Placeholders
 
@@ -182,7 +180,7 @@ Other notes:
 
 ### Building URLs
 
-You can build URLs with named parameters, to do this, you should use [`*Route.Name`](https://gowalker.org/github.com/Unknwon/macaron#Route_Name) method give route a name:
+You can build URLs with named parameters, to do this, you should use [`*Route.Name`](https://gowalker.org/gopkg.in/macaron.v1#Route_Name) method give route a name:
 
 ```go
 // ...
@@ -191,7 +189,7 @@ m.Combo("/api/:user/:repo").Get(handler).Post(handler).Name("user_repo")
 // ...
 ```
 
-Then use [`*Router.URLFor`](https://gowalker.org/github.com/Unknwon/macaron#Router_URLFor) to build URLs with route of given name:
+Then use [`*Router.URLFor`](https://gowalker.org/gopkg.in/macaron.v1#Router_URLFor) to build URLs with route of given name:
 
 ```go
 // ...
@@ -243,7 +241,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -282,7 +280,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -315,7 +313,7 @@ In this case, the output will always be `There are 4 handlers before this`, and 
 
 ### Group Routing
 
-Route groups can be added too using the [`macaron.Group`](https://gowalker.org/github.com/Unknwon/macaron#Router_Group) method:
+Route groups can be added too using the [`macaron.Group`](https://gowalker.org/gopkg.in/macaron.v1#Router_Group) method:
 
 ```go
 m.Group("/books", func() {

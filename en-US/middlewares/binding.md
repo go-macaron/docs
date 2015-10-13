@@ -1,19 +1,19 @@
 ---
-root: false
 name: Data Binding
-sort: 4
 ---
 
 # Data Binding and Validation
 
 Middlware binding provides request data binding and validation for Macaron [Instances](../intro/core_concepts#instances).
 
-- [GitHub](https://github.com/macaron-contrib/binding)
-- [API Reference](https://gowalker.org/github.com/macaron-contrib/binding)
+- [GitHub](https://github.com/go-macaron/binding)
+- [API Reference](https://gowalker.org/github.com/go-macaron/binding)
 
 ## Installation
 
-	go get github.com/macaron-contrib/binding
+```sh
+go get github.com/go-macaron/binding
+```
 
 ## Usage
 
@@ -39,9 +39,9 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}), func(contact ContactForm)
 })
 ```
 
-That's it! The [`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) function takes care of validating required fields.
+That's it! The [`binding.Bind`](https://gowalker.org/github.com/go-macaron/binding#Bind) function takes care of validating required fields.
 
-By default, if there are any errors (like a required field is empty), binding middleware will return an error to the client and your app won't even see the request. To prevent this behavior, you can use [`binding.BindIgnErr`](https://gowalker.org/github.com/macaron-contrib/binding#BindIgnErr) instead.
+By default, if there are any errors (like a required field is empty), binding middleware will return an error to the client and your app won't even see the request. To prevent this behavior, you can use [`binding.BindIgnErr`](https://gowalker.org/github.com/go-macaron/binding#BindIgnErr) instead.
 
 **Caveat** Don't try to bind to embedded struct pointers; it won't work. See [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) if you want to help with this.)
 
@@ -65,7 +65,7 @@ type ContactForm struct {
 
 Clean and neat, isn't it?
 
-If you want to custom your app naming convention, you can use [`binding.SetNameMapper`](https://gowalker.org/github.com/macaron-contrib/binding#SetNameMapper) function, which accepts a function that is type of [`binding.NameMapper`](https://gowalker.org/github.com/macaron-contrib/binding#NameMapper).
+If you want to custom your app naming convention, you can use [`binding.SetNameMapper`](https://gowalker.org/github.com/go-macaron/binding#SetNameMapper) function, which accepts a function that is type of [`binding.NameMapper`](https://gowalker.org/github.com/go-macaron/binding#NameMapper).
 
 ### Getting JSON data from a request
 
@@ -89,11 +89,11 @@ Each of these middleware handlers are independent and optional, though be aware 
 
 ### Bind
 
-[`binding.Bind`](https://gowalker.org/github.com/macaron-contrib/binding#Bind) is a convenient wrapper over the other handlers in this package. It does the following boilerplate for you:
+[`binding.Bind`](https://gowalker.org/github.com/go-macaron/binding#Bind) is a convenient wrapper over the other handlers in this package. It does the following boilerplate for you:
 
  1. Deserializes request data into a struct
- 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate)
- 3. If your struct doesn't implement [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler), then default error handling will be applied. Otherwise, calls `ErrorHandler.Error` method to perform custom error handling.
+ 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate)
+ 3. If your struct doesn't implement [`binding.ErrorHandler`](https://gowalker.org/github.com/go-macaron/binding#ErrorHandler), then default error handling will be applied. Otherwise, calls `ErrorHandler.Error` method to perform custom error handling.
 
 Notes:
 
@@ -104,23 +104,23 @@ Notes:
 
 ### Form
 
-[`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form) deserializes form data from the request, whether in the query string or as a `form-urlencoded` payload. It only does these things:
+[`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form) deserializes form data from the request, whether in the query string or as a `form-urlencoded` payload. It only does these things:
 
  1. Deserializes request data into a struct
- 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate)
+ 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate)
 
-Note that it does not handle errors. You may receive a [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) into your own handler if you want to handle errors.
+Note that it does not handle errors. You may receive a [`binding.Errors`](https://gowalker.org/github.com/go-macaron/binding#Errors) into your own handler if you want to handle errors.
 
 ### MultipartForm and File Uploads
 
-Like [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form), [`binding.MultipartForm`](https://gowalker.org/github.com/macaron-contrib/binding#MultipartForm) deserializes form data from a request into the struct you pass in. Additionally, this will deserialize a POST request that has a form of `enctype="multipart/form-data"`. If the bound struct contains a field of type [`*multipart.FileHeader`](http://gowalker.org/pkg/mime/multipart/#FileHeader) (or `[]*multipart.FileHeader`), you also can read any uploaded files that were part of the form.
+Like [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form), [`binding.MultipartForm`](https://gowalker.org/github.com/go-macaron/binding#MultipartForm) deserializes form data from a request into the struct you pass in. Additionally, this will deserialize a POST request that has a form of `enctype="multipart/form-data"`. If the bound struct contains a field of type [`*multipart.FileHeader`](http://gowalker.org/pkg/mime/multipart/#FileHeader) (or `[]*multipart.FileHeader`), you also can read any uploaded files that were part of the form.
 
 This handler does the following:
 
  1. Deserializes request data into a struct
- 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate)
+ 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate)
 
-Again, like [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form), no error handling is performed, but you can get the errors in your handler by receiving a [`binding.Errors`](https://gowalker.org/github.com/macaron-contrib/binding#Errors) type.
+Again, like [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form), no error handling is performed, but you can get the errors in your handler by receiving a [`binding.Errors`](https://gowalker.org/github.com/go-macaron/binding#Errors) type.
 
 #### Example
 
@@ -142,16 +142,16 @@ func main() {
 
 ### Json
 
-[`binding.Json`](https://gowalker.org/github.com/macaron-contrib/binding#Json) deserializes JSON data in the payload of the request. It does the following things:
+[`binding.Json`](https://gowalker.org/github.com/go-macaron/binding#Json) deserializes JSON data in the payload of the request. It does the following things:
 
  1. Deserializes request data into a struct
- 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate)
+ 2. Performs validation with [`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate)
 
-Similar to [`binding.Form`](https://gowalker.org/github.com/macaron-contrib/binding#Form), no error handling is performed, but you can get the errors and handle them yourself.
+Similar to [`binding.Form`](https://gowalker.org/github.com/go-macaron/binding#Form), no error handling is performed, but you can get the errors and handle them yourself.
 
 ### Validate
 
-[`binding.Validate`](https://gowalker.org/github.com/macaron-contrib/binding#Validate) receives a populated struct and checks it for errors with basic rules. It will execute the `Validator.Validate()` method on the struct, if it is a [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator).
+[`binding.Validate`](https://gowalker.org/github.com/go-macaron/binding#Validate) receives a populated struct and checks it for errors with basic rules. It will execute the `Validator.Validate()` method on the struct, if it is a [`binding.Validator`](https://gowalker.org/github.com/go-macaron/binding#Validator).
 
 #### Validation Rules
 
@@ -181,7 +181,7 @@ To combine multiple rules: `binding:"Required;MinSize(10)"`.
 
 ### Custom Validation
 
-If you want additional validation beyond just checking required fields, your struct can implement the [`binding.Validator`](https://gowalker.org/github.com/macaron-contrib/binding#Validator) interface like so:
+If you want additional validation beyond just checking required fields, your struct can implement the [`binding.Validator`](https://gowalker.org/github.com/go-macaron/binding#Validator) interface like so:
 
 ```go
 func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) binding.Errors {
@@ -200,7 +200,7 @@ Now, any contact form submissions with "Go needs generics" in the message will r
 
 ### Custom Validation Rules
 
-If you need to more validation rules that are applied automatically for you, you can add custom rules by function [`binding.AddRule`](https://gowalker.org/github.com/macaron-contrib/binding#AddRule), it accepts type [`binding.Rule`](https://gowalker.org/github.com/macaron-contrib/binding#Rule) as argument.
+If you need to more validation rules that are applied automatically for you, you can add custom rules by function [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule), it accepts type [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule) as argument.
 
 Suppose you want to limit minimum value:
 
@@ -228,7 +228,7 @@ Custom validation rules are applied after builtin rules.
 
 ### Custom Error Handler
 
-If you want to avoid default error handle process but still want binding middleware calls handle function for you, your struct can implement the [`binding.ErrorHandler`](https://gowalker.org/github.com/macaron-contrib/binding#ErrorHandler) interface like so:
+If you want to avoid default error handle process but still want binding middleware calls handle function for you, your struct can implement the [`binding.ErrorHandler`](https://gowalker.org/github.com/go-macaron/binding#ErrorHandler) interface like so:
 
 ```go
 func (cf ContactForm) Error(ctx *macaron.Context, errs binding.Errors) {
