@@ -11,7 +11,9 @@ name: 多站点支持
 
 ## 下载安装
 
-	go get github.com/go-macaron/switcher
+```sh
+go get github.com/go-macaron/switcher
+```
 	
 ## 使用示例
 

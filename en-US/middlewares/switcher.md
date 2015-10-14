@@ -11,7 +11,9 @@ Module switcher provides host switch functionality for [Macaron](https://github.
 
 ## Installation
 
-	go get github.com/go-macaron/switcher
+```sh
+go get github.com/go-macaron/switcher
+```
 
 ## Usage
 
