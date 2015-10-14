@@ -1,19 +1,17 @@
 ---
-root: false
 name: 多站点支持
-sort: 14
 ---
 
 # 在一个应用内服务多个站点
 
 辅助模块 switcher 为您的应用提供多个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 的支持。
 
-- [GitHub](https://github.com/macaron-contrib/switcher)
-- [API 文档](https://gowalker.org/github.com/macaron-contrib/switcher)
+- [GitHub](https://github.com/go-macaron/switcher)
+- [API 文档](https://gowalker.org/github.com/go-macaron/switcher)
 
 ## 下载安装
 
-	go get github.com/macaron-contrib/switcher
+	go get github.com/go-macaron/switcher
 	
 ## 使用示例
 

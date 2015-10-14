@@ -1,19 +1,17 @@
 ---
-root: false
 name: Multiple Sites
-sort: 14
 ---
 
 # Running Multiple Sites In One App
 
-Module switcher provides host switch functionality for [Macaron](https://github.com/Unknwon/macaron).
+Module switcher provides host switch functionality for [Macaron](https://github.com/go-macaron/macaron).
 
-- [GitHub](https://github.com/macaron-contrib/switcher)
-- [API Reference](https://gowalker.org/github.com/macaron-contrib/switcher)
+- [GitHub](https://github.com/go-macaron/switcher)
+- [API Reference](https://gowalker.org/github.com/go-macaron/switcher)
 
 ## Installation
 
-	go get github.com/macaron-contrib/switcher
+	go get github.com/go-macaron/switcher
 
 ## Usage
 
