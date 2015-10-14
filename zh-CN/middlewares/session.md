@@ -13,13 +13,15 @@ sort: 7
 
 ## 下载安装
 
-    go get github.com/macaron-contrib/session
+```sh
+go get github.com/go-macaron/session
+```
 
 ## 使用示例
 
 ```go
 import (
-    "github.com/Unknwon/macaron"
+    "gopkg.in/macaron.v1"
     "github.com/macaron-contrib/session"
 )
 

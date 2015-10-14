@@ -8,19 +8,21 @@ sort: 7
 
 Middleware session provides session management for Macaron [Instances](../intro/core_concepts#instances).
 
-- [GitHub](https://github.com/macaron-contrib/session)
-- [API Reference](https://gowalker.org/github.com/macaron-contrib/session)
+- [GitHub](https://github.com/go-macaron/session)
+- [API Reference](https://gowalker.org/github.com/go-macaron/session)
 
 ## Installation
 
-    go get github.com/macaron-contrib/session
+```sh
+go get github.com/go-macaron/session
+```
 
 ## Usage
 
 ```go
 import (
-    "github.com/Unknwon/macaron"
-    "github.com/macaron-contrib/session"
+    "gopkg.in/macaron.v1"
+    "github.com/go-macaron/session"
 )
 
 func main() {
@@ -54,7 +56,7 @@ func main() {
 
 ### Pongo2
 
-If you're using [pongo2](https://github.com/macaron-contrib/pongo2) as template engine, you will use flash in HTML as follows:
+If you're using [pongo2](https://github.com/go-macaron/pongo2) as template engine, you will use flash in HTML as follows:
 
 ```html
 <!-- templates/signup.tmpl -->
@@ -81,7 +83,7 @@ But remember, flash can only be used once no matter which way you use.
 
 ## Options
 
-`session.Sessioner` comes with a variety of configuration options([`session.Options`](https://gowalker.org/github.com/macaron-contrib/session#Options)):
+`session.Sessioner` comes with a variety of configuration options([`session.Options`](https://gowalker.org/github.com/go-macaron/session#Options)):
 
 ```go
 //...
@@ -140,7 +142,7 @@ m.Use(session.Sessioner(session.Options{
 ### Redis
 
 ```go
-import _ "github.com/macaron-contrib/session/redis"
+import _ "github.com/go-macaron/session/redis"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -154,7 +156,7 @@ m.Use(session.Sessioner(session.Options{
 ### Memcache
 
 ```go
-import _ "github.com/macaron-contrib/session/memcache"
+import _ "github.com/go-macaron/session/memcache"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -179,7 +181,7 @@ CREATE TABLE session (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/session/postgres"
+import _ "github.com/go-macaron/session/postgres"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -203,7 +205,7 @@ CREATE TABLE `session` (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/session/mysql"
+import _ "github.com/go-macaron/session/mysql"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -216,7 +218,7 @@ m.Use(session.Sessioner(session.Options{
 ### Couchbase
 
 ```go
-import _ "github.com/macaron-contrib/session/couchbase"
+import _ "github.com/go-macaron/session/couchbase"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -229,7 +231,7 @@ m.Use(session.Sessioner(session.Options{
 ### Ledis
 
 ```go
-import _ "github.com/macaron-contrib/session/ledis"
+import _ "github.com/go-macaron/session/ledis"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -242,7 +244,7 @@ m.Use(session.Sessioner(session.Options{
 ### Nodb
 
 ```go
-import _ "github.com/macaron-contrib/session/nodb"
+import _ "github.com/go-macaron/session/nodb"
 
 //...
 m.Use(session.Sessioner(session.Options{
