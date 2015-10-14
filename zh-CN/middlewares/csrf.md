@@ -1,19 +1,19 @@
 ---
-root: false
 name: 跨域攻击（CSRF）
-sort: 8
 ---
 
 # 跨域请求攻击（CSRF）
 
 中间件 csrf 用于为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 生成和验证 CSRF 令牌。
 
-- [GitHub](https://github.com/macaron-contrib/csrf)
-- [API 文档](https://gowalker.org/github.com/macaron-contrib/csrf)
+- [GitHub](https://github.com/go-macaron/csrf)
+- [API 文档](https://gowalker.org/github.com/go-macaron/csrf)
 
 ## 下载安装
 
-    go get github.com/macaron-contrib/csrf
+```sh
+go get github.com/go-macaron/csrf
+```
 
 ## 使用示例
 
@@ -23,9 +23,9 @@ sort: 8
 package main
 
 import (
-    "github.com/Unknwon/macaron"
-    "github.com/macaron-contrib/csrf"
-    "github.com/macaron-contrib/session"
+    "gopkg.in/macaron.v1"
+    "github.com/go-macaron/csrf"
+    "github.com/go-macaron/session"
 )
 
 func main() {
@@ -84,7 +84,7 @@ func main() {
 
 ## 自定义选项
 
-该服务允许接受一个参数来进行自定义选项（[`csrf.Options`](https://gowalker.org/github.com/macaron-contrib/csrf#Options)）：
+该服务允许接受一个参数来进行自定义选项（[`csrf.Options`](https://gowalker.org/github.com/go-macaron/csrf#Options)）：
 
 ```go
 // ...

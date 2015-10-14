@@ -1,7 +1,5 @@
 ---
-root: false
 name: Session
-sort: 7
 ---
 
 # Session
