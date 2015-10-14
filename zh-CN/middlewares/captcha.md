@@ -1,19 +1,19 @@
 ---
-root: false
 name: 验证码服务
-sort: 9
 ---
 
 # 验证码服务
 
 中间件 captcha 用于为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供验证码服务。
 
-- [GitHub](https://github.com/macaron-contrib/captcha)
-- [API 文档](https://gowalker.org/github.com/macaron-contrib/captcha)
+- [GitHub](https://github.com/go-macaron/captcha)
+- [API 文档](https://gowalker.org/github.com/go-macaron/captcha)
 
 ### 下载安装
 
-    go get github.com/macaron-contrib/captcha
+```sh
+go get github.com/go-macaron/captcha
+```
 
 ## 使用示例
 
@@ -22,9 +22,9 @@ sort: 9
 ```go
 // main.go
 import (
-    "github.com/Unknwon/macaron"
-    "github.com/macaron-contrib/cache"
-    "github.com/macaron-contrib/captcha"
+    "gopkg.in/macaron.v1"
+    "github.com/go-macaron/cache"
+    "github.com/go-macaron/captcha"
 )
 
 func main() {
@@ -50,7 +50,7 @@ func main() {
 
 ## 自定义选项
 
-该服务允许接受一个参数来进行自定义选项（[`captcha.Options`](https://gowalker.org/github.com/macaron-contrib/captcha#Options)）：
+该服务允许接受一个参数来进行自定义选项（[`captcha.Options`](https://gowalker.org/github.com/go-macaron/captcha#Options)）：
 
 ```go
 // ...

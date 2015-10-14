@@ -1,19 +1,19 @@
 ---
-root: false
 name: Captcha
-sort: 9
 ---
 
 # Captcha
 
 Middleware captcha provides captcha service for Macaron [Instances](../intro/core_concepts#instances).
 
-- [GitHub](https://github.com/macaron-contrib/captcha)
-- [API Reference](https://gowalker.org/github.com/macaron-contrib/captcha)
+- [GitHub](https://github.com/go-macaron/captcha)
+- [API Reference](https://gowalker.org/github.com/go-macaron/captcha)
 
 ### Installation
 
-    go get github.com/macaron-contrib/captcha
+```sh
+go get github.com/go-macaron/captcha
+```
 
 ## Usage
 
@@ -22,9 +22,9 @@ To use this middleware, you have to enable [cache](cache) as well.
 ```go
 // main.go
 import (
-    "github.com/Unknwon/macaron"
-    "github.com/macaron-contrib/cache"
-    "github.com/macaron-contrib/captcha"
+    "gopkg.in/macaron.v1"
+    "github.com/go-macaron/cache"
+    "github.com/go-macaron/captcha"
 )
 
 func main() {
