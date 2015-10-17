@@ -9,9 +9,9 @@ name: Core Concepts
 To get up and running quickly, [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) provides some reasonable defaults that work well for most of web applications:
 
 ```go
- m := macaron.Classic()
- // ... middleware and routing goes here
- m.Run()
+m := macaron.Classic()
+// ... middleware and routing goes here
+m.Run()
 ```
 
 Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) pulls in automatically:
@@ -22,16 +22,41 @@ Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gopk
 
 ## Instances
 
-Any object with type [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) can be seen as an instance of Macaron, you can have as many as instances you want in a single application.
+Any object with type [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) can be seen as an instance of Macaron, you can have as many as instances you want in a single piece of code.
 
 ## Handlers
 
 Handlers are the heart and soul of Macaron. A handler is basically any kind of callable function:
 
 ```go
-m.Get("/", func() {
-	println("hello world")
+m.Get("/", func() string {
+	return "hello world"
 })
+```
+
+Non-anonymous function is also allowed for the purpose of using it in multiple routes:
+
+```go
+m.Get("/", myHandler)
+m.Get("/hello", myHandler)
+
+func myHandler() string {
+	return "hello world"
+}
+```
+
+Besides, one route can have as many as handlers you want to register with:
+
+```go
+m.Get("/", myHandler1, myHandler2)
+
+func myHandler1() {
+	// ... do something
+}
+
+func myHandler2() string {
+	return "hello world"
+}
 ```
 
 ### Return Values
@@ -43,17 +68,38 @@ m.Get("/", func() string {
 	return "hello world" // HTTP 200 : "hello world"
 })
 
+m.Get("/", func() *string {
+	str := "hello world"
+	return &str // HTTP 200 : "hello world"
+})
 
 m.Get("/", func() []byte {
     return []byte("hello world") // HTTP 200 : "hello world"
 })
+
+m.Get("/", func() error {
+	// Nothing happens if returns nil
+	return nil 
+}, func() error {
+	// ... get some error
+	return err // HTTP 500 : <error message>
+})
 ```
 
-You can also optionally return a status code:
+You can also optionally return a status code (only applys for `string` and `[]byte` types):
 
 ```go
 m.Get("/", func() (int, string) {
 	return 418, "i'm a teapot" // HTTP 418 : "i'm a teapot"
+})
+
+m.Get("/", func() (int, *string) {
+	str := "i'm a teapot"
+	return 418, &str // HTTP 418 : "i'm a teapot"
+})
+
+m.Get("/", func() (int, []byte) {
+	return 418, []byte("i'm a teapot") // HTTP 418 : "i'm a teapot"
 })
 ```
 
@@ -70,12 +116,20 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
+The most commonly used service in your code should be [`*macaron.Context`](../middlewares/core_services#context):
+
+```go
+m.Get("/", func(ctx *macaron.Context) {
+	ctx.Resp.WriteHeader(200) // HTTP 200
+})
+```
+
 The following services are included with [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic):
 
-- [`*macaron.Context`](../middlewares/core_services#context) - HTTP request context.
-- [`*log.Logger`](../middlewares/core_services#global-logger) - Global logger for Macaron.
-- [`http.ResponseWriter`](../middlewares/core_services#response-stream) - HTTP Response writer interface.
-- [`*http.Request`](../middlewares/core_services#request-object) - HTTP Request.
+- [`*macaron.Context`](../middlewares/core_services#context) - HTTP request context
+- [`*log.Logger`](../middlewares/core_services#global-logger) - Global logger for Macaron instances
+- [`http.ResponseWriter`](../middlewares/core_services#response-stream) - HTTP Response writer interface
+- [`*http.Request`](../middlewares/core_services#request-object) - HTTP Request
 
 ### Middleware Handlers
 

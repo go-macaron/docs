@@ -12,6 +12,12 @@ name: 开始使用
 go get gopkg.in/macaron.v1
 ```
 
+并且可以在今后使用以下命令来升级 Macaron：
+
+```sh
+go get -u gopkg.in/macaron.v1
+```
+
 ## 最简示例
 
 创建一个名为 `main.go` 的文件，然后输入以下代码：

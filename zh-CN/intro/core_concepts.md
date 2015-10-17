@@ -9,9 +9,9 @@ name: 核心概念
 为了更快速的启用 Macaron，[`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 提供了一些默认的组件以方便 Web 开发:
 
 ```go
-  m := macaron.Classic()
-  // ... 可以在这里使用中间件和注册路由
-  m.Run()
+m := macaron.Classic()
+// ... 可以在这里使用中间件和注册路由
+m.Run()
 ```
 
 下面是 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 已经包含的功能：
@@ -22,16 +22,41 @@ name: 核心概念
 
 ## Macaron 实例
 
-任何类型为 [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) 的对象都可以被认为是 Macaron 的实例，您可以在单个应用中使用任意数量的 Macaron 实例。
+任何类型为 [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) 的对象都可以被认为是 Macaron 的实例，您可以在单个程序中使用任意数量的 Macaron 实例。
 
 ## 处理器
 
 处理器是 Macaron 的灵魂和核心所在. 一个处理器基本上可以是任何的函数:
 
 ```go
-m.Get("/", func() {
-	println("hello world")
+m.Get("/", func() string {
+	return "hello world"
 })
+```
+
+如果想要将同一个函数作用于多个路由，则可以使用一个命名函数：
+
+```go
+m.Get("/", myHandler)
+m.Get("/hello", myHandler)
+
+func myHandler() string {
+	return "hello world"
+}
+```
+
+除此之外，同一个路由还可以注册任意多个处理器：
+
+```go
+m.Get("/", myHandler1, myHandler2)
+
+func myHandler1() {
+	// ... 处理内容
+}
+
+func myHandler2() string {
+	return "hello world"
+}
 ```
 
 ### 返回值
@@ -43,16 +68,38 @@ m.Get("/", func() string {
 	return "hello world" // HTTP 200 : "hello world"
 })
 
+m.Get("/", func() *string {
+	str := "hello world"
+	return &str // HTTP 200 : "hello world"
+})
+
 m.Get("/", func() []byte {
     return []byte("hello world") // HTTP 200 : "hello world"
 })
+
+m.Get("/", func() error {
+	// 返回 nil 则什么都不会发生
+	return nil 
+}, func() error {
+	// ... 得到了错误
+	return err // HTTP 500 : <错误消息>
+})
 ```
 
-另外你也可以选择性的返回状态码:
+另外你也可以选择性的返回状态码（仅适用于 `string` 和 `[]byte` 类型）:
 
 ```go
 m.Get("/", func() (int, string) {
 	return 418, "i'm a teapot" // HTTP 418 : "i'm a teapot"
+})
+
+m.Get("/", func() (int, *string) {
+	str := "i'm a teapot"
+	return 418, &str // HTTP 418 : "i'm a teapot"
+})
+
+m.Get("/", func() (int, []byte) {
+	return 418, []byte("i'm a teapot") // HTTP 418 : "i'm a teapot"
 })
 ```
 
@@ -69,6 +116,14 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
+在您的代码中最常用的服务应该是 [`*macaron.Context`](../middlewares/core_services#context)：
+
+```go
+m.Get("/", func(ctx *macaron.Context) {
+	ctx.Resp.WriteHeader(200) // HTTP 200
+})
+```
+
 下面的这些服务已经被包含在经典 Macaron 中（[`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic)）：
 
 - [`*macaron.Context`](../middlewares/core_services#%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88context%EF%BC%89) - HTTP 请求上下文
@@ -82,7 +137,7 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 
 ```go
 m.Use(func() {
-  // 处理中间件事物
+  // 处理中间件事务
 })
 ```
 

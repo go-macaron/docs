@@ -4,12 +4,18 @@ name: Getting Started
 
 # Getting Started 
 
-Before we get started, one thing you should know that documentation does not teach you how to use Go. Instead, explore Macaron based on the basic Go knowledge you already have.
+Before we get started, one thing you should know that documentation does not teach you how to use Go. Instead, we will explore Macaron based on the basic Go knowledge you already have.
 
 To install Macaron:
 
 ```sh
 go get gopkg.in/macaron.v1
+```
+
+And upgrade Macaron in the future:
+
+```sh
+go get -u gopkg.in/macaron.v1
 ```
 
 ## Minimal Example
@@ -36,7 +42,7 @@ Method [`m.Get`](https://gowalker.org/gopkg.in/macaron.v1#Router_Get) is for reg
 
 You may have questions about why the handler function can return a string as response? The magic is the [Return Values](core_concepts#return-values), this is a special case/syntax for responding requests by string.
 
-Finally, we call method [`m.Run`](https://gowalker.org/gopkg.in/macaron.v1#Macaron_Run) to get server running. In default, Macaron [Instances](core_concepts#instances) will listen on `0.0.0.0:4000`.
+Finally, we call method [`m.Run`](https://gowalker.org/gopkg.in/macaron.v1#Macaron_Run) to get server running. By default, Macaron [Instances](core_concepts#instances) will listen on `0.0.0.0:4000`.
 
 Then, execute command `go run main.go`, you should see a log message is printed to the console:
 
@@ -44,7 +50,7 @@ Then, execute command `go run main.go`, you should see a log message is printed 
 [Macaron] listening on 0.0.0.0:4000 (development)
 ```
 
-Now, open your browser and visit [localhost:4000](http://localhost:4000), maigc happens!
+Now, open your browser and visit [localhost:4000](http://localhost:4000), victory!
 
 ## Extended Example
 
