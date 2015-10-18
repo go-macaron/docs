@@ -31,7 +31,7 @@ name: 中间件模块
 
 1. `macaron.Logger()`
 2. `macaron.Recovery()`
-3. `macaron.Gziper()`
+3. `gzip.Gziper()`
 4. `macaron.Static()`
 5. `macaron.Renderer()`/`pongo2.Pongoer()`
 6. `i18n.I18n()`

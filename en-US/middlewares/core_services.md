@@ -110,8 +110,8 @@ m.Get("/get", func(ctx *macaron.Context) string {
 ### Other Helper methods
 
 - To set/get URL parameters: [`ctx.SetParams`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetParams) / [`ctx.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params), [`ctx.ParamsEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsEscape), [`ctx.ParamsInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt), [`ctx.ParamsInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt64), [`ctx.ParamsFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsFloat64)
-- To get query parameters: [`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64), [`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64), [`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings)
-- To serve content or file: [`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile)
+- To get query parameters: [`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query), [`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape), [`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt), [`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64), [`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64), [`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings), [`ctx.QueryTrim`](https://gowalker.org/gopkg.in/macaron.v1#Context_QueryTrim)
+- To serve content or file: [`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent), [`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile), [`ctx.ServeFileContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFileContent)
 - To get remote IP address: [`ctx.RemoteAddr`](https://gowalker.org/gopkg.in/macaron.v1#Context_RemoteAddr)
 
 ## Router Logger
@@ -359,5 +359,7 @@ func main() {
 ```
 
 Notice that request body can only be read once.
+
+Sometimes you need to pass type [`*http.Request`](http://gowalker.org/net/http#Request) as an argument, you should use `*macaron.Context.Req.Request`.
 
 **Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).

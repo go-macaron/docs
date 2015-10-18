@@ -12,7 +12,7 @@ name: Gzip
 ## 下载安装
 
 ```sh
-go get github.com/github.com/go-macaron/gzip
+go get github.com/go-macaron/gzip
 ```
 
 ## 使用示例
@@ -21,8 +21,8 @@ go get github.com/github.com/go-macaron/gzip
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/gzip"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -39,8 +39,8 @@ func main() {
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/gzip"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -77,7 +77,8 @@ func main() {
 // ...
 m.Use(gzip.Gziper(gzip.Options{
 	// 压缩级别，可以是 DefaultCompression（-1）、ConstantCompression（-2）
-	// 或介于包括 BestSpeed（1） 和 BestCompression（9） 在内，这两者之间的任意整数
+	// 或介于包括 BestSpeed（1） 和 BestCompression（9） 在内，这两者之间的任意整数。
+	// 默认为 4
 	CompressionLevel: 4,
 }))
 ```

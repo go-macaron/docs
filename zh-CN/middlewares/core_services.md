@@ -110,8 +110,8 @@ m.Get("/get", func(ctx *macaron.Context) string {
 ### 其它辅助方法
 
 - 设置/获取 URL 参数：[`ctx.SetParams`](https://gowalker.org/gopkg.in/macaron.v1#Context_SetParams) / [`ctx.Params`](https://gowalker.org/gopkg.in/macaron.v1#Context_Params)、[`ctx.ParamsEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsEscape)、[`ctx.ParamsInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt)、[`ctx.ParamsInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsInt64)、[`ctx.ParamsFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ParamsFloat64)
-- 获取查询参数：[`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64)、[`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64)、[`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings)
-- 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile)
+- 获取查询参数：[`ctx.Query`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.Query)、[`ctx.QueryEscape`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryEscape)、[`ctx.QueryInt`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt)、[`ctx.QueryInt64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryInt64)、[`ctx.QueryFloat64`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryFloat64)、[`ctx.QueryStrings`](https://gowalker.org/gopkg.in/macaron.v1#Context_ctx.QueryStrings)、[`ctx.QueryTrim`](https://gowalker.org/gopkg.in/macaron.v1#Context_QueryTrim)
+- 服务内容或文件：[`ctx.ServeContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeContent)、[`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile)、[`ctx.ServeFile`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFile), [`ctx.ServeFileContent`](https://gowalker.org/gopkg.in/macaron.v1#Context_ServeFileContent)
 - 获取远程 IP 地址：[`ctx.RemoteAddr`](https://gowalker.org/gopkg.in/macaron.v1#Context_RemoteAddr)
 
 ## 路由日志
@@ -359,5 +359,7 @@ func main() {
 ```
 
 需要注意的是，请求体在每个请求中只能被读取一次。
+
+有时您需要传递类型为 [`*http.Request`](http://gowalker.org/net/http#Request) 的参数，则应该使用 `*macaron.Context.Req.Request`。
 
 **备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。

@@ -12,7 +12,7 @@ Middleware gzip provides compress to responses for Macaron [Instances](../intro/
 ## Installation
 
 ```sh
-go get github.com/github.com/go-macaron/gzip
+go get github.com/go-macaron/gzip
 ```
 
 ## Usage
@@ -21,8 +21,8 @@ go get github.com/github.com/go-macaron/gzip
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/gzip"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -39,8 +39,8 @@ In this case, the static files will not be compressed by Gzip, to compress them:
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/gzip"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -54,7 +54,7 @@ func main() {
 }
 ```
 
-Or you can choose to only compress a group of routes responses:
+Or you can choose to only compress a group of routes' responses:
 
 ```go
 // ...
@@ -78,6 +78,7 @@ This service comes with a variety of configuration options([`gzip.Options`](http
 m.Use(gzip.Gziper(gzip.Options{
 	// Compression level. Can be DefaultCompression(-1), ConstantCompression(-2)
 	// or any integer value between BestSpeed(1) and BestCompression(9) inclusive.
+	// Default is 4.
 	CompressionLevel: 4,
 }))
 // ...
