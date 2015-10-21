@@ -16,7 +16,7 @@ package hello
 import (
 	"net/http"
 	
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func init() {
@@ -66,4 +66,4 @@ log.Fatal(http.ListenAndServe(":8080", m))
 
 ### 有代码实时编译运行工具吗？
 
-[Bra](https://github.com/Unknwon/bra) 可以作为 Macaron 应用的实时编译运行工具。
+[Bra](https://github.com/Unknwon/bra) 可以作为 Macaron 及其它应用的实时编译运行工具。

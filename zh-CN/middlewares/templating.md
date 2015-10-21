@@ -129,8 +129,8 @@ main.go：
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/pongo2"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -154,8 +154,8 @@ func main() {
 package main
 
 import (
-	"gopkg.in/macaron.v1"
 	"github.com/go-macaron/pongo2"
+	"gopkg.in/macaron.v1"
 )
 
 func main() {
@@ -308,9 +308,7 @@ func main() {
 ```go
 package main
 
-import (
-	"gopkg.in/macaron.v1"
-)
+import "gopkg.in/macaron.v1"
 
 type Person struct {
 	Name string
@@ -348,9 +346,7 @@ func main() {
 ```go
 package main
 
-import (
-	"gopkg.in/macaron.v1"
-)
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()
@@ -404,9 +400,7 @@ main.go：
 ```go
 package main
 
-import (
-	"gopkg.in/macaron.v1"
-)
+import "gopkg.in/macaron.v1"
 
 func main() {
 	m := macaron.Classic()

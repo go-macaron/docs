@@ -23,9 +23,9 @@ To use this middleware, you have to enable [session](session) as well.
 package main
 
 import (
-    "gopkg.in/macaron.v1"
     "github.com/go-macaron/csrf"
     "github.com/go-macaron/session"
+    "gopkg.in/macaron.v1"
 )
 
 func main() {

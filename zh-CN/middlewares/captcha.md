@@ -22,9 +22,9 @@ go get github.com/go-macaron/captcha
 ```go
 // main.go
 import (
-    "gopkg.in/macaron.v1"
     "github.com/go-macaron/cache"
     "github.com/go-macaron/captcha"
+    "gopkg.in/macaron.v1"
 )
 
 func main() {

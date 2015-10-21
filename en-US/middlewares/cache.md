@@ -19,8 +19,8 @@ go get github.com/go-macaron/cache
 
 ```go
 import (
-    "gopkg.in/macaron.v1"
     "github.com/go-macaron/cache"
+    "gopkg.in/macaron.v1"
 )
 
 func main() {

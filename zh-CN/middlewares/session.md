@@ -19,8 +19,8 @@ go get github.com/go-macaron/session
 
 ```go
 import (
-    "gopkg.in/macaron.v1"
     "github.com/macaron-contrib/session"
+    "gopkg.in/macaron.v1"
 )
 
 func main() {

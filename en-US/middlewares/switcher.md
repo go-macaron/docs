@@ -55,4 +55,4 @@ hs.Run()
 
 ## Others
 
-- See [gogs.io](https://github.com/gogits/gogsweb) as a study example.
+- See [Peach](https://github.com/peachdocs/peach) as a study example.

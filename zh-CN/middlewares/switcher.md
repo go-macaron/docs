@@ -55,4 +55,4 @@ hs.Run()
 
 ## 其它说明
 
-- 您可以将 [gogs.io](https://github.com/gogits/gogsweb) 作为学习案例。
+- 您可以将 [Peach](https://github.com/peachdocs/peach) 作为学习案例。

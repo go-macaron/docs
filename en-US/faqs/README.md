@@ -16,7 +16,7 @@ package hello
 import (
 	"net/http"
 	
-	"github.com/Unknwon/macaron"
+	"gopkg.in/macaron.v1"
 )
 
 func init() {
@@ -66,4 +66,4 @@ The transliteration of Macaron in Chinese is `Maca Long`, `Long` means dragon, s
 
 ### Live code reload?
 
-[Bra](https://github.com/Unknwon/bra) is the prefect fit for live reloading Macaron apps.
+[Bra](https://github.com/Unknwon/bra) is the prefect fit for live reloading Macaron and any other apps.
