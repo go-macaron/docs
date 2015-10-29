@@ -27,7 +27,7 @@ func main() {
 	m2 := macaron.Classic()
 	// Register m2 middlewares and routers.
 
-	hs := macaron.NewHostSwitcher()
+	hs := switcher.NewHostSwitcher()
 	// Set instance corresponding to host address.
 	hs.Set("gowalker.org", m1)
 	hs.Set("gogs.io", m2)
@@ -52,7 +52,3 @@ hs.Set("*.example.com", m)
 hs.Run()
 // ...
 ```
-
-## Others
-
-- See [Peach](https://github.com/peachdocs/peach) as a study example.

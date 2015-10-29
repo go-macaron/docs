@@ -27,7 +27,7 @@ func main() {
 	m2 := macaron.Classic()
 	// 注册 m2 实例的中间件和路由
 
-	hs := macaron.NewHostSwitcher()
+	hs := switcher.NewHostSwitcher()
 	// 设置实例所对应的主机地址
 	hs.Set("gowalker.org", m1)
 	hs.Set("gogs.io", m2)
@@ -52,7 +52,3 @@ hs.Set("*.example.com", m)
 hs.Run()
 // ...
 ```
-
-## 其它说明
-
-- 您可以将 [Peach](https://github.com/peachdocs/peach) 作为学习案例。
