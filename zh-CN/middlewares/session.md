@@ -6,8 +6,8 @@ name: 会话管理（Session）
 
 中间件 session 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了会话管理的功能。
 
-- [GitHub](https://github.com/macaron-contrib/session)
-- [API 文档](https://gowalker.org/github.com/macaron-contrib/session)
+- [GitHub](https://github.com/go-macaron/session)
+- [API 文档](https://gowalker.org/github.com/go-macaron/session)
 
 ## 下载安装
 
@@ -19,7 +19,7 @@ go get github.com/go-macaron/session
 
 ```go
 import (
-    "github.com/macaron-contrib/session"
+    "github.com/go-macaron/session"
     "gopkg.in/macaron.v1"
 )
 
@@ -54,7 +54,7 @@ func main() {
 
 ### Pongo2
 
-如果您正在使用 [pongo2](https://github.com/macaron-contrib/pongo2) 作为应用的模板引擎，则需要对 HTML 进行如下修改：
+如果您正在使用 [pongo2](https://github.com/go-macaron/pongo2) 作为应用的模板引擎，则需要对 HTML 进行如下修改：
 
 ```html
 <!-- templates/signup.tmpl -->
@@ -81,7 +81,7 @@ f.Warning("Just be careful.", true)
 
 ## 自定义选项
 
-该服务允许接受一个参数来进行自定义选项（[`session.Options`](https://gowalker.org/github.com/macaron-contrib/session#Options)）：
+该服务允许接受一个参数来进行自定义选项（[`session.Options`](https://gowalker.org/github.com/go-macaron/session#Options)）：
 
 ```go
 //...
@@ -140,7 +140,7 @@ m.Use(session.Sessioner(session.Options{
 ### Redis
 
 ```go
-import _ "github.com/macaron-contrib/session/redis"
+import _ "github.com/go-macaron/session/redis"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -154,7 +154,7 @@ m.Use(session.Sessioner(session.Options{
 ### Memcache
 
 ```go
-import _ "github.com/macaron-contrib/session/memcache"
+import _ "github.com/go-macaron/session/memcache"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -179,7 +179,7 @@ CREATE TABLE session (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/session/postgres"
+import _ "github.com/go-macaron/session/postgres"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -203,7 +203,7 @@ CREATE TABLE `session` (
 ```
 
 ```go
-import _ "github.com/macaron-contrib/session/mysql"
+import _ "github.com/go-macaron/session/mysql"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -216,7 +216,7 @@ m.Use(session.Sessioner(session.Options{
 ### Couchbase
 
 ```go
-import _ "github.com/macaron-contrib/session/couchbase"
+import _ "github.com/go-macaron/session/couchbase"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -229,7 +229,7 @@ m.Use(session.Sessioner(session.Options{
 ### Ledis
 
 ```go
-import _ "github.com/macaron-contrib/session/ledis"
+import _ "github.com/go-macaron/session/ledis"
 
 //...
 m.Use(session.Sessioner(session.Options{
@@ -242,7 +242,7 @@ m.Use(session.Sessioner(session.Options{
 ### Nodb
 
 ```go
-import _ "github.com/macaron-contrib/session/nodb"
+import _ "github.com/go-macaron/session/nodb"
 
 //...
 m.Use(session.Sessioner(session.Options{
