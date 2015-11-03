@@ -1,7 +1,5 @@
 ---
-root: false
 name: Custom Services
-sort: 0
 ---
 
 # Custom Services
@@ -10,7 +8,7 @@ Services are objects that are available to be injected into a handler's argument
 
 #### Global Mapping
 
-A Macaron instance implements the [`inject.Injector`](https://gowalker.org/github.com/Unknwon/macaron/inject#Injector) interface, so mapping a service is easy:
+A Macaron instance implements the [`inject.Injector`](https://gowalker.org/github.com/go-macaron/macaron/inject#Injector) interface, so mapping a service is easy:
 
 ```go
 db := &MyDatabase{}
@@ -24,7 +22,7 @@ m.Run()
 
 #### Request-Level Mapping
 
-Mapping on the request level can be done in a handler via [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context):
+Mapping on the request level can be done in a handler via [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context):
 
 ```go
 func MyCustomLoggerHandler(ctx *macaron.Context) {

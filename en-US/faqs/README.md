@@ -1,7 +1,5 @@
 ---
-root: true
 name: FAQs
-sort: 2
 ---
 
 # FAQs 
@@ -47,7 +45,7 @@ Or following ways:
 
 ### How do I pass data in request-level other than service inject?
 
-There is a field called `Data` with type `map[string]interface{}` in [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) where you can store and retrieve any type of data. It comes with [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) so every request is independent.
+There is a field called `Data` with type `map[string]interface{}` in [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) where you can store and retrieve any type of data. It comes with [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) so every request is independent.
 
 See example [here](../middlewares/routing#advanced-routing).
 

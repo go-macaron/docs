@@ -1,7 +1,5 @@
 ---
-root: false
 name: 自定义服务
-sort: 0
 ---
 
 # 自定义服务
@@ -10,7 +8,7 @@ sort: 0
 
 #### 全局映射
 
-因为 Macaron 实现了 [`inject.Injector`](https://gowalker.org/github.com/Unknwon/macaron/inject#Injector) 的接口, 那么映射一个服务就变得非常简单:
+因为 Macaron 实现了 [`inject.Injector`](https://gowalker.org/github.com/go-macaron/macaron/inject#Injector) 的接口, 那么映射一个服务就变得非常简单:
 
 ```go
 db := &MyDatabase{}
@@ -24,7 +22,7 @@ m.Run()
 
 #### 请求级别的映射
 
-映射在请求级别的服务可以通过 [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) 来完成:
+映射在请求级别的服务可以通过 [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) 来完成:
 
 ```go
 func MyCustomLoggerHandler(ctx *macaron.Context) {

@@ -1,7 +1,5 @@
 ---
-root: true
 name: 常见问题
-sort: 2
 ---
 
 # 常见问题
@@ -46,10 +44,9 @@ log.Fatal(http.ListenAndServe(":8080", m))
 
 ### 除了注入服务以外，如何在同一个请求内传递数据？
 
-对象 [`*macaron.Context`](https://gowalker.org/github.com/Unknwon/macaron#Context) 中包含一个类型为 `map[string]interface{}` 的字段 `Data` 可供您在同个请求的不同处理器之间传递数据。
+对象 [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) 中包含一个类型为 `map[string]interface{}` 的字段 `Data` 可供您在同个请求的不同处理器之间传递数据。
 
 可以到 [这里](../middlewares/routing#%E9%AB%98%E7%BA%A7%E8%B7%AF%E7%94%B1%E5%AE%9A%E4%B9%89) 查看使用方法。
-
 
 ### 为什么不直接使用 Martini 而要另外创建一个框架？
 
