@@ -119,7 +119,7 @@ m.Use(cache.Cacher(cache.Options{
 可以使用以下 SQL 语句创建数据库：
 
 ```sql
-CREATE TABLE session (
+CREATE TABLE cache (
     key       CHAR(32) NOT NULL,
     data      BYTEA,
     created   INTEGER NOT NULL,
