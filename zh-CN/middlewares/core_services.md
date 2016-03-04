@@ -342,15 +342,15 @@ import (
 
 func main() {
 	m := macaron.Classic()
-	m.Get("/body1", func(ctx *Context) {
+	m.Get("/body1", func(ctx *macaron.Context) {
 		reader, err := ctx.Req.Body().ReadCloser()
 		// ...
 	})
-	m.Get("/body2", func(ctx *Context) {
+	m.Get("/body2", func(ctx *macaron.Context) {
 		data, err := ctx.Req.Body().Bytes()
 		// ...
 	})
-	m.Get("/body3", func(ctx *Context) {
+	m.Get("/body3", func(ctx *macaron.Context) {
 		data, err := ctx.Req.Body().String()
 		// ...
 	})
