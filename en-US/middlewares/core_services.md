@@ -8,7 +8,7 @@ By default, Macaron injects some services to power your application, those servi
 
 ## Context
 
-This service is represented by type [`*macaron.Context`](https://gowalker.org/gopkg.in/macaron.v1#Context). This is the very core serivce for everything you do upon Macaron. It contains all the information you need for request, response, templating, data store, and inject or retrieve other services.
+This service is represented by type [`*macaron.Context`](https://gowalker.org/gopkg.in/macaron.v1#Context). This is the very core service for everything you do upon Macaron. It contains all the information you need for request, response, templating, data store, and inject or retrieve other services.
 
 To use it:
 
