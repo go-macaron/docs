@@ -42,6 +42,30 @@ log.Fatal(http.ListenAndServe(":8080", m))
 - `m.Run(8080)`，监听在 `0.0.0.0:8080`
 - `m.Run("0.0.0.0", 8080)`，监听在 `0.0.0.0:8080`
 
+### 如何优雅地终止程序（Graceful Shutdown）？
+
+```go
+package main
+
+import (
+	...
+	"net/http"
+	
+	"gopkg.in/macaron.v1"
+    "gopkg.in/tylerb/graceful.v1"
+)
+
+func main() {
+	m := macaron.Classic()
+
+	...
+
+	mux := http.NewServeMux()
+    mux.Handle("/", m)
+    graceful.Run(":4000", 60*time.Second, mux)
+}
+```
+
 ### 除了注入服务以外，如何在同一个请求内传递数据？
 
 对象 [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) 中包含一个类型为 `map[string]interface{}` 的字段 `Data` 可供您在同个请求的不同处理器之间传递数据。

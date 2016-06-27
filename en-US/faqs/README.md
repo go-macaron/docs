@@ -43,6 +43,30 @@ Or following ways:
 - `m.Run(8080)`, listen on `0.0.0.0:8080`
 - `m.Run("0.0.0.0", 8080)`, listen on `0.0.0.0:8080`
 
+### How do I graceful shutdown?
+
+```go
+package main
+
+import (
+	...
+	"net/http"
+
+	"gopkg.in/macaron.v1"
+    "gopkg.in/tylerb/graceful.v1"
+)
+
+func main() {
+	m := macaron.Classic()
+
+	...
+
+	mux := http.NewServeMux()
+    mux.Handle("/", m)
+    graceful.Run(":4000", 60*time.Second, mux)
+}
+```
+
 ### How do I pass data in request-level other than service inject?
 
 There is a field called `Data` with type `map[string]interface{}` in [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) where you can store and retrieve any type of data. It comes with [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) so every request is independent.
