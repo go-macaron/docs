@@ -4,7 +4,7 @@ name: Getting Started
 
 # Getting Started 
 
-Before we get started, one thing you should know that documentation does not teach you how to use Go. Instead, we will explore Macaron based on the basic Go knowledge you already have.
+Before we get started, one thing you should know is that this documentation does not teach you how to use Go. Instead, we will explore Macaron based on the basic Go knowledge you already have.
 
 To install Macaron:
 
