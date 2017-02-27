@@ -7,6 +7,7 @@ name: Middlewares
 Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
 There are already many [middlewares and modules](https://github.com/go-macaron) to simplify your work:
+
 - [auth](https://github.com/go-macaron/auth) - HTTP Basic authentication
 - [bindata](/docs/middlewares/bindata) - Embed binary data as static and template files
 - [binding](/docs/middlewares/binding) - Request data binding and validation
