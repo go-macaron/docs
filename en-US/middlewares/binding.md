@@ -209,7 +209,7 @@ binding.AddParamRule(&binding.ParamRule{
 	IsMatch: func(rule string) bool {
 		return strings.HasPrefix(rule, "Min(")
 	},
-	IsValid: func(errs binding.Errors, rule, name string, v interface{}) bool {
+	IsValid: func(errs binding.Errors, rule, name string, v interface{}) (bool, binding.Errors) {
 		num, ok := v.(int)
 		if !ok {
 			return false, errs
@@ -231,9 +231,9 @@ binding.AddRule(&binding.Rule{
 	IsMatch: func(rule string) bool {
 		return rule == "String"
 	},
-	IsValid: func(errs binding.Errors, name string, v interface{}) bool {
+	IsValid: func(errs binding.Errors, name string, v interface{}) (bool, binding.Errors) {
 		_, ok := v.(string)
-		return ok
+		return ok, errs
 	},
 })
 ```
