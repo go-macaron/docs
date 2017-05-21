@@ -216,17 +216,17 @@ binding.AddParamRule(&binding.ParamRule{
 	IsMatch: func(rule string) bool {
 		return strings.HasPrefix(rule, "Min(")
 	},
-	IsValid: func(errs Errors, rule, name string, v interface{}) bool {
+	IsValid: func(errs binding.Errors, rule, name string, v interface{}) (bool, binding.Errors) {
 		num, ok := v.(int)
 		if !ok {
-			return false
+			return false, errs
 		}
 		min, _ := strconv.Atoi(rule[4 : len(rule)-1])
 		if num < min {
 			errs.Add([]string{name}, "MinimumValue", "Value is too small")
-			return false
+			return false, errs
 		}
-		return true
+		return true, errs
 	},
 })
 ```
@@ -238,9 +238,9 @@ binding.AddRule(&binding.Rule{
 	IsMatch: func(rule string) bool {
 		return rule == "String"
 	},
-	IsValid: func(errs Errors, name string, v interface{}) bool {
+	IsValid: func(errs binding.Errors, name string, v interface{}) (bool, binding.Errors) {
 		_, ok := v.(string)
-		return ok
+		return ok, errs
 	},
 })
 ```
