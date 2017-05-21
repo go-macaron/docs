@@ -200,16 +200,16 @@ Now, any contact form submissions with "Go needs generics" in the message will r
 
 ### Custom Validation Rules
 
-If you need to more validation rules that are applied automatically for you, you can add custom rules by function [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule), it accepts type [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule) as argument.
+If you need to more validation rules that are applied automatically for you, you can add custom rules by function [`binding.AddParamRule`](https://gowalker.org/github.com/go-macaron/binding#AddParamRule), it accepts type [`binding.ParamRule`](https://gowalker.org/github.com/go-macaron/binding#ParamRule) as argument.
 
 Suppose you want to limit minimum value:
 
 ```go
-binding.AddRule(&binding.Rule{
+binding.AddParamRule(&binding.ParamRule{
 	IsMatch: func(rule string) bool {
 		return strings.HasPrefix(rule, "Min(")
 	},
-	IsValid: func(errs Errors, name string, v interface{}) bool {
+	IsValid: func(errs Errors, rule, name string, v interface{}) bool {
 		num, ok := v.(int)
 		if !ok {
 			return false
@@ -220,6 +220,20 @@ binding.AddRule(&binding.Rule{
 			return false
 		}
 		return true
+	},
+})
+```
+
+If your rule is simple, you can also use [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule), it accepts type [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule):
+
+```go
+binding.AddRule(&binding.Rule{
+	IsMatch: func(rule string) bool {
+		return rule == "String"
+	},
+	IsValid: func(errs Errors, name string, v interface{}) bool {
+		_, ok := v.(string)
+		return ok
 	},
 })
 ```

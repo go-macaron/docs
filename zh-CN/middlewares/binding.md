@@ -207,16 +207,16 @@ func (cf ContactForm) Validate(ctx *macaron.Context, errs binding.Errors) bindin
 
 ### 自定义验证规则
 
-当您觉得内置的验证规则不够时，可以通过函数 [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule) 来增加自定义验证规则。该函数接受一个类型为 [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule) 的参数。
+当您觉得内置的验证规则不够时，可以通过函数 [`binding.AddParamRule`](https://gowalker.org/github.com/go-macaron/binding#AddParamRule) 来增加自定义验证规则。该函数接受一个类型为 [`binding.ParamRule`](https://gowalker.org/github.com/go-macaron/binding#ParamRule) 的参数。
 
 假设您需要验证字段的最小值：
 
 ```go
-binding.AddRule(&binding.Rule{
+binding.AddParamRule(&binding.ParamRule{
 	IsMatch: func(rule string) bool {
 		return strings.HasPrefix(rule, "Min(")
 	},
-	IsValid: func(errs Errors, name string, v interface{}) bool {
+	IsValid: func(errs Errors, rule, name string, v interface{}) bool {
 		num, ok := v.(int)
 		if !ok {
 			return false
@@ -227,6 +227,20 @@ binding.AddRule(&binding.Rule{
 			return false
 		}
 		return true
+	},
+})
+```
+
+如果您的规则非常简单，也可以使用 [`binding.AddRule`](https://gowalker.org/github.com/go-macaron/binding#AddRule)，它接受类型为 [`binding.Rule`](https://gowalker.org/github.com/go-macaron/binding#Rule) 的参数：
+
+```go
+binding.AddRule(&binding.Rule{
+	IsMatch: func(rule string) bool {
+		return rule == "String"
+	},
+	IsValid: func(errs Errors, name string, v interface{}) bool {
+		_, ok := v.(string)
+		return ok
 	},
 })
 ```
