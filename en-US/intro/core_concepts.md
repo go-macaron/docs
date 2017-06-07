@@ -22,7 +22,7 @@ Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gopk
 
 ## Instances
 
-Any object with type [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) can be seen as an instance of Macaron, you can have as many as instances you want in a single piece of code.
+Any object with type [`macaron.Macaron`](https://gowalker.org/gopkg.in/macaron.v1#Macaron) can be seen as an instance of Macaron, you can have as many instances as you'd like in a single piece of code.
 
 ## Handlers
 
