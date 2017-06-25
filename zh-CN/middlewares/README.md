@@ -20,6 +20,7 @@ name: 中间件模块
 - [bindata](/docs/middlewares/bindata) - 嵌入二进制数据作为静态资源和模板文件
 - [toolbox](https://github.com/go-macaron/toolbox) - 健康检查、性能调试和路由统计等服务
 - [oauth2](https://github.com/go-macaron/oauth2) - OAuth 2.0 服务器后端客户端
+- [authz](https://github.com/go-macaron/authz) - 支持 ACL、RBAC 和 ABAC 的权限管理，基于 [Casbin](https://github.com/casbin/casbin)
 - [switcher](/docs/middlewares/switcher) - 多站点支持
 - [method](https://github.com/go-macaron/method) - HTTP 方法覆盖
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies、多用户和权限管理
