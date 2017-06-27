@@ -49,7 +49,7 @@ To use them:
 ```go
 // ...
 m.Get("/set", func(ctx *macaron.Context) {
-	ctx.SetCookie("user", "Unknwon", 1)
+	ctx.SetCookie("user", "Unknown", 1)
 })
 
 m.Get("/get", func(ctx *macaron.Context) string {
@@ -60,7 +60,7 @@ m.Get("/get", func(ctx *macaron.Context) string {
 
 Use following arguments order to set more properties: `SetCookie(<name>, <value>, <max age>, <path>, <domain>, <secure>, <http only>)`.
 
-For example, the most advanced usage would be: `SetCookie("user", "unknwon", 999, "/", "localhost", true, true)`.
+For example, the most advanced usage would be: `SetCookie("user", "unknown", 999, "/", "localhost", true, true)`.
 
 Note that order is fixed.
 
@@ -77,7 +77,7 @@ To use them:
 // ...
 m.SetDefaultCookieSecret("macaron")
 m.Get("/set", func(ctx *macaron.Context) {
-	ctx.SetSecureCookie("user", "Unknwon", 1)
+	ctx.SetSecureCookie("user", "Unknown", 1)
 })
 
 m.Get("/get", func(ctx *macaron.Context) string {
@@ -97,7 +97,7 @@ To use them:
 ```go
 // ...
 m.Get("/set", func(ctx *macaron.Context) {
-	ctx.SetSuperSecureCookie("macaron", "user", "Unknwon", 1)
+	ctx.SetSuperSecureCookie("macaron", "user", "Unknown", 1)
 })
 
 m.Get("/get", func(ctx *macaron.Context) string {
