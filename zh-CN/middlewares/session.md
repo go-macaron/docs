@@ -25,6 +25,7 @@ import (
 
 func main() {
     m := macaron.Classic()
+    m.Use(macaron.Renderer())
     m.Use(session.Sessioner())
 
     m.Get("/", func(sess session.Store) string {
