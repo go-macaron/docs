@@ -108,7 +108,7 @@ m.Use(session.Sessioner(session.Options{
     IDLength:       16,
     // 配置分区名称，默认为 "session"
     Section:        "session",
-}))D
+}))
 //...
 ```
 
