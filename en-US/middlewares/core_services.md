@@ -143,7 +143,7 @@ Sample output take from [Peach](https://github.com/peachdocs/peach):
 
 ## Panic Recovery
 
-This service can be injected by function [`macaron.Recovery`](https://gowalker.org/gopkg.in/macaron.v1#Recovery). It is responsible for recovering your application when panic haapens.
+This service can be injected by function [`macaron.Recovery`](https://gowalker.org/gopkg.in/macaron.v1#Recovery). It is responsible for recovering your application when panic happens.
 
 To use it:
 
