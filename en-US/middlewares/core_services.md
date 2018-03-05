@@ -58,9 +58,9 @@ m.Get("/get", func(ctx *macaron.Context) string {
 // ...
 ```
 
-Use following arguments order to set more properties: `SetCookie(<name>, <value>, <max age>, <path>, <domain>, <secure>, <http only>)`.
+Use following arguments order to set more properties: `SetCookie(<name>, <value>, <max age>, <path>, <domain>, <secure>, <http only>,<expires>)`.
 
-For example, the most advanced usage would be: `SetCookie("user", "unknwon", 999, "/", "localhost", true, true)`.
+For example, the most advanced usage would be: `SetCookie("user", "unknwon", 999, "/", "localhost", true, true, time.Now())`.
 
 Note that order is fixed.
 
