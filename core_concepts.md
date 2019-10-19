@@ -1,7 +1,3 @@
----
-name: Core Concepts
----
-
 # Core Concepts
 
 ## Classic Macaron

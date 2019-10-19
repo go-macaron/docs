@@ -32,7 +32,7 @@ func main() {
 }
 ```
 
-Function [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) creates and returns a [Classic Macaron](core_concepts#classic-macaron).
+Function [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) creates and returns a [Classic Macaron](core_concepts.md#classic-macaron).
 
 Method [`m.Get`](https://gowalker.org/gopkg.in/macaron.v1#Router_Get) is for registering routes for HTTP GET method. In this case, we allow GET requests to root path `/` and has a [Handler](core_concepts#handlers) function to simply returns string `Hello world!` as response.
 
