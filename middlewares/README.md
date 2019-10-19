@@ -1,4 +1,4 @@
-# Middlewares and Helper Modules
+# Middlewares
 
 Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
