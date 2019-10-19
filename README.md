@@ -2,7 +2,7 @@
 
 Package macaron is a high productive and modular web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
 
-{% hint style="danger" %} 
+{% hint style="info" %} 
 The minimum requirement of Go is **1.6**.
 {% endhint %}
 

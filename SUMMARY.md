@@ -6,6 +6,3 @@
 - [Middlewares](middlewares/README.md)
 - [FAQs](faqs.md)
 
-----
-
-- [Made by @unknwon](https://github.com/unknwon)
