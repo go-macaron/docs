@@ -1,8 +1,8 @@
-# Macaron [![Build Status](https://travis-ci.org/go-macaron/macaron.svg?branch=v1)](https://travis-ci.org/go-macaron/macaron)
+# Macaron
 
 Package macaron is a high productive and modular web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
 
-## Getting Started
+## Quick Start
 
 The minimum requirement of Go is **1.6**.
 
@@ -41,14 +41,14 @@ func main() {
 ## Use Cases
 
 - [Gogs](https://gogs.io): A painless self-hosted Git Service
-- [Grafana](http://grafana.org/): The open platform for beautiful analytics and monitoring
-- [Peach](https://peachdocs.org): A modern web documentation server
+- [Grafana](http://grafana.org/): The open source analytics & monitoring solution for every database
+- [Peach Docs](https://peachdocs.org): A modern documentation web server
 - [Go Walker](https://gowalker.org): Go online API documentation
-- [Critical Stack Intel](https://intel.criticalstack.com/): A 100% free intel marketplace from Critical Stack, Inc.
+- [Intel Stack](https://intelstack.com/): A 100% free intelligence marketplace
 
-## Quick Start
+## Getting More
 
-- New to Macaron? Let’s [get started](/docs/intro/getting_started)!
-- [Middlewares](/docs/middlewares) that are built for Macaron.
-- Have any questions? Maybe there are [answers](/docs/faqs) for you!
+- New to Macaron? Check out the [Starter Guide](starter_guide)!
+- [Middlewares](middlewares) that are built for Macaron.
+- Have any questions? Maybe there are [answers](faqs) for you!
 - If you think anything is not clear in the documentation, just [file an issue](https://github.com/go-macaron/docs/issues)!

@@ -1,7 +1,3 @@
----
-name: FAQs
----
-
 # FAQs 
 
 ### How do I integrate with existing servers?
