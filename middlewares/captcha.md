@@ -1,10 +1,6 @@
----
-name: Captcha
----
-
 # Captcha
 
-Middleware captcha provides captcha service for Macaron [Instances](../intro/core_concepts#instances).
+Middleware captcha provides captcha service for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/captcha)
 - [API Reference](https://gowalker.org/github.com/go-macaron/captcha)
@@ -17,7 +13,9 @@ go get github.com/go-macaron/captcha
 
 ## Usage
 
-To use this middleware, you have to enable [cache](cache) as well.
+{% hint style="info" %} 
+To use this middleware, you have to register [cache](cache.md) first.
+{% endhint %} 
 
 ```go
 // main.go

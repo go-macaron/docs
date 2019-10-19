@@ -7,5 +7,7 @@
 - [Custom Services](custom_services.md)
 - [Middlewares](middlewares/README.md)
     - [Data Binding and Validation](middlewares/binding.md)
+    - [Cache](middlewares/cache.md)
+    - [Captcha](middlewares/captcha.md)
     - [Embed Binary Data](middlewares/bindata.md)
 - [FAQs](faqs.md)

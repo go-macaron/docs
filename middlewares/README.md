@@ -8,8 +8,8 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 - [authz](https://github.com/go-macaron/authz) - ACL, RBAC and ABAC authorization based on [Casbin](https://github.com/casbin/casbin)
 - [bindata](bindata.md) - Embed binary data as static and template files
 - [binding](binding.md) - Request data binding and validation
-- [cache](/docs/middlewares/cache) - Cache manager
-- [captcha](/docs/middlewares/captcha) - Captcha service
+- [cache](cache.md) - Cache manager
+- [captcha](captcha.md) - Captcha service
 - [csrf](/docs/middlewares/csrf) - Generates and validates CSRF tokens
 - [gzip](/docs/middlewares/gzip) - Gzip compression to all responses
 - [i18n](/docs/middlewares/i18n) - Internationalization and Localization

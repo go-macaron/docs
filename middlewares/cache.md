@@ -1,10 +1,6 @@
----
-name: Cache
----
-
 # Cache
 
-Middleware cache provides cache management for Macaron [Instances](../intro/core_concepts#instances).
+Middleware cache provides cache management for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/cache)
 - [API Reference](https://gowalker.org/github.com/go-macaron/cache)
