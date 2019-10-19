@@ -1,7 +1,3 @@
----
-name: Custom Services
----
-
 # Custom Services
 
 Services are objects that are available to be injected into a handler's argument list. You can map a service on a **Global** or **Request** level.
