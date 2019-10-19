@@ -49,6 +49,6 @@ func main() {
 ## Getting More
 
 - New to Macaron? Check out the [Starter Guide](starter_guide.md)!
-- [Middlewares](middlewares) that are built for Macaron.
+- [Middlewares](middlewares/README.md) that are built for Macaron.
 - Have any questions? Maybe there are [answers](faqs.md) for you!
 - If you think anything is not clear in the documentation, just [file an issue](https://github.com/go-macaron/docs/issues)!

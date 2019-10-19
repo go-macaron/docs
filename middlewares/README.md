@@ -1,8 +1,4 @@
----
-name: Middlewares
----
-
-# Middlewares and helper modules
+# Middlewares and Helper Modules
 
 Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
