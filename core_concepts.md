@@ -164,4 +164,4 @@ Some Macaron handlers make use of the `macaron.Env` global variable to provide s
 
 ## Handler Workflow
 
-![](images/macaron_workflow.png)
+![Handler Workflow](images/handler_workflow.png)

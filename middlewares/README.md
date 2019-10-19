@@ -5,6 +5,7 @@ Middlewares and helper modules allow you easily plugin/unplugin features for you
 There are already many [middlewares and modules](https://github.com/go-macaron) to simplify your work:
 
 - [auth](https://github.com/go-macaron/auth) - HTTP Basic authentication
+- [authz](https://github.com/go-macaron/authz) - ACL, RBAC and ABAC authorization based on [Casbin](https://github.com/casbin/casbin)
 - [bindata](/docs/middlewares/bindata) - Embed binary data as static and template files
 - [binding](/docs/middlewares/binding) - Request data binding and validation
 - [cache](/docs/middlewares/cache) - Cache manager
@@ -16,7 +17,6 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 - [jade](https://github.com/go-macaron/jade) - Jade templating engine
 - [method](https://github.com/go-macaron/method) - HTTP method override
 - [oauth2](https://github.com/go-macaron/oauth2) - OAuth 2.0 backend client
-- [authz](https://github.com/go-macaron/authz) - ACL, RBAC and ABAC authorization based on [Casbin](https://github.com/casbin/casbin)
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions
 - [pongo2](https://github.com/go-macaron/pongo2) - Pongo2 template engine support
 - [renders](https://github.com/go-macaron/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)

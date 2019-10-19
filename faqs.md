@@ -2,7 +2,7 @@
 
 ### How do I integrate with existing servers?
 
-Every Macaron [instance](/docs/intro/core_concepts#instances) implements [`http.Handler`](https://gowalker.org/net/http#Handler), so it can easily be used to serve subtrees on existing Go servers. For example this is a working Macaron app for Google App Engine:
+Every Macaron [instance](core_concepts.md#instances) implements [`http.Handler`](https://gowalker.org/net/http#Handler), so it can easily be used to serve subtrees on existing Go servers. For example this is a working Macaron app for Google App Engine:
 
 ```go
 package hello
@@ -67,13 +67,13 @@ func main() {
 
 There is a field called `Data` with type `map[string]interface{}` in [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) where you can store and retrieve any type of data. It comes with [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) so every request is independent.
 
-See example [here](../docs/middlewares/routing#advanced-routing).
+See example [here](middlewares/routing.md#advanced-routing).
 
 ### What's the idea behind this other than Martini?
 
 - Integrate frequently used middlewares and helper methods with less reflection.
 - Replace default router with faster multi-tree router.
-- To make much easier power [Gogs](http://gogs.io) project.
+- Make it much easier to power [Gogs](https://gogs.io) project.
 - Make a deep source study against Martini.
 
 ### Why Logo is a dragon?
@@ -84,4 +84,4 @@ The transliteration of Macaron in Chinese is `Maca Long`, `Long` means dragon, s
 
 ### Live code reload?
 
-[Bra](https://github.com/Unknwon/bra) is the prefect fit for live reloading Macaron and any other apps.
+[Bra](https://github.com/unknwon/bra) is the prefect fit for live reloading Macaron and other apps.
