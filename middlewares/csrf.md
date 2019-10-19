@@ -1,10 +1,6 @@
----
-name: Cross-Site Request Forgery
----
-
 # Cross-Site Request Forgery
 
-Middleware csrf generates and validates CSRF tokens for Macaron [Instances](../intro/core_concepts#instances).
+Middleware csrf generates and validates CSRF tokens for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/csrf)
 - [API Reference](https://gowalker.org/github.com/go-macaron/csrf)
@@ -17,7 +13,9 @@ go get github.com/go-macaron/csrf
 
 ## Usage
 
-To use this middleware, you have to enable [session](session) as well.
+{% hint style="info" %} 
+To use this middleware, you have to register [session](session.md) first.
+{% endhint %}
 
 ```go
 package main

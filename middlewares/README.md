@@ -10,9 +10,9 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 - [binding](binding.md) - Request data binding and validation
 - [cache](cache.md) - Cache manager
 - [captcha](captcha.md) - Captcha service
-- [csrf](/docs/middlewares/csrf) - Generates and validates CSRF tokens
-- [gzip](/docs/middlewares/gzip) - Gzip compression to all responses
-- [i18n](/docs/middlewares/i18n) - Internationalization and Localization
+- [csrf](csrf.md) - Generates and validates CSRF tokens
+- [gzip](gzip.md) - Gzip compression to all responses
+- [i18n](i18n.md) - Internationalization and Localization
 - [inject](https://github.com/go-macaron/inject) - Map and inject dependencies
 - [jade](https://github.com/go-macaron/jade) - Jade templating engine
 - [method](https://github.com/go-macaron/method) - HTTP method override

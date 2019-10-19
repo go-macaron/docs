@@ -1,10 +1,6 @@
----
-name: Gzip
----
-
 # Gzip
 
-Middleware gzip provides compress to responses for Macaron [Instances](../intro/core_concepts#instances). Make sure to register it before other middlewares that write content to response.
+Middleware gzip provides compress to responses for Macaron [Instances](../core_concepts.md#instances). Make sure to register it before other middlewares that write content to response.
 
 - [GitHub](https://github.com/go-macaron/gzip)
 - [API Reference](https://gowalker.org/github.com/go-macaron/gzip)
