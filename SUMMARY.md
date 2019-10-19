@@ -6,6 +6,6 @@
 - [Core Services](core_services.md)
 - [Middlewares](middlewares/README.md)
 - Advanced
-    [Customer Services](advanced/custom_services.md)
+    - [Customer Services](advanced/custom_services.md)
 - [FAQs](faqs.md)
 
