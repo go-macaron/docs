@@ -1,10 +1,6 @@
----
-name: Binary Data
----
-
 # Embed Binary Data
 
-Package bindata is a helper module that allows to use in-memory static and template files for Macaron [Instances](../intro/core_concepts#instances).
+Package bindata is a helper module that allows to use in-memory static and template files for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/bindata)
 - [API Reference](https://gowalker.org/github.com/go-macaron/bindata)
@@ -17,7 +13,7 @@ go get github.com/go-macaron/bindata
 
 ## Usage
 
-Using [go-bindata](https://github.com/jteeuwen/go-bindata) convert your template and public directories into individual packages.
+Using [go-bindata](https://github.com/go-bindata/go-bindata) convert your template and public directories into individual packages.
 
 Import the packages and use them like the example below.
 

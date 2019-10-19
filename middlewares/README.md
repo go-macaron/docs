@@ -6,7 +6,7 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 
 - [auth](https://github.com/go-macaron/auth) - HTTP Basic authentication
 - [authz](https://github.com/go-macaron/authz) - ACL, RBAC and ABAC authorization based on [Casbin](https://github.com/casbin/casbin)
-- [bindata](/docs/middlewares/bindata) - Embed binary data as static and template files
+- [bindata](bindata.md) - Embed binary data as static and template files
 - [binding](/docs/middlewares/binding) - Request data binding and validation
 - [cache](/docs/middlewares/cache) - Cache manager
 - [captcha](/docs/middlewares/captcha) - Captcha service
