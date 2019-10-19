@@ -1,7 +1,3 @@
----
-name: Routing
----
-
 # Routing
 
 In Macaron, a route is an HTTP method paired with a URL-matching pattern.

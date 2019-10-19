@@ -1,10 +1,6 @@
----
-name: Session
----
-
 # Session
 
-Middleware session provides session management for Macaron [Instances](../intro/core_concepts#instances).
+Middleware session provides session management for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/session)
 - [API Reference](https://gowalker.org/github.com/go-macaron/session)

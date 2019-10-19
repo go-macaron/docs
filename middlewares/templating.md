@@ -1,12 +1,8 @@
----
-name: Templating
----
-
 # Templating
 
 There are two official middlewares built for templating for your Macaron application currently, which are [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) and [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer).
 
-You're free to choose one of them to use, and one Macaron [Instance](../intro/core_concepts#instances) only uses one templating engine.
+You're free to choose one of them to use, and one Macaron [Instance](../core_concepts.md#instances) only uses one templating engine.
 
 Common behaviors:
 
@@ -19,7 +15,7 @@ Common behaviors:
 
 ### Go Templating Engine
 
-This service can be injected by function [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Go built-in templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://gowalker.org/html/template).
+This service can be injected by function [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Go built-in templating engine to render your HTML. If you want to know about details of how it works, please see [`html/template` documentation](https://gowalker.org/html/template).
 
 #### Example
 
@@ -104,7 +100,7 @@ func main() {
 
 ### Pongo2 Templating Engine
 
-This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 **v3** templating engine to render your HTML. If you want to know about details of how it works, please see [documents](https://github.com/flosch/pongo2).
+This service can be injected by function [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer) and is represented by type [`macaron.Render`](https://gowalker.org/gopkg.in/macaron.v1#Render). It is optional to use, normally, you should use `*macaron.Context.Render`.This service uses Pongo2 **v3** templating engine to render your HTML. If you want to know about details of how it works, please see [pongo2 documentation](https://github.com/flosch/pongo2).
 
 #### Example
 

@@ -1,8 +1,4 @@
----
-name: Multiple Sites
----
-
-# Running Multiple Sites In One App
+# Serving Multiple Sites
 
 Module switcher provides host switch functionality for [Macaron](https://github.com/go-macaron/macaron).
 

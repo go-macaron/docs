@@ -19,10 +19,10 @@ There are already many [middlewares and modules](https://github.com/go-macaron) 
 - [oauth2](https://github.com/go-macaron/oauth2) - OAuth 2.0 backend client
 - [permissions2](https://github.com/xyproto/permissions2) - Cookies, users and permissions
 - [pongo2](https://github.com/go-macaron/pongo2) - Pongo2 template engine support
-- [renders](https://github.com/go-macaron/renders) - Beego-like render engine(Macaron has built-in template engine, this is another option)
-- [session](/docs/middlewares/session) - Session manager
+- [renders](https://github.com/go-macaron/renders) - Beego-like render engine (Macaron has built-in template engine, this is another option)
+- [session](session.md) - Session manager
 - [sockets](https://github.com/go-macaron/sockets) - WebSockets channels binding
-- [switcher](/docs/middlewares/switcher) - Multiple-site support
+- [switcher](switcher.md) - Multiple-site support
 - [toolbox](https://github.com/go-macaron/toolbox) - Health check, pprof, profile and statistic services
 
 ### Best register order for middlewares
