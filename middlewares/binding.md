@@ -1,10 +1,6 @@
----
-name: Data Binding
----
-
 # Data Binding and Validation
 
-Middlware binding provides request data binding and validation for Macaron [Instances](../intro/core_concepts#instances).
+Middlware binding provides request data binding and validation for Macaron [Instances](../core_concepts.md#instances).
 
 - [GitHub](https://github.com/go-macaron/binding)
 - [API Reference](https://gowalker.org/github.com/go-macaron/binding)
@@ -43,7 +39,9 @@ That's it! The [`binding.Bind`](https://gowalker.org/github.com/go-macaron/bindi
 
 By default, if there are any errors (like a required field is empty), binding middleware will return an error to the client and your app won't even see the request. To prevent this behavior, you can use [`binding.BindIgnErr`](https://gowalker.org/github.com/go-macaron/binding#BindIgnErr) instead.
 
-**Caveat** Don't try to bind to embedded struct pointers; it won't work. See [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) if you want to help with this.)
+{% hint style="danger" %} 
+Don't try to bind to embedded struct pointers; it won't work. See [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) if you want to help with this.)
+{% endhint %}
 
 #### Naming Convention
 
@@ -71,7 +69,9 @@ If you want to custom your app naming convention, you can use [`binding.SetNameM
 
 To get data from JSON payloads, simply use the `json:` struct tags instead of `form:`.
 
-**Pro Tip** Use [JSON-to-Go](http://mholt.github.io/json-to-go/) to correctly convert JSON to a Go type definition. It's useful if you're new to this or the structure is large/complex.
+{% hint style="tip" %} 
+Use [JSON-to-Go](http://mholt.github.io/json-to-go/) to correctly convert JSON to a Go type definition. It's useful if you're new to this or the structure is large/complex.
+{% endhint %}
 
 ### Binding to interfaces
 
@@ -100,7 +100,9 @@ Notes:
 - Your application (the final handler) will not even see the request if there are any errors when default error handling is applied.
 - Header `Content-Type` will be used to know how to deserialize the requests.
 
-**Important Safety Tip** Don't attempt to bind a pointer to a struct. This will cause a panic [to prevent a race condition](https://github.com/codegangsta/martini-contrib/pull/34#issuecomment-29683659) where every request would be pointing to the same struct.
+{% hint style="tip" %} 
+Don't attempt to bind a pointer to a struct. This will cause a panic [to prevent a race condition](https://github.com/codegangsta/martini-contrib/pull/34#issuecomment-29683659) where every request would be pointing to the same struct.
+{% endhint %} 
 
 ### Form
 
