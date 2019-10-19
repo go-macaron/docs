@@ -1,7 +1,3 @@
----
-name: Core Services
----
-
 # Core Services
 
 By default, Macaron injects some services to power your application, those services are known as **core services**, which means you can directly use them as handler arguments without any additional work.
@@ -132,9 +128,11 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% hint style="info" %} 
+This service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% endhint %}
 
-Sample output take from [Peach](https://github.com/peachdocs/peach):
+Sample output take from [Peach Docs](https://peachdocs.org):
 
 ```
 [Macaron] Started GET /docs/middlewares/core.html for [::1]
@@ -159,7 +157,9 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% hint style="info" %} 
+This service is injected automatically when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% endhint %}
 
 ## Static Files
 
@@ -180,11 +180,13 @@ func main() {
 }
 ```
 
-**Note** this service is injected automatically with directory `public` when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% hint style="info" %} 
+This service is injected automatically with directory `public` when you use [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic).
+{% endhint %}
 
 By default, when you try to request a directory, this service will not list directory files. Instead, it tries to find the `index.html` file.
 
-Sample output take from [Peach](https://github.com/peachdocs/peach):
+Sample output take from [Peach Docs](https://peachdocs.org):
 
 ```
 [Macaron] Started GET /css/prettify.css for [::1]
@@ -293,7 +295,9 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 }
 ```
 
-**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).
+{% hint style="info" %} 
+This service is injected automatically for every Macaron [Instance](core_concepts.md#instances).
+{% endhint %}
 
 ### Response Stream
 
@@ -319,7 +323,9 @@ func myHandler(ctx *macaron.Context) {
 }
 ```
 
-**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).
+{% hint style="info" %} 
+This service is injected automatically for every Macaron [Instance](core_concepts.md#instances).
+{% endhint %}
 
 ### Request Object
 
@@ -362,4 +368,6 @@ Notice that request body can only be read once.
 
 Sometimes you need to pass type [`*http.Request`](http://gowalker.org/net/http#Request) as an argument, you should use `*macaron.Context.Req.Request`.
 
-**Note** this service is injected automatically for every Macaron [Instance](../intro/core_concepts#instances).
+{% hint style="info" %} 
+This service is injected automatically for every Macaron [Instance](core_concepts.md#instances).
+{% endhint %}
