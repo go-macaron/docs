@@ -1,19 +1,54 @@
-# What is this?
+# Macaron [![Build Status](https://travis-ci.org/go-macaron/macaron.svg?branch=v1)](https://travis-ci.org/go-macaron/macaron)
 
-This repository is the documentation for the open source project Macaron.
+Package macaron is a high productive and modular web framework in Go. It takes basic ideology of [Martini](https://github.com/go-martini/martini) and extends in advance.
 
-## How to contribute?
+## Getting Started
 
-Fork, update and submit a pull request. No matter how big or small, your changes are welcome!
+The minimum requirement of Go is **1.6**.
 
-## How does it work?
+To install Macaron:
 
-[Peach](http://peachdocs.org) server automatically keeps sync with this repository.
+	go get gopkg.in/macaron.v1
 
-## Formatting
+The very basic usage of Macaron:
 
-The documentation is written using standard [markdown syntax](https://help.github.com/articles/markdown-basics/). Please submit your changes using the same syntax.
+```go
+package main
 
-## License
+import "gopkg.in/macaron.v1"
 
-This project is under the Apache License, Version 2.0. See the [LICENSE](LICENSE) file for the full license text.
+func main() {
+	m := macaron.Classic()
+	m.Get("/", func() string {
+		return "Hello world!"
+	})
+	m.Run()
+}
+```
+
+## Features
+
+- Powerful routing with suburl.
+- Flexible routes combinations.
+- Unlimited nested group routers.
+- Directly integrate with existing services.
+- Dynamically change template files at runtime.
+- Allow to use in-memory template and static files.
+- Easy to plugin/unplugin features with modular design.
+- Handy dependency injection powered by [inject](https://github.com/codegangsta/inject).
+- Better router layer and less reflection make faster speed.
+
+## Use Cases
+
+- [Gogs](https://gogs.io): A painless self-hosted Git Service
+- [Grafana](http://grafana.org/): The open platform for beautiful analytics and monitoring
+- [Peach](https://peachdocs.org): A modern web documentation server
+- [Go Walker](https://gowalker.org): Go online API documentation
+- [Critical Stack Intel](https://intel.criticalstack.com/): A 100% free intel marketplace from Critical Stack, Inc.
+
+## Quick Start
+
+- New to Macaron? Let’s [get started](/docs/intro/getting_started)!
+- [Middlewares](/docs/middlewares) that are built for Macaron.
+- Have any questions? Maybe there are [answers](/docs/faqs) for you!
+- If you think anything is not clear in the documentation, just [file an issue](https://github.com/go-macaron/docs/issues)!
