@@ -128,9 +128,11 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
+{% hint style="info" %} 
+当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
+{% endhint %}
 
-从 [Peach](https://github.com/peachdocs/peach) 项目中提取的样例输出：
+从 [Peach Docs](https://github.com/peachdocs/peach) 项目中提取的样例输出：
 
 ```
 [Macaron] Started GET /docs/middlewares/core.html for [::1]
@@ -155,7 +157,9 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
+{% hint style="info" %} 
+当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会被自动注入。
+{% endhint %}
 
 ## 静态文件
 
@@ -176,7 +180,9 @@ func main() {
 }
 ```
 
-**备注** 当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会以 `public` 为静态目录被自动注入。
+{% hint style="info" %} 
+当您使用 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 时，该服务会以 `public` 为静态目录被自动注入。
+{% endhint %}
 
 默认情况下，当您请求一个目录时，该服务不会列出目录下的文件，而是去寻找 `index.html` 文件。
 
@@ -288,8 +294,9 @@ func myHandler(ctx *macaron.Context, logger *log.Logger) string {
 	return "the request path is: " + ctx.Req.RequestURI
 }
 ```
-
-**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。
+{% hint style="info" %} 
+所有 [Macaron 实例](core_concepts.md#macaron-shi-li) 都会自动注册该服务。
+{% endhint %}
 
 ### 响应流
 
@@ -313,9 +320,11 @@ func main() {
 func myHandler(ctx *macaron.Context) {
 	ctx.Resp.Write([]byte("the request path is: " + ctx.Req.RequestURI))
 }
-```
 
-**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。
+```
+{% hint style="info" %} 
+所有 [Macaron 实例](core_concepts.md#macaron-shi-li) 都会自动注册该服务。
+{% endhint %}
 
 ### 请求对象
 
@@ -358,4 +367,6 @@ func main() {
 
 有时您需要传递类型为 [`*http.Request`](http://gowalker.org/net/http#Request) 的参数，则应该使用 `*macaron.Context.Req.Request`。
 
-**备注** 所有 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都会自动注册该服务。
+{% hint style="info" %} 
+所有 [Macaron 实例](core_concepts.md#macaron-shi-li) 都会自动注册该服务。
+{% endhint %}
