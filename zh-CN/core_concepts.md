@@ -12,9 +12,9 @@ m.Run()
 
 下面是 [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) 已经包含的功能：
 
-- 请求/响应日志 - [`macaron.Logger`](../middlewares/core_services#%E8%B7%AF%E7%94%B1%E6%97%A5%E5%BF%97)
-- 容错恢复 - [`macaron.Recovery`](../middlewares/core_services#%E5%AE%B9%E9%94%99%E6%81%A2%E5%A4%8D)
-- 静态文件服务 - [`macaron.Static`](../middlewares/core_services#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6)
+- 请求/响应日志 - [`macaron.Logger`](core_services.md#lu-you-ri-zhi)
+- 容错恢复 - [`macaron.Recovery`](core_services.md#rong-cuo-hui-fu)
+- 静态文件服务 - [`macaron.Static`](core_services.md#jing-tai-wen-jian)
 
 ## Macaron 实例
 
@@ -112,7 +112,7 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
-在您的代码中最常用的服务应该是 [`*macaron.Context`](../middlewares/core_services#context)：
+在您的代码中最常用的服务应该是 [`*macaron.Context`](core_services.md#qing-qiu-shang-xia-wen-context)：
 
 ```go
 m.Get("/", func(ctx *macaron.Context) {
@@ -122,10 +122,10 @@ m.Get("/", func(ctx *macaron.Context) {
 
 下面的这些服务已经被包含在经典 Macaron 中（[`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic)）：
 
-- [`*macaron.Context`](../middlewares/core_services#%E8%AF%B7%E6%B1%82%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88context%EF%BC%89) - HTTP 请求上下文
-- [`*log.Logger`](../middlewares/core_services#%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97) - Macaron 全局日志器
-- [`http.ResponseWriter`](../middlewares/core_services#%E5%93%8D%E5%BA%94%E6%B5%81) - HTTP 响应流
-- [`*http.Request`](../middlewares/core_services#%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1) - HTTP 请求对象
+- [`*macaron.Context`](core_services.md#qing-qiu-shang-xia-wen-context) - HTTP 请求上下文
+- [`*log.Logger`](core_services.md#quan-ju-ri-zhi) - Macaron 全局日志器
+- [`http.ResponseWriter`](core_services.md#xiang-ying-liu) - HTTP 响应流
+- [`*http.Request`](core_services.md#qing-qiu-dui-xiang) - HTTP 请求对象
 
 ### 中间件机制
 
@@ -164,4 +164,4 @@ m.Use(func(ctx *macaron.Context) {
 
 ## 处理器工作流
 
-![](/docs/images/macaron_workflow.png)
+![](../images/handler_workflow.png)

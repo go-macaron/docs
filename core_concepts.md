@@ -12,9 +12,9 @@ m.Run()
 
 Below is some of the functionality [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic) pulls in automatically:
 
-- Request/response logging - [`macaron.Logger`](middlewares/core_services.md#routing-logger)
-- Panic recovery - [`macaron.Recovery`](middlewares/core_services.md#panic-recovery)
-- Static file serving - [`macaron.Static`](middlewares/core_services.md#static-files)
+- Request/response logging - [`macaron.Logger`](core_services.md#routing-logger)
+- Panic recovery - [`macaron.Recovery`](core_services.md#panic-recovery)
+- Static file serving - [`macaron.Static`](core_services.md#static-files)
 
 ## Instances
 
@@ -112,7 +112,7 @@ m.Get("/", func(resp http.ResponseWriter, req *http.Request) {
 })
 ```
 
-The most commonly used service in your code should be [`*macaron.Context`](middlewares/core_services.md#context):
+The most commonly used service in your code should be [`*macaron.Context`](core_services.md#context):
 
 ```go
 m.Get("/", func(ctx *macaron.Context) {
@@ -122,10 +122,10 @@ m.Get("/", func(ctx *macaron.Context) {
 
 The following services are included with [`macaron.Classic`](https://gowalker.org/gopkg.in/macaron.v1#Classic):
 
-- [`*macaron.Context`](middlewares/core_services.md#context) - HTTP request context
-- [`*log.Logger`](middlewares/core_services.md#global-logger) - Global logger for Macaron instances
-- [`http.ResponseWriter`](middlewares/core_services.md#response-stream) - HTTP Response writer interface
-- [`*http.Request`](middlewares/core_services.md#request-object) - HTTP Request
+- [`*macaron.Context`](core_services.md#context) - HTTP request context
+- [`*log.Logger`](core_services.md#global-logger) - Global logger for Macaron instances
+- [`http.ResponseWriter`](core_services.md#response-stream) - HTTP Response writer interface
+- [`*http.Request`](core_services.md#request-object) - HTTP Request
 
 ### Middleware Handlers
 
