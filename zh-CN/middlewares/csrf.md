@@ -1,10 +1,6 @@
----
-name: 跨域攻击（CSRF）
----
-
 # 跨域请求攻击（CSRF）
 
-中间件 csrf 用于为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 生成和验证 CSRF 令牌。
+中间件 csrf 用于为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 生成和验证 CSRF 令牌。
 
 - [GitHub](https://github.com/go-macaron/csrf)
 - [API 文档](https://gowalker.org/github.com/go-macaron/csrf)

@@ -1,10 +1,6 @@
----
-name: 多站点支持
----
+# 服务多个站点
 
-# 在一个应用内服务多个站点
-
-辅助模块 switcher 为您的应用提供多个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 的支持。
+辅助模块 switcher 为您的应用提供多个 [Macaron 实例](../core_concepts.md#macaron-shi-li) 的支持。
 
 - [GitHub](https://github.com/go-macaron/switcher)
 - [API 文档](https://gowalker.org/github.com/go-macaron/switcher)
@@ -17,7 +13,7 @@ go get github.com/go-macaron/switcher
 	
 ## 使用示例
 
-如果您想要运行 2 个或 2 个以上的 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 在一个程序中，该辅助模块便可为此类需求提供便利：
+如果您想要运行 2 个或 2 个以上的 [Macaron 实例](../core_concepts.md#macaron-shi-li) 在一个程序中，该辅助模块便可为此类需求提供便利：
 
 ```go
 func main() {

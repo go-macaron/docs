@@ -1,10 +1,6 @@
----
-name: 会话管理（Session）
----
-
 # 会话管理（Session）
 
-中间件 session 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了会话管理的功能。
+中间件 session 为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 提供了会话管理的功能。
 
 - [GitHub](https://github.com/go-macaron/session)
 - [API 文档](https://gowalker.org/github.com/go-macaron/session)

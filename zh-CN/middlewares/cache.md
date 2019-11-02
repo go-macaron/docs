@@ -1,10 +1,6 @@
----
-name: 缓存管理（Cache）
----
-
 # 缓存管理（Cache）
 
-中间件 cache 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了缓存管理的功能。
+中间件 cache 为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 提供了缓存管理的功能。
 
 - [GitHub](https://github.com/go-macaron/cache)
 - [API Reference](https://gowalker.org/github.com/go-macaron/cache)

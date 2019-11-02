@@ -1,10 +1,6 @@
----
-name: 验证码服务
----
-
 # 验证码服务
 
-中间件 captcha 用于为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供验证码服务。
+中间件 captcha 用于为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 提供验证码服务。
 
 - [GitHub](https://github.com/go-macaron/captcha)
 - [API 文档](https://gowalker.org/github.com/go-macaron/captcha)
