@@ -18,3 +18,5 @@
     - [Embed Binary Data](middlewares/bindata.md)
     - [Serving Multiple Sites](middlewares/switcher.md)
 - [FAQs](faqs.md)
+- [简体中文](zh-cn/README.md)
+    - [初学者指南](starter_guide.md)
