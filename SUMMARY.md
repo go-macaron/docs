@@ -20,6 +20,6 @@
 - [FAQs](faqs.md)
 - [简体中文](zh-CN/README.md)
     - [初学者指南](zh-CN/starter_guide.md)
-    - [中间件及辅助模块](zh-CN/middlewares/README.md)
+    - [中间件和辅助模块](zh-CN/middlewares/README.md)
         - [路由模块](zh-CN/middlewares/routing.md)
     - [常见问题](zh-CN/faqs.md)

@@ -1,8 +1,8 @@
-# 中间件及辅助模块
+# 中间件和辅助模块
 
 中间件及辅助模块允许您轻易地对模块的进行接入与解除到您的 Macaron 应用中。
 
-现在已经有许多 [中间件和模块](https://github.com/go-macaron) 来简化您的工作：
+现在已经有许多 [中间件和辅助模块](https://github.com/go-macaron) 来简化您的工作：
 
 - [auth](https://github.com/go-macaron/auth) - HTTP 基本认证
 - [authz](https://github.com/go-macaron/authz) - ACL、RBAC 和 ABAC 的权限管理，基于 [Casbin](https://github.com/casbin/casbin)
