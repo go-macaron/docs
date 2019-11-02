@@ -50,7 +50,7 @@ func main() {
 
 ## 快速导航
 
-- 刚开始了解 Macaron 的话，不妨从 [初学者指南](zh-CN/starter_guide.md) 看起。
-- Macaron 已经拥有许多 [中间件](zh-CN/middlewares/README.md) 来简化您的工作。
-- 如果您有任何问题，建议先从 [常见问题](zh-CN/faqs.md) 中寻找答案。
+- 刚开始了解 Macaron 的话，不妨从 [初学者指南](starter_guide.md) 看起。
+- Macaron 已经拥有许多 [中间件](middlewares/README.md) 来简化您的工作。
+- 如果您有任何问题，建议先从 [常见问题](faqs.md) 中寻找答案。
 - 如果您觉得文档有描述得不够清楚之处，请通过 [提交工单](https://github.com/go-macaron/docs/issues) 告知我们。
