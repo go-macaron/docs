@@ -1,6 +1,6 @@
 # Middlewares
 
-Middlewares and helper modules allow user easily plugin/unplugin features for your Macaron applications.
+Middlewares and helper modules allow you easily plugin/unplugin features for your Macaron applications.
 
 There are already many [middlewares and modules](https://github.com/go-macaron) to simplify your work:
 
