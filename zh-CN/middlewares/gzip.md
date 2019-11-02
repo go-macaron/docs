@@ -1,10 +1,6 @@
----
-name: Gzip
----
+# Gzip 压缩
 
-# Gzip
-
-中间件 gzip 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 的响应内容提供 Gzip 压缩。请确保在其它会向响应流写入内容的中间件之前注册该服务。
+中间件 gzip 为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 的响应内容提供 Gzip 压缩。请确保在其它会向响应流写入内容的中间件之前注册该服务。
 
 - [GitHub](https://github.com/go-macaron/gzip)
 - [API 文档](https://gowalker.org/github.com/go-macaron/gzip)

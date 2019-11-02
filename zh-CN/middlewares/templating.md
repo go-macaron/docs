@@ -1,19 +1,15 @@
----
-name: 模板引擎
----
-
 # 模板引擎
 
 目前 Macaron 应用有两款官方模板引擎中间件可供选择，即 [`macaron.Renderer`](https://gowalker.org/gopkg.in/macaron.v1#Renderer) 和 [`pongo2.Pongoer`](https://gowalker.org/github.com/go-macaron/pongo2#Pongoer)。
 
-您可以自由选择使用哪一款模板引擎，并且您只能为一个 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 注册一款模板引擎。
+您可以自由选择使用哪一款模板引擎，并且您只能为一个 [Macaron 实例](../core_concepts.md#macaron-shi-li) 注册一款模板引擎。
 
 共有特性：
 
 - 均支持 XML、JSON 和原始数据格式的响应，它们之间的不同只体现在 HTML 渲染上。
 - 均使用 `templates` 作为默认模板文件目录。
 - 均使用 `.tmpl` 和 `.html` 作为默认模板文件后缀。
-- 均支持通过 [Macaron 环境变量](../intro/core_concepts#macaron-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F) 来判断是否缓存模板文件（当 `macaron.Env == macaron.PROD` 时）。
+- 均支持通过 [Macaron 环境变量](../core_concepts.md#macaron-huan-jing-bian-liang) 来判断是否缓存模板文件（当 `macaron.Env == macaron.PROD` 时）。
 
 ## 渲染 HTML
 

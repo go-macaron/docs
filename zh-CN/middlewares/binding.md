@@ -1,10 +1,6 @@
----
-name: 数据绑定与验证
----
-
 # 数据绑定与验证
 
-中间件 binding 为 [Macaron 实例](../intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 提供了请求数据绑定与验证的功能。
+中间件 binding 为 [Macaron 实例](../core_concepts.md#macaron-shi-li) 提供了请求数据绑定与验证的功能。
 
 - [GitHub](https://github.com/go-macaron/binding)
 - [API 文档](https://gowalker.org/github.com/go-macaron/binding)
@@ -43,7 +39,9 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}), func(contact ContactForm)
 
 默认情况下，如果在验证过程中发生任何错误（例如：必填字段的值为空），binding 中间件就会直接向客户端返回错误信息，提前终止请求的处理。如果您不希望 binding 中间件自动终止请求的处理，则可以使用 [`binding.BindIgnErr`](https://gowalker.org/github.com/go-macaron/binding#BindIgnErr) 函数来忽略对错误的自动处理。
 
-**警告** 请不要使用类型为指针的嵌入结构，这会导致错误。请查看 [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) 上的相关讨论获取完整信息。
+{% hint style="danger" %} 
+请不要使用类型为指针的嵌入结构，这会导致错误。请查看 [martini-contrib/binding issue 30](https://github.com/martini-contrib/binding/issues/30) 上的相关讨论获取完整信息。
+{% endhint %}
 
 #### 命名约定
 
@@ -71,7 +69,9 @@ type ContactForm struct {
 
 将指定 `form` 标签的地方替换为 `json`，就可以完成对 JSON 数据的绑定。
 
-**友情提示** 使用 [JSON-to-Go](http://mholt.github.io/json-to-go/) 网站工具可以帮助您更好更快地得根据 JSON 数据生成 Go 语言中对应的结构。
+{% hint style="tip" %} 
+使用 [JSON-to-Go](http://mholt.github.io/json-to-go/) 网站工具可以帮助您更好更快地得根据 JSON 数据生成 Go 语言中对应的结构。
+{% endhint %}
 
 ### 绑定到接口
 
@@ -102,7 +102,9 @@ m.Post("/contact/submit", binding.Bind(ContactForm{}, (*MyInterface)(nil)), func
 - 当使用默认的错误处理机制时，您的应用（队列后方的处理器）将根本不会意识到当前请求的存在。
 - 头信息 `Content-Type` 是用于决定如何对请求数据进行反序列化的根本条件。
 
-**重要安全提示** 请不要尝试绑定指向某个结构的指针，binding 中间件会直接 panic 并退出程序 [以防止可能发生的数据竞争](https://github.com/codegangsta/martini-contrib/pull/34#issuecomment-29683659)。
+{% hint style="danger" %} 
+请不要尝试绑定指向某个结构的指针，binding 中间件会直接 panic 并退出程序 [以防止可能发生的数据竞争](https://github.com/codegangsta/martini-contrib/pull/34#issuecomment-29683659)。
+{% endhint %} 
 
 ### Form
 
