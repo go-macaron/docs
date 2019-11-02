@@ -2,7 +2,7 @@
 
 ### 如何集成到我已有的服务中？
 
-每个 [Macaron 实例](/docs/intro/core_concepts#macaron-%E5%AE%9E%E4%BE%8B) 都实现了 [`http.Handler`](https://gowalker.org/net/http#Handler) 接口，因此可以很容易地将它们以子集的形式集成到已有服务中。例如，您可以将 Macaron 应用集成到 GAE 中：
+每个 [Macaron 实例](core_concepts.md#macaron-shi-li) 都实现了 [`http.Handler`](https://gowalker.org/net/http#Handler) 接口，因此可以很容易地将它们以子集的形式集成到已有服务中。例如，您可以将 Macaron 应用集成到 GAE 中：
 
 ```go
 package hello
@@ -66,13 +66,13 @@ func main() {
 
 对象 [`*macaron.Context`](https://gowalker.org/github.com/go-macaron/macaron#Context) 中包含一个类型为 `map[string]interface{}` 的字段 `Data` 可供您在同个请求的不同处理器之间传递数据。
 
-可以到 [这里](/docs/middlewares/routing#%E9%AB%98%E7%BA%A7%E8%B7%AF%E7%94%B1%E5%AE%9A%E4%B9%89) 查看使用方法。
+可以到 [这里](middlewares/routing.md#gao-ji-lu-you-ding-yi) 查看使用方法。
 
 ### 为什么不直接使用 Martini 而要另外创建一个框架？
 
 - 集成常用组件和方法来减少反射次数。
 - 使用速度更快的多叉树路由替换原本的路由层。
-- 更好地驱动 [Gogs](http://gogs.io) 项目。
+- 更好地驱动 [Gogs](https://gogs.io) 项目。
 - 对 Martini 源码进行一次深度学习。
 
 ### 为什么 Logo 是一条龙？
@@ -83,4 +83,4 @@ func main() {
 
 ### 有代码实时编译运行工具吗？
 
-[Bra](https://github.com/Unknwon/bra) 可以作为 Macaron 及其它应用的实时编译运行工具。
+[Bra](https://github.com/unknwon/bra) 可以作为 Macaron 及其它应用的实时编译运行工具。
